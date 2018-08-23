@@ -7,9 +7,13 @@ public class SetCamera : MonoBehaviour
 {
     // Use this for initialization
     GameObject map;
-
+    GameObject panel;
     void Start()
     {
+        panel = GameObject.FindGameObjectWithTag("Fade");
+        if (panel != null) {
+            panel.transform.GetChild(0).gameObject.SetActive(true);
+        }
         map = GameObject.FindGameObjectWithTag("Map");
         if (map != null)
         {
@@ -21,6 +25,9 @@ public class SetCamera : MonoBehaviour
     public void _SettingBack()
     {
         GameObject setting = GameObject.FindGameObjectWithTag("Setting");
+        GameObject buttonBlur = GameObject.FindGameObjectWithTag("Blur");
+        if(buttonBlur != null)
+        buttonBlur.SetActive(false);
         if (setting != null)
             setting.GetComponent<Animator>().Play("BackSetting");
         gameObject.GetComponent<Animator>().Play("noblur");
@@ -34,6 +41,10 @@ public class SetCamera : MonoBehaviour
     IEnumerator timeToBack()
     {
         yield return new WaitForSeconds(0.4f);
+        if (panel != null)
+        {
+            panel.transform.GetChild(0).gameObject.SetActive(false);
+        }
         if (map != null)
         {
             if (map.tag == "Map")

@@ -19,13 +19,12 @@ public class SelectLevelManager : MonoBehaviour
     // Use this for initializationS
     private void Start()
     {
+        Debug.Log("Start");
         if (Fade.instance != null)
         {
-            Debug.Log(Fade.instance.check);
             if (Fade.instance.check == true)
             {
                 Fade.instance.FadeOut = true;
-               // Fade.instance.check = false;
             }
         }
         map = GameObject.FindGameObjectWithTag("Map");
@@ -35,19 +34,15 @@ public class SelectLevelManager : MonoBehaviour
             map.GetComponent<Map>().back = false;
         }
         map.GetComponent<Map>()._changeSprite(PlayerPrefs.GetInt("PlayingPlanet"));
-        //  Debug.Log(PlayerPrefs.GetInt("PlayingPlanet"));
         string listidstr = PlayerPrefs.GetString("ListMapId");
         int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
 
-        // if (listidstr != "")
-        // {
         listMapId.AddRange(listidstr.Split('|'));
         _SelectLvCase(PlanetID, playerLevel);
-        // }
+        //_enableButton(true);
     }
     public void _SelectLvCase(int mapID, int playerLevel)
     {
-        Debug.Log(PlayerPrefs.GetInt("LastPlanetID"));
         int length = MAX * (mapID + 1) / PlayerPrefs.GetInt("LastPlanetID");
         switch (mapID)
         {
@@ -70,7 +65,6 @@ public class SelectLevelManager : MonoBehaviour
     {
         for (int i = mapID * isWinning; i < length; i++)
         {
-            // Debug.Log("LoadData"+ i );
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
             item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(item, lv); });
@@ -96,9 +90,31 @@ public class SelectLevelManager : MonoBehaviour
             map.GetComponent<Map>().transform.GetChild(1).gameObject.SetActive(false);
         }
         SceneManager.LoadScene("_MainGame");
+       // _enableButton(false);
     }
     public static void setPlanetID(int x)
     {
         PlanetID = x;
+    }
+    void _enableButton(bool check) {
+        if (check == true)
+        {
+            for (int i = 0; i < listContainer.Length; i++) {
+                if (listContainer[i].childCount > 0)
+                {
+                    if (listContainer[i].GetChild(0).GetChild(0).GetComponent<Image>().sprite != lockImage)
+                    {
+                        listContainer[i].GetChild(0).GetChild(0).GetComponent<Button>().enabled = true;
+                    }
+                }
+            }
+        }
+        else {
+            for (int i = 0; i < listContainer.Length; i++)
+            {
+                if (listContainer[i].childCount > 0)
+                    listContainer[i].GetChild(0).GetChild(0).GetComponent<Button>().enabled = false;
+            }
+        }
     }
 }

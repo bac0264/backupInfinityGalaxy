@@ -29,6 +29,7 @@ public class Fade : MonoBehaviour {
         {
             if (FadeIn == true)
             {
+                transform.GetChild(0).gameObject.SetActive(true);
                 StartCoroutine(_FadeIn());
                 FadeIn = false;
             }
@@ -48,13 +49,10 @@ public class Fade : MonoBehaviour {
         im.DOColor(new Color(0f, 0f, 0f, 1f), 0f);
         Tween FadeOut = im.DOColor(new Color(0f, 0f, 0f, 0f), 0.5f);
         yield return FadeOut.WaitForCompletion();
-        //SceneManager.LoadScene(sceneName);
-
-        //gameObject.SetActive(false);
+        transform.GetChild(0).gameObject.SetActive(false);
     }
     IEnumerator _FadeIn()
     {
-        Debug.Log("run");
         Tween FadeIn = im.DOColor(new Color(0f, 0f, 0f, 1f), 0.5f);
         yield return FadeIn.WaitForCompletion();
         SceneManager.LoadScene(sceneName.ToString());

@@ -23,7 +23,7 @@ public class Map : MonoBehaviour {
     }
     public void _changeSprite(int _id)
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = spriteList[_id];
+        transform.GetChild(4).GetComponent<SpriteRenderer>().sprite = spriteList[_id];
     }
 
 }

@@ -172,9 +172,10 @@ public class SelectPlanetManager : MonoBehaviour
         {
             SelectLevelManager.setPlanetID(id);
             //Initiate.Fade("SelectLevel", new Color(1, 1, 1), 15.0f);
-            Debug.Log(Fade.instance);
             if (Fade.instance != null)
             {
+                GameObject map = GameObject.FindGameObjectWithTag("Map");
+                map.transform.GetChild(0).gameObject.SetActive(false);
                 Fade.instance.sceneName = PlayerPrefs.GetString("SelectLevel");
                 Fade.instance.check = true;
                 Fade.instance.FadeIn = true;
@@ -187,13 +188,7 @@ public class SelectPlanetManager : MonoBehaviour
             sceneChanging = false;
         }
     }
-    //IEnumerator LoadScene()
-    //{
-    //    GameObject fade = GameObject.FindGameObjectWithTag("Fade");
-    //    Tween FadeIn = fade.GetComponent<Image>().DOColor(new Color(0f, 0f, 0f, 1f),0.5f);
-    //    yield return FadeIn.WaitForCompletion();
-    //    SceneManager.LoadScene("SelectLevel");
-    //}
+
     GameObject ObjectClicked(Vector2 screenPosition)
     {
         //Converting Mouse Pos to 2D (vector2) World Pos
@@ -262,7 +257,6 @@ public class SelectPlanetManager : MonoBehaviour
                 }
             }
             // Camera di chuyển theo phuong Y
-            // DOTween.Kill("MoveY");
             if (Camera.main.transform.position.y - ScrollVelocity.y >= limitDown && Camera.main.transform.position.y - ScrollVelocity.y <= limitUp)
             {
                 if (DOTween.TweensById("MoveY", true) != null)
@@ -273,11 +267,6 @@ public class SelectPlanetManager : MonoBehaviour
                     }
                 }
                 Camera.main.transform.DOMoveY((Camera.main.transform.position.y - ScrollVelocity.y), 0.1f).SetId("MoveY");
-                //if (ScrollVelocity.magnitude <= 10)
-                //{
-                //    subPlanet_1.transform.DOMoveY((subPlanet_1.transform.position.y), 0.1f).SetId("MoveY");
-                //    subPlanet_2.transform.DOMoveY((subPlanet_2.transform.position.y), 0.1f).SetId("MoveY");
-                //}
                 if (!touching)
                     ScrollVelocity = Vector2.Lerp(ScrollVelocity, Vector2.zero, 0.125f);
             }

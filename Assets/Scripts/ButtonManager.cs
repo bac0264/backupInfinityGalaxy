@@ -19,9 +19,13 @@ public class ButtonManager : MonoBehaviour
             Fade.instance.sceneName = PlayerPrefs.GetString("SelectPlanet");
             Fade.instance.check = true;
             Fade.instance.FadeIn = true;
+            if (map != null)
+            {
+                map.transform.GetChild(0).gameObject.SetActive(false);
+                map.transform.GetChild(1).gameObject.SetActive(false);
+                StartCoroutine(timetoTransforms());
+            }
         }
-        //if (map != null)
-        //    map.GetComponent<Map>()._Destroy();
     }
     public void _nextresetGameScene()
     {
@@ -42,19 +46,19 @@ public class ButtonManager : MonoBehaviour
     {
         if (Fade.instance != null) Fade.instance.check = false;
         map.GetComponent<Map>().pos = Camera.main.transform.position;
-        map.GetComponent<Map>().transform.GetChild(0).gameObject.SetActive(false);
-        map.GetComponent<Map>().transform.GetChild(1).gameObject.SetActive(false);
+        map.transform.GetChild(0).gameObject.SetActive(false);
+        map.transform.GetChild(1).gameObject.SetActive(false);
         SceneManager.LoadScene("Setting");
     }
     // Planet
     public void _SettingClicked()
     {
-
+        Debug.Log(map);
         if (map != null)
         {
+            Debug.Log("run");
             map.transform.GetChild(0).gameObject.SetActive(false);
         }
-        Debug.Log(setting);
         if (setting != null)
         {
             setting.GetComponent<Animator>().Play("Setting");
@@ -74,5 +78,10 @@ public class ButtonManager : MonoBehaviour
         }
         Camera.main.GetComponent<Animator>().Play("noblur");
         Camera.main.GetComponent<SelectPlanetManager>().enabled = true;
+    }
+    IEnumerator timetoTransforms()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(map);
     }
 }
