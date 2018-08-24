@@ -89,7 +89,7 @@ public class SelectLevelManager : MonoBehaviour
             map.GetComponent<Map>().transform.GetChild(0).gameObject.SetActive(false);
             map.GetComponent<Map>().transform.GetChild(1).gameObject.SetActive(false);
         }
-        SceneManager.LoadScene("_MainGame");
+        SceneManager.LoadScene("MainGame");
        // _enableButton(false);
     }
     public static void setPlanetID(int x)

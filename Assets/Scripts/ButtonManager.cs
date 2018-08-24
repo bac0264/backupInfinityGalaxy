@@ -7,18 +7,43 @@ public class ButtonManager : MonoBehaviour
 {
     GameObject map;
     GameObject setting;
+    bool check;
     private void Start()
     {
         map = GameObject.FindGameObjectWithTag("Map");
         setting = GameObject.Find("Setting");
+        check = true;
+    }
+    public void _Start()
+    {
+        if (Fade.instance != null)
+        {
+            Fade.instance.check = true;
+            Fade.instance.FadeIn = true;
+            Fade.instance.sceneName = "SelectPlanet";
+        }
+        GameObject button = GameObject.FindGameObjectWithTag("ButtonMenu");
+        if (button != null) {
+            button.gameObject.SetActive(false);
+        }
+       //SceneManager.LoadScene("SelectPlanet");
+    }
+    public void _BackToStart()
+    {
+        if (Fade.instance != null)
+        {
+            Fade.instance.check = true;
+            Fade.instance.FadeIn = true;
+            Fade.instance.sceneName = "Menu";
+        }
     }
     public void _BackToMenu()
     {
         if (Fade.instance != null)
         {
-            Fade.instance.sceneName = PlayerPrefs.GetString("SelectPlanet");
             Fade.instance.check = true;
             Fade.instance.FadeIn = true;
+            Fade.instance.sceneName = "SelectPlanet";
             if (map != null)
             {
                 map.transform.GetChild(0).gameObject.SetActive(false);
@@ -53,18 +78,23 @@ public class ButtonManager : MonoBehaviour
     // Planet
     public void _SettingClicked()
     {
-        Debug.Log(map);
-        if (map != null)
+        if (check)
         {
-            Debug.Log("run");
-            map.transform.GetChild(0).gameObject.SetActive(false);
+            Debug.Log(map);
+
+            if (setting != null)
+            {
+                setting.GetComponent<Animator>().Play("Setting");
+            }
+            check = false;
         }
-        if (setting != null)
-        {
-            setting.GetComponent<Animator>().Play("Setting");
+        else {
+            if (setting != null)
+            {
+                setting.GetComponent<Animator>().Play("BackSetting");
+            }
+            check = true;
         }
-        Camera.main.GetComponent<Animator>().Play("blur");
-        Camera.main.GetComponent<SelectPlanetManager>().enabled = false;
     }
     public void _SettingBackClicked()
     {
@@ -76,8 +106,6 @@ public class ButtonManager : MonoBehaviour
         {
             setting.GetComponent<Animator>().Play("BackSetting");
         }
-        Camera.main.GetComponent<Animator>().Play("noblur");
-        Camera.main.GetComponent<SelectPlanetManager>().enabled = true;
     }
     IEnumerator timetoTransforms()
     {

@@ -94,6 +94,7 @@ public class SelectPlanetManager : MonoBehaviour
     void _setNameScene(){
         PlayerPrefs.SetString("SelectLevel", "SelectLevel");
         PlayerPrefs.SetString("SelectPlanet", "SelectPlanet");
+        PlayerPrefs.SetString("Menu", "Menu");
     }
     void touchBegin(Vector2 screenPosition)
     {
