@@ -67,16 +67,36 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("ListMap");
     }
     // Selectlevel
-    public void _SettingBtnClick()
-    {
-        if (Fade.instance != null) Fade.instance.check = false;
-        map.GetComponent<Map>().pos = Camera.main.transform.position;
-        map.transform.GetChild(0).gameObject.SetActive(false);
-        map.transform.GetChild(1).gameObject.SetActive(false);
-        SceneManager.LoadScene("Setting");
-    }
+    //public void _SettingBtnClick()
+    //{
+    //    if (Fade.instance != null) Fade.instance.check = false;
+    //    map.GetComponent<Map>().pos = Camera.main.transform.position;
+    //    map.transform.GetChild(0).gameObject.SetActive(false);
+    //    map.transform.GetChild(1).gameObject.SetActive(false);
+    //    SceneManager.LoadScene("Setting");
+    //}
     // Planet
     public void _SettingClicked()
+    {
+        StartCoroutine(TimeToDo());
+    }
+    //public void _SettingBackClicked()
+    //{
+    //    if (map != null)
+    //    {
+    //        map.transform.GetChild(0).gameObject.SetActive(true);
+    //    }
+    //    if (setting != null)
+    //    {
+    //        setting.GetComponent<Animator>().Play("BackSetting");
+    //    }
+    //}
+    IEnumerator timetoTransforms()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(map);
+    }
+    IEnumerator TimeToDo()
     {
         if (check)
         {
@@ -85,31 +105,18 @@ public class ButtonManager : MonoBehaviour
             if (setting != null)
             {
                 setting.GetComponent<Animator>().Play("Setting");
+                yield return new WaitForSeconds(0.4f);
             }
             check = false;
         }
-        else {
+        else
+        {
             if (setting != null)
             {
                 setting.GetComponent<Animator>().Play("BackSetting");
+                yield return new WaitForSeconds(0.4f);
             }
             check = true;
         }
-    }
-    public void _SettingBackClicked()
-    {
-        if (map != null)
-        {
-            map.transform.GetChild(0).gameObject.SetActive(true);
-        }
-        if (setting != null)
-        {
-            setting.GetComponent<Animator>().Play("BackSetting");
-        }
-    }
-    IEnumerator timetoTransforms()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(map);
     }
 }

@@ -24,7 +24,7 @@ public class SelectPlanetManager : MonoBehaviour
     //Vector2 temp = new Vector2();
     private void Awake()
     {
-        if (Map.instance != null) Map.instance._Destroy();
+        if (Map.instance != null) Destroy(Map.instance);
         int i = 0;
         foreach (GameObject _planet in planets)
         {

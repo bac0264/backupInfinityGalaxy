@@ -143,7 +143,7 @@ public class HexGenerator : MonoBehaviour {
         yield return new WaitForSeconds(1f);
 
         //SceneManager.LoadScene("SelectLevel");
-        if (Map.instance != null) Map.instance._Destroy();
+        if (Map.instance != null) Destroy(Map.instance);
         Initiate.Fade("SelectLevel", new Color(1, 1, 1), 5.0f);
     }
     void checkWin()

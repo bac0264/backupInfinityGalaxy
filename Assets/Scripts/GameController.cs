@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour {
     public void BackClick()
     {
         //SceneManager.LoadScene("SelectLevel");
-        if (Map.instance != null) Map.instance._Destroy();
+        if (Map.instance != null) Destroy(Map.instance);
         Initiate.Fade("SelectLevel", new Color(1, 1, 1), 5.0f);
     }
     void FixedUpdate()

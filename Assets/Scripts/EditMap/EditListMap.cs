@@ -61,7 +61,6 @@ public class EditListMap : MonoBehaviour {
     }
     void ItemClick(GameObject obj,string id)
     {
-        if (Map.instance != null) Map.instance._Destroy();
         EditMapHexGenerator.mapId = id;
         //SceneManager.LoadScene("CreateMap");
         Initiate.Fade("CreateMap", new Color(1, 1, 1), 5.0f);

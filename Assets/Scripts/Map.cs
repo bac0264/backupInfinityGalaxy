@@ -17,10 +17,6 @@ public class Map : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-    public void _Destroy()
-    {
-        Destroy(gameObject);
-    }
     public void _changeSprite(int _id)
     {
         transform.GetChild(4).GetComponent<SpriteRenderer>().sprite = spriteList[_id];

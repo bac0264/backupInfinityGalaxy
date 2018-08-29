@@ -29,7 +29,6 @@ public class MapGenerator : MonoBehaviour {
         circleContainer = new GameObject("circleContainer", new System.Type[] { typeof(SpriteRenderer), typeof(SpriteMask) });
         Sprite mapSprite = Sprite.Create(Map, new Rect(0, 0, Map.width, Map.height), new Vector2(0.5f, 0.5f), 1);
         circleContainer.GetComponent<SpriteRenderer>().sprite = mapSprite;
-        circleContainer.layer = LayerMask.NameToLayer("maingame");
         circleContainer.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.2f);
         circleContainer.GetComponent<SpriteMask>().sprite = mapSprite;
 
@@ -42,7 +41,6 @@ public class MapGenerator : MonoBehaviour {
                 if (Map.GetPixel(i, j).a == 1)
                 {
                     matrix[i, j] = Instantiate(circlePrefab, new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f, 0), Quaternion.identity);
-                    matrix[i, j].layer = LayerMask.NameToLayer("maingame");
                     matrix[i, j].GetComponent<Circle>().Pos = new Vector2(i, j);
                 }
             }
@@ -114,7 +112,6 @@ public class MapGenerator : MonoBehaviour {
         if (res != null)
         {
             res.transform.position = new Vector3(x - Map.width / 2, y - Map.width / 2, 0);
-            res.layer = LayerMask.NameToLayer("maingame");
             res.transform.parent = circleContainer.transform;
         }
         return res;
@@ -173,8 +170,6 @@ public class MapGenerator : MonoBehaviour {
                     {
                         if (getObj((int)slCircle.Pos.x, i) != null && getObj((int)slCircle.Pos.x, i - 1) == null)
                         {
-                            GameObject obj = Instantiate(circlePrefab, new Vector3((int)slCircle.Pos.x - Map.width / 2 + 0.5f, i - 1 - Map.height / 2 + 0.5f, 0), Quaternion.identity);
-                            obj.layer = LayerMask.NameToLayer("maingame");
                             listTemp.Add(Instantiate(circlePrefab, new Vector3((int)slCircle.Pos.x - Map.width / 2 + 0.5f, i - 1 - Map.height / 2 + 0.5f, 0), Quaternion.identity));
                         }
                     }
@@ -186,8 +181,6 @@ public class MapGenerator : MonoBehaviour {
                     {
                         if (getObj(i, (int)slCircle.Pos.y) != null && getObj(i - 1, (int)slCircle.Pos.y) == null)
                         {
-                            GameObject obj = Instantiate(circlePrefab, new Vector3(i - 1 - Map.width / 2 + 0.5f, (int)slCircle.Pos.y - Map.height / 2 + 0.5f), Quaternion.identity);
-                            obj.layer = LayerMask.NameToLayer("maingame");
                             listTemp.Add(Instantiate(circlePrefab, new Vector3(i - 1 - Map.width / 2 + 0.5f, (int)slCircle.Pos.y - Map.height / 2 + 0.5f), Quaternion.identity));
                         }
                     }
