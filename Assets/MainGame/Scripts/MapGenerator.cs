@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MapGenerator : MonoBehaviour {
@@ -23,14 +24,15 @@ public class MapGenerator : MonoBehaviour {
     void Start() {
         //Chinh lai camera
         curPosObj = new GameObject();
-       gameObject.GetComponent<Camera>().orthographicSize = ((Map.width + 1) * 1.0f / Screen.width * Screen.height) / 2;
+        Camera.main.orthographicSize = ((Map.width + 1) * 1.0f / Screen.width * Screen.height) / 2;
 
         circleContainer = new GameObject("circleContainer", new System.Type[] { typeof(SpriteRenderer), typeof(SpriteMask) });
         Sprite mapSprite = Sprite.Create(Map, new Rect(0, 0, Map.width, Map.height), new Vector2(0.5f, 0.5f), 1);
         circleContainer.GetComponent<SpriteRenderer>().sprite = mapSprite;
+        circleContainer.layer = LayerMask.NameToLayer("maingame");
         circleContainer.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.2f);
         circleContainer.GetComponent<SpriteMask>().sprite = mapSprite;
-        circleContainer.layer= LayerMask.NameToLayer("maingame");
+
         matrix = new GameObject[Map.width, Map.height];
         checkMatrix = new bool[Map.width, Map.height];
         for (int i = 0; i < Map.width; i++)
@@ -130,7 +132,7 @@ public class MapGenerator : MonoBehaviour {
     }
     GameObject ObjectClicked(Vector2 screenPosition)
     {
-        Vector3 worldPos =gameObject.GetComponent<Camera>().ScreenToWorldPoint(screenPosition);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPosition);
         Vector2 rayPos = new Vector2(worldPos.x, worldPos.y);
         RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
         if (hit)
@@ -144,8 +146,7 @@ public class MapGenerator : MonoBehaviour {
         selectedObject = ObjectClicked(screenPosition);
         if (selectedObject != null)
         {
-            
-            beginPos =gameObject.GetComponent<Camera>().ScreenToWorldPoint(screenPosition);
+            beginPos = Camera.main.ScreenToWorldPoint(screenPosition);
             slCircle = selectedObject.GetComponent<Circle>();
         }
 
@@ -154,7 +155,7 @@ public class MapGenerator : MonoBehaviour {
     {
         if (selectedObject != null)
         {
-            curPosObj.transform.position =gameObject.GetComponent<Camera>().ScreenToWorldPoint(screenPosition);
+            curPosObj.transform.position = Camera.main.ScreenToWorldPoint(screenPosition);
             //find dragDirection
             if (((Vector2)curPosObj.transform.position - beginPos).magnitude > 0.1f && dragOrientation == Vector2.zero)
             {
@@ -174,8 +175,7 @@ public class MapGenerator : MonoBehaviour {
                         {
                             GameObject obj = Instantiate(circlePrefab, new Vector3((int)slCircle.Pos.x - Map.width / 2 + 0.5f, i - 1 - Map.height / 2 + 0.5f, 0), Quaternion.identity);
                             obj.layer = LayerMask.NameToLayer("maingame");
-                            listTemp.Add(obj);
-                            
+                            listTemp.Add(Instantiate(circlePrefab, new Vector3((int)slCircle.Pos.x - Map.width / 2 + 0.5f, i - 1 - Map.height / 2 + 0.5f, 0), Quaternion.identity));
                         }
                     }
                 }
@@ -188,7 +188,7 @@ public class MapGenerator : MonoBehaviour {
                         {
                             GameObject obj = Instantiate(circlePrefab, new Vector3(i - 1 - Map.width / 2 + 0.5f, (int)slCircle.Pos.y - Map.height / 2 + 0.5f), Quaternion.identity);
                             obj.layer = LayerMask.NameToLayer("maingame");
-                            listTemp.Add(obj);
+                            listTemp.Add(Instantiate(circlePrefab, new Vector3(i - 1 - Map.width / 2 + 0.5f, (int)slCircle.Pos.y - Map.height / 2 + 0.5f), Quaternion.identity));
                         }
                     }
                 }
@@ -215,9 +215,7 @@ public class MapGenerator : MonoBehaviour {
     IEnumerator waitAnimation()
     {
         animating = true;
-
         yield return new WaitForSeconds(0.3f);
-
         animating = false;
         selectedObject = null;
         dragOrientation = Vector2.zero;
@@ -318,7 +316,7 @@ public class MapGenerator : MonoBehaviour {
                 {
                     matrixTemp[i, j] = getRealObj(i, j);
                     matrixTemp[i, j].GetComponent<Circle>().Pos = new Vector2(i, j);
-                    matrixTemp[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBack);
+                    matrixTemp[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBounce);
                 }
             }
         }
@@ -337,7 +335,7 @@ public class MapGenerator : MonoBehaviour {
                         {
                             matrix[i, j] = matrix[i, c];
                             matrix[i, j].GetComponent<Circle>().Pos = new Vector2(i, j);
-                            matrix[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBack);
+                            matrix[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBounce);
                             matrix[i, c] = null;
                             break;
                         }
@@ -345,9 +343,8 @@ public class MapGenerator : MonoBehaviour {
                     if (matrix[i, j] == null)
                     {
                         matrix[i, j] = Instantiate(circlePrefab, new Vector3(i - Map.width / 2 + 0.5f, Map.height / 2 + 0.5f, 0), Quaternion.identity);
-                        matrix[i, j].layer = LayerMask.NameToLayer("maingame");
                         matrix[i, j].GetComponent<Circle>().Pos = new Vector2(i, j);
-                        matrix[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBack);
+                        matrix[i, j].transform.DOMove(new Vector3(i - Map.width / 2 + 0.5f, j - Map.height / 2 + 0.5f), 1f).SetEase(Ease.OutBounce);
                     }
                 }
             }
@@ -404,21 +401,9 @@ public class MapGenerator : MonoBehaviour {
                     }
                 }
                 //trigger: swapPosition, changeTempColor, checkAnDiem;
-                if (offSet * (vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)) < 0 && Mathf.Abs(offSet)>0.2f)
+                if ((offSet * (vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)) < 0 && Mathf.Abs(offSet)>0.2f)|| (Mathf.Abs(offSet) > 0.02f&& Mathf.Abs(offSet) < 0.2f))
                 {
-                    /*int dau = (int)((vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)) / Mathf.Abs(vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)));
-                    int c = (listTemp.Count - 1 + dau) % listTemp.Count;
-                    for (int i = 0; i < Map.height; i++)
-                    {
-                        if (getObj((int)slCircle.Pos.x, i) != null && getObj((int)slCircle.Pos.x, i + dau) == null)
-                        {
-                            c = (c + 1) % listTemp.Count;
-                            listTemp[c].GetComponent<SpriteRenderer>().sprite = matrix[(int)slCircle.Pos.x, findNextIdx(i, -Mathf.FloorToInt(vectorDrag.y + 0.5f))].GetComponent<SpriteRenderer>().sprite;
-                        }
-                    }*/
-                  //  Debug.Log(CheckAnDiem());
-                }
-                   int dau = (int)((vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)) / Mathf.Abs(vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)));
+                    int dau = (int)((vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)) / Mathf.Abs(vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f)));
                     int c = (listTemp.Count - 1 + dau) % listTemp.Count;
                     for (int i = 0; i < Map.height; i++)
                     {
@@ -428,10 +413,8 @@ public class MapGenerator : MonoBehaviour {
                             listTemp[c].GetComponent<SpriteRenderer>().sprite = matrix[(int)slCircle.Pos.x, findNextIdx(i, -Mathf.FloorToInt(vectorDrag.y + 0.5f))].GetComponent<SpriteRenderer>().sprite;
                         }
                     }
-                
-
+                }
                 offSet = vectorDrag.y - Mathf.Floor(vectorDrag.y + 0.5f);
-                //setPosition tempObj
                 int k = 0;
                 for (int i = 0; i < Map.height; i++)
                 {
@@ -454,20 +437,20 @@ public class MapGenerator : MonoBehaviour {
                     }
                 }
                 //trigger: swapPosition, changeTempColor, checkAnDiem;
-                if (offSet * (vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)) < 0 && Mathf.Abs(offSet) > 0.2f)
+               if ((offSet * (vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)) < 0 && Mathf.Abs(offSet) > 0.2f)|| (Mathf.Abs(offSet) > 0.02f && Mathf.Abs(offSet) < 0.2f))
                 {
-                    CheckAnDiem();
-                }
-                int dau = (int)((vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)) / Mathf.Abs(vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)));
-                int c = (listTemp.Count - 1 + dau) % listTemp.Count;
-                for (int i = 0; i < Map.height; i++)
-                {
-                    if (getObj(i, (int)slCircle.Pos.y) != null && getObj(i + dau, (int)slCircle.Pos.y) == null)
+                    int dau = (int)((vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)) / Mathf.Abs(vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f)));
+                    int c = (listTemp.Count - 1 + dau) % listTemp.Count;
+                    for (int i = 0; i < Map.height; i++)
                     {
-                        c = (c + 1) % listTemp.Count;
-                        listTemp[c].GetComponent<SpriteRenderer>().sprite = matrix[findNextIdx(i, -Mathf.FloorToInt(vectorDrag.x + 0.5f)), (int)slCircle.Pos.y].GetComponent<SpriteRenderer>().sprite;
+                        if (getObj(i, (int)slCircle.Pos.y) != null && getObj(i + dau, (int)slCircle.Pos.y) == null)
+                        {
+                            c = (c + 1) % listTemp.Count;
+                            listTemp[c].GetComponent<SpriteRenderer>().sprite = matrix[findNextIdx(i, -Mathf.FloorToInt(vectorDrag.x + 0.5f)), (int)slCircle.Pos.y].GetComponent<SpriteRenderer>().sprite;
+                        }
                     }
                 }
+                
                 offSet = vectorDrag.x - Mathf.Floor(vectorDrag.x + 0.5f);
                 //
                 int k = 0;
@@ -507,7 +490,7 @@ public class MapGenerator : MonoBehaviour {
     }
     void Update()
     {
-        if (!animating)
+        if (!animating&&!exploding)
         {
             if (Input.GetMouseButtonDown(0) && !touching)
             {
@@ -543,5 +526,9 @@ public class MapGenerator : MonoBehaviour {
         }
        
         ObjectUpdate();
+    }
+    public void RePlay()
+    {
+        SceneManager.LoadScene("MainGame");
     }
 }
