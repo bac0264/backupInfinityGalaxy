@@ -12,6 +12,7 @@ TagManager:
   - Fade
   - SelectLV
   - ButtonMenu
+  - Facebook
   layers:
   - Default
   - TransparentFX
