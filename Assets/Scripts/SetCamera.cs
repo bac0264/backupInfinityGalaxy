@@ -26,6 +26,7 @@ public class SetCamera : MonoBehaviour
         {
             //Camera.main.transform.position = new Vector3(map.GetComponent<Map>().pos.x, map.GetComponent<Map>().pos.y, Camera.main.transform.position.z);
             map.GetComponent<Map>().back = true;
+            //map.SetActive(false);
         }
     }
     public void _SettingBack()
@@ -46,16 +47,28 @@ public class SetCamera : MonoBehaviour
     }
     IEnumerator timeToBack()
     {
-        yield return new WaitForSeconds(0.4f);
+        if (panel != null)
+        {
+            panel.transform.GetChild(0).gameObject.SetActive(false);
+        }
         if (panel != null)
         {
             panel.transform.GetChild(0).gameObject.SetActive(false);
         }
         if (Fade.instance != null)
         {
+            GameObject Button = GameObject.FindGameObjectWithTag("ButtonMenu");
+            if (Button != null) {
+                Button.SetActive(false);
+            }
             Fade.instance.check = true;
             Fade.instance.FadeIn = true;
             Fade.instance.sceneName = "SelectLevel";
+            yield return new WaitForSeconds(0.3f);
+            //if (map != null)
+            //{
+            //    map.SetActive(true);
+            //}
         }
     }
 }

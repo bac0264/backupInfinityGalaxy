@@ -31,7 +31,6 @@ public class Fade : MonoBehaviour {
             {
                 transform.GetChild(0).gameObject.SetActive(true);
                 StartCoroutine(_FadeIn());
-                FadeIn = false;
             }
             if (FadeOut == true)
             {
@@ -40,21 +39,22 @@ public class Fade : MonoBehaviour {
                     im.DOColor(new Color(0f, 0f, 0f, 1f), 0.1f);
                     StartCoroutine(_FadeOut());
                 }
-                FadeOut = false;
             }
         }
     }
     IEnumerator _FadeOut()
     {
+        FadeOut = false;
         im.DOColor(new Color(0f, 0f, 0f, 1f), 0f);
-        Tween FadeOut = im.DOColor(new Color(0f, 0f, 0f, 0f), 0.5f);
-        yield return FadeOut.WaitForCompletion();
+        Tween fadeOut = im.DOColor(new Color(0f, 0f, 0f, 0f), 0.5f);
+        yield return fadeOut.WaitForCompletion();
         transform.GetChild(0).gameObject.SetActive(false);
     }
     IEnumerator _FadeIn()
     {
-        Tween FadeIn = im.DOColor(new Color(0f, 0f, 0f, 1f), 0.5f);
-        yield return FadeIn.WaitForCompletion();
+        FadeIn = false;
+        Tween fadeIn = im.DOColor(new Color(0f, 0f, 0f, 1f), 0.5f);
+        yield return fadeIn.WaitForCompletion();
         SceneManager.LoadScene(sceneName.ToString());
     }
 }
