@@ -1,29 +1,22 @@
 fileFormatVersion: 2
-guid: be3c8df5f91ecbd499185b3df110c18f
+guid: fa38408cb9c7a734384187331ea3f610
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Rank-spritesheet_4
-    21300002: Rank-spritesheet_5
-    21300004: Rank-spritesheet_6
-    21300006: Rank-spritesheet_7
-    21300008: Rank-spritesheet_8
-    21300010: Rank-spritesheet_9
-    21300012: Rank-spritesheet_10
-    21300014: Rank-spritesheet_11
-    21300016: Rank-spritesheet_12
-    21300018: Rank-spritesheet_13
-    21300020: Rank-spritesheet_14
-    21300022: Rank-spritesheet_15
-    21300024: Rank-spritesheet_16
-    21300026: Rank-spritesheet_17
-    21300028: Rank-spritesheet_18
-    21300030: Rank-spritesheet_19
-    21300032: Rank-spritesheet_20
-    21300034: Rank-spritesheet_21
-    21300036: Rank-spritesheet_22
-    21300038: Rank-spritesheet_23
-    21300040: Rank-spritesheet_24
-    21300042: Rank-spritesheet_25
+    21300000: Rank-spritesheet_0
+    21300002: Rank-spritesheet_1
+    21300004: Rank-spritesheet_4
+    21300006: Rank-spritesheet_5
+    21300008: Rank-spritesheet_6
+    21300010: Rank-spritesheet_7
+    21300012: Rank-spritesheet_8
+    21300014: Rank-spritesheet_9
+    21300016: Rank-spritesheet_10
+    21300018: Rank-spritesheet_12
+    21300020: Rank-spritesheet_13
+    21300022: Rank-spritesheet_14
+    21300024: Rank-spritesheet_15
+    21300026: Rank-spritesheet_25
+    21300028: Rank-spritesheet_26
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -117,6 +110,46 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: Rank-spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 106
+        width: 1085
+        height: 1924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c8fa2e9486d674d9772de133e9d1cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank-spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 106
+        width: 1085
+        height: 1924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 020aadfea4646f04496c2e694136557f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Rank-spritesheet_4
       rect:
         serializedVersion: 2
@@ -131,7 +164,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29db6062c21eb3e4080730f543e9d49b
+      spriteID: 055befa3944663f439a32a7d5dd68c4e
       vertices: []
       indices: 
       edges: []
@@ -151,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 902fa35ac3b627c43a18e9b39894dac7
+      spriteID: f0749f3c5b0d12d4fbcd16f63343a02f
       vertices: []
       indices: 
       edges: []
@@ -160,7 +193,7 @@ TextureImporter:
       name: Rank-spritesheet_6
       rect:
         serializedVersion: 2
-        x: 2607
+        x: 2610
         y: 1629
         width: 127
         height: 73
@@ -171,7 +204,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b8abe6634ba0cc48a87c08cd66701a5
+      spriteID: fbf48e5d19d248a459cdd76b8335f2f8
       vertices: []
       indices: 
       edges: []
@@ -191,7 +224,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 259ce3aa382d5f14c8889937e6f5d912
+      spriteID: d3884c228e981f24faa8d002c65610c2
       vertices: []
       indices: 
       edges: []
@@ -211,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7adb67cac45d5ea469e6a2d807cd804b
+      spriteID: 9c6d3cdbee934c4499095b1cdac8494a
       vertices: []
       indices: 
       edges: []
@@ -231,7 +264,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc0891988efb11c4ebd7da5be2b3f22b
+      spriteID: e99cfd0ec2d7cea43a3428710ad654fa
       vertices: []
       indices: 
       edges: []
@@ -251,27 +284,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 749a2a74e469df047b0207655fc2a725
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_11
-      rect:
-        serializedVersion: 2
-        x: 2828
-        y: 993
-        width: 137
-        height: 127
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f249c3e3529deeb4b82e327bb5245dd0
+      spriteID: 580308fa8f2ee654c8dd4b3d8ee9c914
       vertices: []
       indices: 
       edges: []
@@ -291,7 +304,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a75ad567bdd444b4cb4b90dc948fbccc
+      spriteID: 387d8501508050746bf224b29c1f30d8
       vertices: []
       indices: 
       edges: []
@@ -311,13 +324,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1c55583d7d14e048903d8f2f07714d7
+      spriteID: 16fee3752421b6046958c67032f7a87e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Rank-spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 3018
+        y: 842
+        width: 137
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba8e4bb143a797458761c6f387a3eb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rank-spritesheet_15
       rect:
         serializedVersion: 2
         x: 2414
@@ -331,193 +364,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 28d10b348f5599b4cb96eb30c9567c56
+      spriteID: c38b723ba9bae0a4e90e2fb648b6bcd8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rank-spritesheet_15
-      rect:
-        serializedVersion: 2
-        x: 3091
-        y: 667
-        width: 137
-        height: 52
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b548d2faaf35764d8c8c5f9fccfc2e0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_16
-      rect:
-        serializedVersion: 2
-        x: 2758
-        y: 582
-        width: 128
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 408325d15a1e627468b686e637775388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_17
-      rect:
-        serializedVersion: 2
-        x: 2888
-        y: 583
-        width: 59
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d162b45c7c4018f41985b897567d7f0e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_18
-      rect:
-        serializedVersion: 2
-        x: 2964
-        y: 582
-        width: 140
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7b61d712821b544484b14a94c2bd5c6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_19
-      rect:
-        serializedVersion: 2
-        x: 3123
-        y: 582
-        width: 86
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 85a41c30f54a8fd4480b39b328e1c3d5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_20
-      rect:
-        serializedVersion: 2
-        x: 3227
-        y: 582
-        width: 149
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71dacfec6c535324c8464af26a660ff8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_21
-      rect:
-        serializedVersion: 2
-        x: 3378
-        y: 583
-        width: 18
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1fd4cccf6eece8e4b9f2d1792c2f2468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 3416
-        y: 582
-        width: 101
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b4db70777257784592b4d22b970f2cc
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_23
-      rect:
-        serializedVersion: 2
-        x: 3517
-        y: 582
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a4e111824cce9041a789e5e43ff3ccf
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Rank-spritesheet_24
+      name: Rank-spritesheet_25
       rect:
         serializedVersion: 2
         x: 2452
@@ -531,13 +384,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4f0402c5a1aa8ce4db492a8e14095dcf
+      spriteID: a4479b11c206e1f4589c6f875c1c6161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rank-spritesheet_25
+      name: Rank-spritesheet_26
       rect:
         serializedVersion: 2
         x: 2642
@@ -551,7 +404,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 068b616a7a562054fa182fbe993ed393
+      spriteID: 5e1cee71114bc8b4b97fbeefd553c48f
       vertices: []
       indices: 
       edges: []
@@ -559,7 +412,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: be8c3d5ffda6dde418ce7af2eca01154
+    spriteID: 52796716a071d9f4bb73b0253cc17848
     vertices: []
     indices: 
     edges: []

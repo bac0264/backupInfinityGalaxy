@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 309a3fdbd6e7c344c868878443e09e80
+guid: 132a3514cb37d8342960c0ef55f048f7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spaceship_0
-    21300002: spaceship_1
-    21300004: spaceship_2
-    21300006: spaceship_3
-    21300008: spaceship_4
-    21300010: spaceship_5
+    21300000: phi thuyenn_0
+    21300002: phi thuyenn_1
+    21300004: phi thuyenn_2
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -51,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 140
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spaceship_0
+      name: phi thuyenn_0
       rect:
         serializedVersion: 2
-        x: 216
+        x: 209
         y: 141
-        width: 222
-        height: 340
+        width: 230
+        height: 344
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,107 +112,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c95eaead0743dca42b65d176635ddf10
+      spriteID: 1330416e7be0a9b4ea5dfd45f0797440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spaceship_1
+      name: phi thuyenn_1
       rect:
         serializedVersion: 2
-        x: 746
-        y: 249
-        width: 144
-        height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c16734671c5e324faf118a02915e347
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_2
-      rect:
-        serializedVersion: 2
-        x: 975
-        y: 221
-        width: 59
-        height: 92
+        x: 703
+        y: 212
+        width: 230
+        height: 273
       alignment: 9
-      pivot: {x: 0.7682764, y: 0.7779219}
+      pivot: {x: 0.5042863, y: 0.12082356}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eafe53a2815b4394d916df2f30823a84
+      spriteID: c5dbb6c28b3ef404c8f9caa12b641ba3
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spaceship_3
+      name: phi thuyenn_2
       rect:
         serializedVersion: 2
-        x: 1068
-        y: 218
+        x: 1036
+        y: 225
         width: 107
         height: 142
       alignment: 9
-      pivot: {x: 0.51137877, y: 0.82582694}
+      pivot: {x: 0.50921345, y: 0.8054773}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e47c3633e2f8a1644b43dd02448edadb
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_4
-      rect:
-        serializedVersion: 2
-        x: 1209
-        y: 222
-        width: 56
-        height: 91
-      alignment: 9
-      pivot: {x: 0.21735056, y: 0.7408367}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d8ae39306a20b84fa7303494d2b1b00
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_5
-      rect:
-        serializedVersion: 2
-        x: 1095
-        y: 112
-        width: 48
-        height: 91
-      alignment: 9
-      pivot: {x: 0.5, y: 0.95491415}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f219630851104f4d8047ab73c6dad4b
+      spriteID: 431309159775a2046a089b71bd7f5bfe
       vertices: []
       indices: 
       edges: []
@@ -223,7 +160,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2ecdffac9d9ea4847977aaff46076889
+    spriteID: fd6157c68285ed24abc5c782358e4fd8
     vertices: []
     indices: 
     edges: []

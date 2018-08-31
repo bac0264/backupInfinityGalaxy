@@ -26,7 +26,7 @@ public class ButtonManager : MonoBehaviour
         if (button != null) {
             button.gameObject.SetActive(false);
         }
-       //SceneManager.LoadScene("SelectPlanet");
+        //SceneManager.LoadScene("SelectPlanet");
     }
     public void _BackToStart()
     {
@@ -35,6 +35,14 @@ public class ButtonManager : MonoBehaviour
             Fade.instance.check = true;
             Fade.instance.FadeIn = true;
             Fade.instance.sceneName = "Menu";
+            if (map != null)
+            {
+                map.transform.GetChild(0).gameObject.SetActive(false);
+                map.transform.GetChild(1).gameObject.SetActive(false);
+                StartCoroutine(timetoTransforms());
+            }
+            GameObject button = GameObject.FindGameObjectWithTag("Facebook");
+            if (button != null) button.SetActive(false);
         }
     }
     public void _BackToMenu()

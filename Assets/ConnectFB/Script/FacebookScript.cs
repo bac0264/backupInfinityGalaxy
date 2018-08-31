@@ -9,34 +9,35 @@ public class FacebookScript : MonoBehaviour
 
     public GameObject DialogLoggedIn;
     public GameObject DialogLoggedOut;
-   // public GameObject DialogUsername;
+    // public GameObject DialogUsername;
+    public GameObject Container;
     public GameObject DialogProfilePic;
+    public GameObject buttonLogOut;
+    public GameObject itemPref;
+    public Transform friendsPhotoContainer;
     List<string> permissions = new List<string>();
-    GameObject fb;
+    List<Sprite> img = new List<Sprite>();
+    int imgnum = 0;
     // public GameObject DialogProfilePicOfFriends;
     void Awake()
     {
         if (!FB.IsInitialized)
         {
-            Debug.Log("install");
+
             FB.Init(SetInit, OnHideUnity);
         }
         else
         {
-            Debug.Log("active");
             FB.ActivateApp();
+            DealWithFBMenus(FB.IsLoggedIn);
         }
-        fb = GameObject.FindGameObjectWithTag("Facebook");
     }
 
     void SetInit()
     {
         if (FB.IsInitialized) {
             FB.ActivateApp();
-            //var token = AccessToken.CurrentAccessToken;
-            //Debug.Log(token.TokenString);
-            //permissions.Add(token.TokenString);
-            //FB.LogInWithPublishPermissions(permissions, AuthCallBack);
+            DealWithFBMenus(FB.IsLoggedIn);
         }
         else
         {
@@ -62,7 +63,6 @@ public class FacebookScript : MonoBehaviour
     public void FBlogin()
     {
         permissions.Add("public_profile");
-        Debug.Log("Permission:"+permissions.ToArray());
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
     }
 
@@ -71,19 +71,17 @@ public class FacebookScript : MonoBehaviour
          
         if (result.Error != null)
         {
-            Debug.Log(result.Error);
         }
         else
         {
             if (FB.IsLoggedIn)
             {
-                Debug.Log("FB is logged in");
-                fb.transform.GetChild(0).gameObject.SetActive(true);
+              //  Debug.Log("FB is logged in");
             }
             else
             {
-                fb.transform.GetChild(0).gameObject.SetActive(false);
-                Debug.Log("FB is not logged in");
+              //  fb.transform.GetChild(0).gameObject.SetActive(false);
+               // Debug.Log("FB is not logged in");
             }
 
             DealWithFBMenus(FB.IsLoggedIn);
@@ -93,26 +91,38 @@ public class FacebookScript : MonoBehaviour
     public void FBlogout()
     {
         FB.LogOut();
+        logOut();
     }
     public void FBshare()
     {
         //FB.ShareLink
     }
+    void logOut()
+    {
+        buttonLogOut.SetActive(false);
+        DialogLoggedIn.SetActive(false);
+        DialogLoggedOut.SetActive(true);
+        Container.SetActive(false);
+    }
     void DealWithFBMenus(bool isLoggedIn)
     {
-
+        Debug.Log(isLoggedIn);
         if (isLoggedIn)
         {
+            buttonLogOut.SetActive(true);
             DialogLoggedIn.SetActive(true);
             DialogLoggedOut.SetActive(false);
            // FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUsername);
             FB.API("/me/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
+            Container.SetActive(true);
             //FB.API("/me?friends/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
         }
         else
         {
+            buttonLogOut.SetActive(false);
             DialogLoggedIn.SetActive(false);
             DialogLoggedOut.SetActive(true);
+            Container.SetActive(false);
         }
 
     }
@@ -156,32 +166,47 @@ public class FacebookScript : MonoBehaviour
             ProfilePicOfFriends.sprite = Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2());
         }
     }
-    private void ScoresCallBack(IGraphResult result)
+    void InITFaceBookFriends()
     {
-        int num = -1;
+        FB.API("me/taggable_friends", Facebook.Unity.HttpMethod.GET, FBLoadFriendsCallBack);
+    }
 
-        var dataList = result.ResultDictionary["data"] as List<object>;
-
-        foreach (object player in dataList)
+    //Json to Dictionary
+    void FBLoadFriendsCallBack(IGraphResult result)
+    {
+        if (result.Error == null)
         {
-            num++;
-            var dataDict = dataList[num] as Dictionary<string, object>;
+            var dict = (Dictionary<string, object>)Facebook.MiniJSON.Json.Deserialize(result.RawResult);
+            var listFriends = (List<object>)dict["data"];
+            foreach (object dataObject in listFriends)
+            {
+                Dictionary<string, object> dataDic = dataObject as Dictionary<string, object>;
+                string friendID = dataDic["id"] as string;
+                string name = dataDic["name"] as string;
 
-            long score = (long)dataDict["score"];
-            var user = dataDict["user"] as Dictionary<string, object>;
-
-            string userName = user["name"] as string;
-            string userID = user["id"] as string;
-
-            GameObject ScorePanel;
-            //ScorePanel = Instantiate() as GameObject;
-           // ScorePanel.transform.SetParent(leaderboardPanel.transform, false);
-           // ScorePanel.SetActive(true);
-
-           // ScorePanel.transform.GetChild(1).GetComponent<Text>().text = userName;
-           // ScorePanel.transform.GetChild(2).GetComponent<Text>().text = score.ToString();
+                string url = "https://graph.facebook.com/" + friendID + "/picture?type=large";
+                Debug.Log(url);
+                StartCoroutine(LoadImage(url));
+                // break;
+            }
         }
     }
+
+
+    IEnumerator LoadImage(string urlString)
+    {
+        WWW url = new WWW(urlString);
+        Texture2D textFb = new Texture2D(128, 128, TextureFormat.DXT1, false);
+
+        yield return url;
+        url.LoadImageIntoTexture(textFb);
+        Rect rec = new Rect(0, 0, textFb.width, textFb.height);
+        img.Add(Sprite.Create(textFb, rec, new Vector2(0, 0), .01f));
+        GameObject item = Instantiate(itemPref, friendsPhotoContainer);
+        item.GetComponent<Image>().sprite = img[imgnum];
+        imgnum++;
+    }
+
 
 }
 
