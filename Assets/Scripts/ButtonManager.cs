@@ -70,6 +70,10 @@ public class ButtonManager : MonoBehaviour
         PlayerPrefs.SetInt("PlayerLevel", 0);
         PlayerPrefs.SetInt("CompleteLastPlanet", 0);
     }
+    public void _rankingButton()
+    {
+        Initiate.Fade("rank", new Color(1, 1, 1, 1), 5.0f);
+    }
     public void CreateBtnClick()
     {
         SceneManager.LoadScene("ListMap");

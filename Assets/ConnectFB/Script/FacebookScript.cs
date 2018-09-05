@@ -16,11 +16,13 @@ public class FacebookScript : MonoBehaviour
     public GameObject itemPref;
     public Transform friendsPhotoContainer;
     List<string> permissions = new List<string>();
-    List<Sprite> img = new List<Sprite>();
-    int imgnum = 0;
+    List<Sprite> img;
+    int imgnum;
     // public GameObject DialogProfilePicOfFriends;
     void Awake()
     {
+        imgnum = 0;
+        img = new List<Sprite>();
         if (!FB.IsInitialized)
         {
 
@@ -114,6 +116,7 @@ public class FacebookScript : MonoBehaviour
             DialogLoggedOut.SetActive(false);
            // FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUsername);
             FB.API("/me/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
+            FB.API("/me/friends", HttpMethod.GET, FBLoadFriendsCallBack);
             Container.SetActive(true);
             //FB.API("/me?friends/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
         }
@@ -124,7 +127,6 @@ public class FacebookScript : MonoBehaviour
             DialogLoggedOut.SetActive(true);
             Container.SetActive(false);
         }
-
     }
 
     //void DisplayUsername(IResult result)
@@ -186,7 +188,7 @@ public class FacebookScript : MonoBehaviour
 
                 string url = "https://graph.facebook.com/" + friendID + "/picture?type=large";
                 Debug.Log(url);
-                StartCoroutine(LoadImage(url));
+                // StartCoroutine(LoadImage(url));
                 // break;
             }
         }
