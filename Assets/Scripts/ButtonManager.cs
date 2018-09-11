@@ -16,14 +16,16 @@ public class ButtonManager : MonoBehaviour
     }
     public void _Start()
     {
-        if (Fade.instance != null)
-        {
-            Fade.instance.check = true;
-            Fade.instance.FadeIn = true;
-            Fade.instance.sceneName = "SelectPlanet";
-        }
+        //if (Fade.instance != null)
+        //{
+        //    Fade.instance.check = true;
+        //    Fade.instance.FadeIn = true;
+        //    Fade.instance.sceneName = "SelectPlanet";
+        //}
+        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 3.0f);
         GameObject button = GameObject.FindGameObjectWithTag("ButtonMenu");
-        if (button != null) {
+        if (button != null)
+        {
             button.gameObject.SetActive(false);
         }
         //SceneManager.LoadScene("SelectPlanet");
@@ -36,13 +38,14 @@ public class ButtonManager : MonoBehaviour
             Fade.instance.FadeIn = true;
             Fade.instance.sceneName = "Menu";
             if (map != null)
-            {
-                map.transform.GetChild(0).gameObject.SetActive(false);
-                map.transform.GetChild(1).gameObject.SetActive(false);
-                StartCoroutine(timetoTransforms());
-            }
-            GameObject button = GameObject.FindGameObjectWithTag("Facebook");
-            if (button != null) button.SetActive(false);
+        {
+            map.transform.GetChild(0).gameObject.SetActive(false);
+            map.transform.GetChild(1).gameObject.SetActive(false);
+            StartCoroutine(timetoTransforms());
+        }
+        GameObject button = GameObject.FindGameObjectWithTag("Facebook");
+        if (button != null) button.SetActive(false);
+       // Initiate.Fade("Menu", new Color(0,0,0,1), 4.0f);
         }
     }
     public void _BackToMenu()
@@ -53,11 +56,12 @@ public class ButtonManager : MonoBehaviour
             Fade.instance.FadeIn = true;
             Fade.instance.sceneName = "SelectPlanet";
             if (map != null)
-            {
-                map.transform.GetChild(0).gameObject.SetActive(false);
-                map.transform.GetChild(1).gameObject.SetActive(false);
-                StartCoroutine(timetoTransforms());
-            }
+        {
+            map.transform.GetChild(0).gameObject.SetActive(false);
+            map.transform.GetChild(1).gameObject.SetActive(false);
+            StartCoroutine(timetoTransforms());
+        }
+        //Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
         }
     }
     public void _nextresetGameScene()
@@ -72,7 +76,7 @@ public class ButtonManager : MonoBehaviour
     }
     public void _rankingButton()
     {
-        Initiate.Fade("rank", new Color(1, 1, 1, 1), 5.0f);
+        Initiate.Fade("rank", new Color(0, 0, 0, 1), 4.0f);
     }
     public void CreateBtnClick()
     {
@@ -117,7 +121,7 @@ public class ButtonManager : MonoBehaviour
             if (setting != null)
             {
                 setting.GetComponent<Animator>().Play("Setting");
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.8f);
             }
             check = false;
         }
@@ -126,7 +130,7 @@ public class ButtonManager : MonoBehaviour
             if (setting != null)
             {
                 setting.GetComponent<Animator>().Play("BackSetting");
-                yield return new WaitForSeconds(0.4f);
+                yield return new WaitForSeconds(0.6f);
             }
             check = true;
         }
