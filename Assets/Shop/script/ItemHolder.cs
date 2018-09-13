@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ItemHolder : MonoBehaviour {
-    public Text index;
-    public Text Itemindex;
-    public Sprite spaceShip;
+    public Text id;
+    public Text spaceshipName;
+    public Image spriteName;
     public Text Gold;
 }

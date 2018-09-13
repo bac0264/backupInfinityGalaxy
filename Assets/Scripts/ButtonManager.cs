@@ -82,6 +82,10 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("ListMap");
     }
+    public void _shopButton()
+    {
+        Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
+    }
     // Selectlevel
     //public void _SettingBtnClick()
     //{

@@ -3,26 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ShopManager : MonoBehaviour {
+    public static ShopManager instance;
     [SerializeField]
-    private float money;
-    public Text moneyText;
+    private float Gold;
+    private float Diamond;
 
+    public Text goldText;
+    public Text diamondText;
+    private void Start()
+    {
+        if (instance == null) instance = this;
+        UpdateUI();
+    }
 
     public void addMoney(float amount) {
-        money += amount;
+        Gold += amount;
         UpdateUI();
     }
     public void reduceMoney(float amount) {
-        money -= amount;
+        Gold -= amount;
         UpdateUI();
     }
     public bool requestMoney(float amount) {
-        if (amount <= money) return true;
+        if (amount <= Gold) return true;
         return false;
     }
     void UpdateUI()
     {
-        moneyText.text = "$" +money.ToString();
+        if(goldText != null)
+        goldText.text =  Gold.ToString();
     }
 
 }
