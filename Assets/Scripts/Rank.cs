@@ -147,14 +147,18 @@ public class Rank : MonoBehaviour
 
         if (result.Texture != null)
         {
-            img.Add(Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2()));
             GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
-            rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
-            rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
-            yourRank.GetComponent<Text>().text = (imgnum+1).ToString();
-            rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
-            rankButton.transform.GetChild(0).GetChild(4).GetComponent<RectTransform>().sizeDelta = new Vector2(1.6f, 2);
-            imgnum++;
+            Debug.Log(rankButton);
+            if (rankButton != null)
+            {
+                img.Add(Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2()));
+                rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
+                rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
+                yourRank.GetComponent<Text>().text = (imgnum + 1).ToString();
+                rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
+                rankButton.transform.GetChild(0).GetChild(4).GetComponent<RectTransform>().sizeDelta = new Vector2(1.6f, 2);
+                imgnum++;
+            }
         }
     }
 }

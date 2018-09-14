@@ -77,6 +77,7 @@ public class ButtonManager : MonoBehaviour
     public void _rankingButton()
     {
         Initiate.Fade("rank", new Color(0, 0, 0, 1), 4.0f);
+       // if (map != null) Destroy(map);
     }
     public void CreateBtnClick()
     {
@@ -85,6 +86,7 @@ public class ButtonManager : MonoBehaviour
     public void _shopButton()
     {
         Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
+       // if (map != null) Destroy(map);
     }
     // Selectlevel
     //public void _SettingBtnClick()
