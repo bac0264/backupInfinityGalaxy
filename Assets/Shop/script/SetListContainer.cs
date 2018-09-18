@@ -7,14 +7,14 @@ public class SetListContainer : MonoBehaviour {
 	// Use this for initialization
 	void Update () {
         float y = gameObject.transform.position.y;
-        if (y < 3.463f)
+        if (y <= 9.5f)
         {
-            y = 3.463f;
+            y = 9.5f;
             gameObject.transform.position = new Vector2(gameObject.transform.position.x, y);
         }
-        else if (y > 43.463f)
+        else if (y > 48)
         {
-            y = 43.463f;
+            y = 48f;
             gameObject.transform.position = new Vector2(gameObject.transform.position.x, y);
         }
     }
