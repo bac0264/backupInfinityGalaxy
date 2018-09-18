@@ -38,13 +38,13 @@ public class SelectPlanetManager : MonoBehaviour
     }
     private void Start()
     {
-        if (Fade.instance != null) {
-            if(Fade.instance.check == true)
-            {
-                Fade.instance.FadeOut = true;
-               // Fade.instance.check = false;
-            }
-        }
+        //if (Fade.instance != null) {
+        //    if(Fade.instance.check == true)
+        //    {
+        //        Fade.instance.FadeOut = true;
+        //       // Fade.instance.check = false;
+        //    }
+        //}
     }
     void _IsGameStartedForTheFirstTime()
     {
@@ -173,15 +173,15 @@ public class SelectPlanetManager : MonoBehaviour
         {
             SelectLevelManager.setPlanetID(id);
             //Initiate.Fade("SelectLevel", new Color(1, 1, 1), 15.0f);
-            if (Fade.instance != null)
-            {
+            //if (Fade.instance != null)
+          //  {
                 GameObject map = GameObject.FindGameObjectWithTag("Map");
                 map.transform.GetChild(0).gameObject.SetActive(false);
-                Fade.instance.sceneName = PlayerPrefs.GetString("SelectLevel");
-                Fade.instance.check = true;
-                Fade.instance.FadeIn = true;
-            }
-           // SceneManager.LoadScene("SelectLevel");
+            // Fade.instance.sceneName = PlayerPrefs.GetString("SelectLevel");
+            // Fade.instance.check = true;
+            //Fade.instance.FadeIn = true;
+            // }
+            Initiate.Fade("SelectLevel", new Color(0, 0, 0, 1), 4.0f);
         }
         else
         {
@@ -241,41 +241,46 @@ public class SelectPlanetManager : MonoBehaviour
             }
 
             //Camera di chuyển theo phương X
-            for (int i = 0; i < PlanetContainer.childCount - 1; i++)
+            if (PlanetContainer != null)
             {
-                if (Camera.main.transform.position.y > PlanetContainer.GetChild(i).position.y && Camera.main.transform.position.y < PlanetContainer.GetChild(i + 1).position.y)
+                for (int i = 0; i < PlanetContainer.childCount - 1; i++)
                 {
-                    float ratio = (Camera.main.transform.position.y - PlanetContainer.GetChild(i).position.y) / (PlanetContainer.GetChild(i + 1).position.y - PlanetContainer.GetChild(i).position.y);
-                    if (DOTween.TweensById("MoveX", true) != null)
+                    if (Camera.main.transform.position.y > PlanetContainer.GetChild(i).position.y && Camera.main.transform.position.y < PlanetContainer.GetChild(i + 1).position.y)
                     {
-                        foreach (Tween tween in DOTween.TweensById("MoveX", true))
+                        float ratio = (Camera.main.transform.position.y - PlanetContainer.GetChild(i).position.y) / (PlanetContainer.GetChild(i + 1).position.y - PlanetContainer.GetChild(i).position.y);
+                        if (DOTween.TweensById("MoveX", true) != null)
+                        {
+                            foreach (Tween tween in DOTween.TweensById("MoveX", true))
+                            {
+                                tween.Kill();
+                            }
+                        }
+                        Camera.main.transform.DOMoveX(PlanetContainer.GetChild(i).position.x + ratio * (PlanetContainer.GetChild(i + 1).position.x - PlanetContainer.GetChild(i).position.x), 0.2f).SetId("MoveX");
+                        break;
+                    }
+                }
+                // Camera di chuyển theo phuong Y
+                if (Camera.main.transform.position.y - ScrollVelocity.y >= limitDown && Camera.main.transform.position.y - ScrollVelocity.y <= limitUp)
+                {
+                    if (DOTween.TweensById("MoveY", true) != null)
+                    {
+                        foreach (Tween tween in DOTween.TweensById("MoveY", true))
                         {
                             tween.Kill();
                         }
                     }
-                    Camera.main.transform.DOMoveX(PlanetContainer.GetChild(i).position.x + ratio * (PlanetContainer.GetChild(i + 1).position.x - PlanetContainer.GetChild(i).position.x), 0.2f).SetId("MoveX");
-                    break;
+                    Camera.main.transform.DOMoveY((Camera.main.transform.position.y - ScrollVelocity.y), 0.1f).SetId("MoveY");
+                    if (!touching)
+                        ScrollVelocity = Vector2.Lerp(ScrollVelocity, Vector2.zero, 0.125f);
                 }
-            }
-            // Camera di chuyển theo phuong Y
-            if (Camera.main.transform.position.y - ScrollVelocity.y >= limitDown && Camera.main.transform.position.y - ScrollVelocity.y <= limitUp)
-            {
-                if (DOTween.TweensById("MoveY", true) != null)
+                else if (Camera.main.transform.position.y - ScrollVelocity.y < limitDown)
                 {
-                    foreach (Tween tween in DOTween.TweensById("MoveY", true))
-                    {
-                        tween.Kill();
-                    }
+                    Camera.main.transform.DOMoveY(limitDown, 0.1f);
                 }
-                Camera.main.transform.DOMoveY((Camera.main.transform.position.y - ScrollVelocity.y), 0.1f).SetId("MoveY");
-                if (!touching)
-                    ScrollVelocity = Vector2.Lerp(ScrollVelocity, Vector2.zero, 0.125f);
-            }
-            else if(Camera.main.transform.position.y - ScrollVelocity.y < limitDown) {
-                Camera.main.transform.DOMoveY(limitDown, 0.1f);
-            }
-            else {
-                Camera.main.transform.DOMoveY(limitUp, 0.1f);
+                else
+                {
+                    Camera.main.transform.DOMoveY(limitUp, 0.1f);
+                }
             }
         }
     }

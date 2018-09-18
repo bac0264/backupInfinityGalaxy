@@ -10,13 +10,13 @@ public class SetCamera : MonoBehaviour
     GameObject panel;
     void Start()
     {
-        if (Fade.instance != null)
-        {
-            if (Fade.instance.check == true)
-            {
-                Fade.instance.FadeOut = true;
-            }
-        }
+        //if (Fade.instance != null)
+        //{
+        //    if (Fade.instance.check == true)
+        //    {
+        //        Fade.instance.FadeOut = true;
+        //    }
+        //}
         panel = GameObject.FindGameObjectWithTag("Fade");
         if (panel != null) {
             panel.transform.GetChild(0).gameObject.SetActive(true);

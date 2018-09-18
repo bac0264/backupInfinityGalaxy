@@ -20,13 +20,13 @@ public class SelectLevelManager : MonoBehaviour
     private void Start()
     {
         Debug.Log("Start");
-        if (Fade.instance != null)
-        {
-            if (Fade.instance.check == true)
-            {
-                Fade.instance.FadeOut = true;
-            }
-        }
+        //if (Fade.instance != null)
+        //{
+        //    if (Fade.instance.check == true)
+        //    {
+        //        Fade.instance.FadeOut = true;
+        //    }
+        //}
         map = GameObject.FindGameObjectWithTag("Map");
         if (map.GetComponent<Map>().back)
         {

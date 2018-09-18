@@ -7194,7 +7194,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1748605483}
-        m_MethodName: _BackToMenu
+        m_MethodName: _BackToSelectPlanet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

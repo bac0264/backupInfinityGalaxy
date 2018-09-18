@@ -7846,7 +7846,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1615983104}
-        m_MethodName: _BackToStart
+        m_MethodName: _BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

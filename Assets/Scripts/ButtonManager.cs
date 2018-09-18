@@ -14,7 +14,7 @@ public class ButtonManager : MonoBehaviour
         setting = GameObject.Find("Setting");
         check = true;
     }
-    public void _Start()
+    public void _MenuButton()
     {
         //if (Fade.instance != null)
         //{
@@ -22,7 +22,7 @@ public class ButtonManager : MonoBehaviour
         //    Fade.instance.FadeIn = true;
         //    Fade.instance.sceneName = "SelectPlanet";
         //}
-        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 3.0f);
+        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 2.0f);
         GameObject button = GameObject.FindGameObjectWithTag("ButtonMenu");
         if (button != null)
         {
@@ -30,7 +30,7 @@ public class ButtonManager : MonoBehaviour
         }
         //SceneManager.LoadScene("SelectPlanet");
     }
-    public void _BackToStart()
+    public void _BackToMenu()
     {
         if (Fade.instance != null)
         {
@@ -48,20 +48,20 @@ public class ButtonManager : MonoBehaviour
        // Initiate.Fade("Menu", new Color(0,0,0,1), 4.0f);
         }
     }
-    public void _BackToMenu()
+    public void _BackToSelectPlanet()
     {
-        if (Fade.instance != null)
-        {
-            Fade.instance.check = true;
-            Fade.instance.FadeIn = true;
-            Fade.instance.sceneName = "SelectPlanet";
-            if (map != null)
+        //if (Fade.instance != null)
+        //{
+        //    Fade.instance.check = true;
+        //    Fade.instance.FadeIn = true;
+        //    Fade.instance.sceneName = "SelectPlanet";
+        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
+        if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
             map.transform.GetChild(1).gameObject.SetActive(false);
             StartCoroutine(timetoTransforms());
-        }
-        //Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
+       // }
         }
     }
     public void _nextresetGameScene()
@@ -85,8 +85,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _shopButton()
     {
+        if (map != null) Destroy(map);
         Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
-       // if (map != null) Destroy(map);
     }
     // Selectlevel
     //public void _SettingBtnClick()
@@ -115,8 +115,10 @@ public class ButtonManager : MonoBehaviour
     //}
     IEnumerator timetoTransforms()
     {
-        yield return new WaitForSeconds(0.5f);
-        Destroy(map);
+        yield return new WaitForSeconds(0.4f);
+        if (map != null)
+            Destroy(map);
+
     }
     IEnumerator TimeToDo()
     {
