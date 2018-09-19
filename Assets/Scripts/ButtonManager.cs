@@ -32,21 +32,21 @@ public class ButtonManager : MonoBehaviour
     }
     public void _BackToMenu()
     {
-        if (Fade.instance != null)
-        {
-            Fade.instance.check = true;
-            Fade.instance.FadeIn = true;
-            Fade.instance.sceneName = "Menu";
-            if (map != null)
+        //if (Fade.instance != null)
+        //{
+        //    Fade.instance.check = true;
+        //    Fade.instance.FadeIn = true;
+        //    Fade.instance.sceneName = "Menu";
+        GameObject button = GameObject.FindGameObjectWithTag("Facebook");
+        if (button != null) button.SetActive(false);
+        Initiate.Fade("Menu", new Color(0,0,0,1), 4.0f);
+        if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
             map.transform.GetChild(1).gameObject.SetActive(false);
             StartCoroutine(timetoTransforms());
         }
-        GameObject button = GameObject.FindGameObjectWithTag("Facebook");
-        if (button != null) button.SetActive(false);
-       // Initiate.Fade("Menu", new Color(0,0,0,1), 4.0f);
-        }
+        // }
     }
     public void _BackToSelectPlanet()
     {
@@ -77,7 +77,7 @@ public class ButtonManager : MonoBehaviour
     public void _rankingButton()
     {
         Initiate.Fade("rank", new Color(0, 0, 0, 1), 4.0f);
-       // if (map != null) Destroy(map);
+        if (map != null) StartCoroutine(timetoTransforms()); ;
     }
     public void CreateBtnClick()
     {
@@ -85,8 +85,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _shopButton()
     {
-        if (map != null) Destroy(map);
         Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
+        if (map != null) StartCoroutine(timetoTransforms()); ;
     }
     // Selectlevel
     //public void _SettingBtnClick()
@@ -115,7 +115,7 @@ public class ButtonManager : MonoBehaviour
     //}
     IEnumerator timetoTransforms()
     {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         if (map != null)
             Destroy(map);
 

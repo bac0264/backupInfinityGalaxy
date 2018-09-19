@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: a4d0870f762dace47870505b96c090a2
+guid: 132a3514cb37d8342960c0ef55f048f7
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hanhtinhtim2-sprite sheet_0
-    21300002: hanhtinhtim2-sprite sheet_1
-    21300004: hanhtinhtim2-sprite sheet_2
+    21300000: phi thuyenn_0
+    21300002: phi thuyenn_1
+    21300004: phi thuyenn_2
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,6 +24,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -34,7 +36,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -96,61 +98,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hanhtinhtim2-sprite sheet_0
+      name: phi thuyenn_0
       rect:
         serializedVersion: 2
-        x: 304
-        y: 1079
-        width: 104
-        height: 146
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b9d1e4fe77a213848b1d21f164620529
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hanhtinhtim2-sprite sheet_1
-      rect:
-        serializedVersion: 2
-        x: 327
-        y: 916
-        width: 93
-        height: 94
+        x: 136
+        y: 98
+        width: 164
+        height: 194
       alignment: 9
-      pivot: {x: 2.747252, y: -2.1842194}
+      pivot: {x: 0.5054852, y: 0.17097953}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cda1b3a60267977419c526a5cb574597
+      spriteID: e667d8087de0bde41b425c984fc0560d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanhtinhtim2-sprite sheet_2
+      name: phi thuyenn_1
       rect:
         serializedVersion: 2
-        x: 56
-        y: 88
-        width: 632
-        height: 631
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 373
+        y: 108
+        width: 76
+        height: 100
+      alignment: 9
+      pivot: {x: 0.49421048, y: 0.8299887}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2492ea5f6628a2439eef9d50070ed8b
+      spriteID: c1c005e0f76483448b4053269e1389c7
       vertices: []
       indices: 
       edges: []
@@ -158,12 +140,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 66e919b871bdb66438d0c24e02805cde
+    spriteID: fd6157c68285ed24abc5c782358e4fd8
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

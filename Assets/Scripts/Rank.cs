@@ -99,21 +99,18 @@ public class Rank : MonoBehaviour
 
             var dict = (Dictionary<string, object>)Facebook.MiniJSON.Json.Deserialize(result.RawResult);
             var listFriends = (List<object>)dict["data"];
-            Debug.Log(listFriends.ToArray());
             foreach (object dataObject in listFriends)
             {
                 Dictionary<string, object> dataDic = dataObject as Dictionary<string, object>;
                 string friendID = dataDic["id"] as string;
                 string name = dataDic["name"] as string;
-
+                Debug.Log(name);
                 string url = "https://graph.facebook.com/" + friendID + "/picture?type=large";
-                Debug.Log(url);
                 StartCoroutine(LoadProfile(url,name));
                 // break;
             }
         }
     }
-
 
     IEnumerator LoadProfile(string urlString, string name)
     {
@@ -126,7 +123,7 @@ public class Rank : MonoBehaviour
         Rect rec = new Rect(0, 0, textFb.width, textFb.height);
         img.Add(Sprite.Create(textFb, rec, new Vector2(0, 0), .01f));
 
-        GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
+      /*  GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
         rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
         rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
         if (imgnum <= 2)
@@ -140,15 +137,14 @@ public class Rank : MonoBehaviour
         }
         //GameObject item = Instantiate(imgPref, friendsPhotoContainer);
         //item.GetComponent<Image>().sprite = img[imgnum];
-        imgnum++;
+        imgnum++;*/
     }
     void DisplayProfilePic(IGraphResult result)
     {
 
         if (result.Texture != null)
         {
-            GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
-            Debug.Log(rankButton);
+          /*  GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
             if (rankButton != null)
             {
                 img.Add(Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2()));
@@ -158,7 +154,7 @@ public class Rank : MonoBehaviour
                 rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
                 rankButton.transform.GetChild(0).GetChild(4).GetComponent<RectTransform>().sizeDelta = new Vector2(1.6f, 2);
                 imgnum++;
-            }
+            }*/
         }
     }
 }

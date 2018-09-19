@@ -1,15 +1,17 @@
 fileFormatVersion: 2
-guid: e0376c586b2dae448b816768c6acb713
+guid: 969ccf35b39964049b8e504184d49d8e
 TextureImporter:
   fileIDToRecycleName:
-    21300000: thienha3_0
-    21300002: thienha3_1
-    21300004: thienha3_2
-    21300006: thienha3_3
-    21300008: thienha3_4
-    21300010: thienha3_5
+    21300000: shop_0
+    21300002: shop_1
+    21300004: shop_2
+    21300006: shop_3
+    21300008: shop_4
+    21300010: shop_5
+    21300012: shop_6
+    21300014: shop_7
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -27,6 +29,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,7 +41,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -49,7 +53,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 46
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: thienha3_0
+      name: shop_0
       rect:
         serializedVersion: 2
-        x: 132
-        y: 312
-        width: 699
-        height: 418
+        x: 44
+        y: 54
+        width: 497
+        height: 883
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,19 +117,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76bd80de9ad9d924e95d723de18daa3a
+      spriteID: de06a022eeaccb44db94e6ac90bac82e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thienha3_1
+      name: shop_1
       rect:
         serializedVersion: 2
-        x: 872
-        y: 348
-        width: 699
-        height: 387
+        x: 636
+        y: 893
+        width: 131
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f60d6f0ab1744047b1aab4ce32b8948
+      spriteID: 099d7092bc355e747ade76e626a24bb2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thienha3_2
+      name: shop_2
       rect:
         serializedVersion: 2
-        x: 1747
-        y: 612
-        width: 147
-        height: 147
+        x: 818
+        y: 894
+        width: 130
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,39 +157,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8de3b89fbbdfa24e8a4aeacbbcd9ed7
+      spriteID: 3ff2fd4080e14ee4cba6e0f0d51374b1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thienha3_3
+      name: shop_3
       rect:
         serializedVersion: 2
-        x: 1776
-        y: 455
-        width: 90
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a2d6c7e08a8e37a4d84bbf4c26bd83d9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: thienha3_4
-      rect:
-        serializedVersion: 2
-        x: 1808
-        y: 361
+        x: 742
+        y: 854
         width: 27
-        height: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,19 +177,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17bf2268e0469f14ba409d3ff3aec7b9
+      spriteID: b0f8c235bb45a514f890d55d1ea01ab2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: thienha3_5
+      name: shop_4
       rect:
         serializedVersion: 2
-        x: 1799
-        y: 259
-        width: 37
-        height: 37
+        x: 924
+        y: 846
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +197,67 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b9f46a85df70f94986ea93188351b93
+      spriteID: 6a319e7a64a255e4ab88a7733525a6ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_5
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 594
+        width: 179
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc0af2b87e389c4f80701513172c43b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_6
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 327
+        width: 179
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d9724c1f031a546bc4bae4706df201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shop_7
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 72
+        width: 265
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f68b86fad498094fb013cf142eba099
       vertices: []
       indices: 
       edges: []
@@ -221,12 +265,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 590dbd237999f2843a49e08e4cc57cb0
+    spriteID: a4e321d511a645b48aa7ffa7d8ad5d26
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

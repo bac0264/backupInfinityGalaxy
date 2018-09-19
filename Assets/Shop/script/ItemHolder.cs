@@ -12,7 +12,7 @@ public class ItemHolder : MonoBehaviour {
     public void Select()
     {
         Selected = true;
-        transform.DOScale(1.2f, 0.2f).From().OnComplete(SelectComplete);
+        transform.DOScale(1.2f, 0.8f).From().OnComplete(SelectComplete);
     }
     void SelectComplete()
     {

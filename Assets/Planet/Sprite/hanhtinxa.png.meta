@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: a16be2e7981202445b59177b9dc10401
+guid: 4f55d81e42f45224fa6de099351b85b3
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spaceship_0
-    21300002: spaceship_1
-    21300004: spaceship_2
-    21300006: spaceship_3
-    21300008: spaceship_4
-    21300010: spaceship_5
+    21300000: hanhtinxa_0
+    21300002: hanhtinxa_1
+    21300004: hanhtinxa_2
+    21300006: hanhtinxa_3
+    21300008: hanhtinxa_4
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -27,6 +26,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,7 +38,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -49,9 +50,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 130
+  spritePixelsToUnits: 38
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -99,93 +100,33 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spaceship_0
+      name: hanhtinxa_0
       rect:
         serializedVersion: 2
-        x: 213
-        y: 141
-        width: 222
-        height: 340
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 014327c951eff3844be894d4eb140300
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_1
-      rect:
-        serializedVersion: 2
-        x: 745
-        y: 249
-        width: 144
-        height: 234
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98d7a747079af784f8408b50a8f425ee
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_2
-      rect:
-        serializedVersion: 2
-        x: 975
-        y: 221
-        width: 59
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7da3dd0f1f75887499d66b50ab012d97
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: spaceship_3
-      rect:
-        serializedVersion: 2
-        x: 1068
-        y: 218
-        width: 107
-        height: 142
+        x: 0
+        y: 77
+        width: 281
+        height: 147
       alignment: 9
-      pivot: {x: 0.5, y: 0.8333581}
+      pivot: {x: 0.52793103, y: 0.49767858}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a699873e4656ab44caad06a954997d4f
+      spriteID: 86f01eaf6dc3d9f42b0c3b11deab3897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spaceship_4
+      name: hanhtinxa_1
       rect:
         serializedVersion: 2
-        x: 1209
-        y: 221
+        x: 347
+        y: 177
         width: 56
-        height: 91
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,19 +134,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43986292d791fff4584d8ec0354e702b
+      spriteID: 8fdd6cd5759e71e4389e59eb74a9fb6e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: spaceship_5
+      name: hanhtinxa_2
       rect:
         serializedVersion: 2
-        x: 1095
-        y: 112
-        width: 48
-        height: 91
+        x: 358
+        y: 118
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,7 +154,47 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 901c2f2bdb53ac447987643a1320581c
+      spriteID: d3c4eb340d9b7654ab63beeebf04f064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanhtinxa_3
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 82
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5be8df89f3bd1340a43e944f2bef83a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hanhtinxa_4
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 43
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63ad99da20d6a734e9ef5d58d1a38339
       vertices: []
       indices: 
       edges: []
@@ -221,12 +202,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e70dbabd7d3750f4a898fb69f704599a
+    spriteID: c0013af26cb779047a4e37e753ca8db2
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

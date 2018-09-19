@@ -1,26 +1,15 @@
 fileFormatVersion: 2
-guid: 846da9c197b448542a318f83ea6626ab
+guid: a7fc9e97a7d4b824a91acc190ab51e8c
 TextureImporter:
   fileIDToRecycleName:
-    21300000: 1-smart object_0
-    21300002: 1-smart object_1
-    21300004: 1-smart object_2
-    21300006: 1-smart object_3
-    21300008: 1-smart object_4
-    21300010: 1-smart object_5
-    21300012: nothing
-    21300014: 1-smart object_7
-    21300016: 1-smart object_8
-    21300018: 1-smart object_9
-    21300020: 1-smart object_10
-    21300022: 1-smart object_11
-    21300024: 1-smart object_12
-    21300026: 1-smart object_13
-    21300028: 1-smart object_14
-    21300030: 1-smart object_15
-    21300032: 1-smart object_16
+    21300000: Ailen_0
+    21300002: Ailen_1
+    21300004: Ailen_2
+    21300006: Ailen_3
+    21300008: Ailen_4
+    21300010: Ailen_5
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 7
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -38,6 +27,8 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -48,7 +39,7 @@ TextureImporter:
     serializedVersion: 2
     filterMode: -1
     aniso: -1
-    mipBias: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -110,13 +101,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1-smart object_0
+      name: Ailen_0
       rect:
         serializedVersion: 2
-        x: 38
-        y: 199
-        width: 66
-        height: 70
+        x: 34
+        y: 132
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +115,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a2752d1e3c74e4cb3a11625493f9f3
+      spriteID: ea5b1787f6cd12940b7c372d4e52cd73
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-smart object_1
+      name: Ailen_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 199
-        width: 100
-        height: 98
+        x: 122
+        y: 38
+        width: 104
+        height: 146
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,19 +135,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e673e6abf2d985438c8493ba4384f87
+      spriteID: 1f4d4b2b7fe39e240a4228b0918b3b20
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-smart object_2
+      name: Ailen_2
       rect:
         serializedVersion: 2
-        x: 357
-        y: 193
-        width: 118
-        height: 120
+        x: 316
+        y: 90
+        width: 72
+        height: 94
+      alignment: 9
+      pivot: {x: 0.29684407, y: -2.6523726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3b3fda99aebee4f8f388abe4f7589d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ailen_3
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 155
+        width: 21
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +175,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec60a54a89cff3a44bbac7f918b01293
+      spriteID: 1dab2f0e9f9b23e4c8d3571a67b0bf89
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-smart object_3
+      name: Ailen_4
       rect:
         serializedVersion: 2
-        x: 21
-        y: 34
-        width: 113
-        height: 119
+        x: 412
+        y: 113
+        width: 21
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,19 +195,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6326fddd9b0511441a92172e3bec3196
+      spriteID: 12ce4d3c60c7da844a74369e200218ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 1-smart object_4
+      name: Ailen_5
       rect:
         serializedVersion: 2
-        x: 180
+        x: 40
         y: 33
-        width: 130
-        height: 119
+        width: 30
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,47 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6668cfb7f88920e4db068485bb3b7b7c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 1-smart object_5
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 36
-        width: 132
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 912112a242559964fae9d9af4b49e5ce
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: nothing
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 279
-        width: 74
-        height: 51
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b479b14f4c8531242b78315bf7d6cde0
+      spriteID: 85dda87789c51744587e367d0f8c323d
       vertices: []
       indices: 
       edges: []
@@ -252,12 +223,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7584d1e248644ad43bd819511570c6bb
+    spriteID: 3e8aad7cbb6976a4a8f1481ced25fd23
     vertices: []
     indices: 
     edges: []
     weights: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

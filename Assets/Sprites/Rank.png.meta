@@ -1,20 +1,17 @@
 fileFormatVersion: 2
-guid: 77e4496ff9eecb544929dd1866f6c58f
+guid: abbe3fba2d3bf604799a1d868ea78240
 TextureImporter:
   fileIDToRecycleName:
-    21300000: UI -sprite sheet_0
-    21300002: UI -sprite sheet_1
-    21300004: UI -sprite sheet_2
-    21300006: UI -sprite sheet_3
-    21300008: UI -sprite sheet_4
-    21300010: UI -sprite sheet_5
-    21300012: UI -sprite sheet_6
-    21300014: UI -sprite sheet_7
-    21300016: UI -sprite sheet_8
-    21300018: UI -sprite sheet_9
-    21300020: UI -sprite sheet_10
-    21300022: UI -sprite sheet_11
-    21300024: UI -sprite sheet_12
+    21300000: Rank_0
+    21300002: Rank_1
+    21300004: Rank_2
+    21300006: Rank_3
+    21300008: Rank_4
+    21300010: Rank_5
+    21300012: Rank_6
+    21300014: Rank_7
+    21300016: Rank_8
+    21300018: Rank_9
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -58,7 +55,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 37
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,261 +105,201 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI -sprite sheet_0
+      name: Rank_0
       rect:
         serializedVersion: 2
-        x: 152
-        y: 167
-        width: 1080
-        height: 1924
+        x: 71
+        y: 82
+        width: 403
+        height: 716
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b44ddf972d4c3e49926a59702b63c3d
+      spriteID: c997ee56ad0db5a4a9564d0d049119cc
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_1
+      name: Rank_1
       rect:
         serializedVersion: 2
-        x: 1419
-        y: 1734
-        width: 350
-        height: 353
+        x: 618
+        y: 628
+        width: 215
+        height: 175
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db6cb401444781c4790ada549448443a
+      spriteID: f68ea397b2eda2f4d8e02e52ff6f83f2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_2
+      name: Rank_2
       rect:
         serializedVersion: 2
-        x: 1460
-        y: 1495
-        width: 131
-        height: 120
+        x: 508
+        y: 461
+        width: 98
+        height: 129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbbf1c404e077241b7b7654be0fda89
+      spriteID: c0a49b02ba9c23f40b2caa60e220903a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_3
+      name: Rank_3
       rect:
         serializedVersion: 2
-        x: 1675
-        y: 1501
-        width: 131
-        height: 119
+        x: 633
+        y: 473
+        width: 310
+        height: 90
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e08a397373a077541bb8e1b73c008544
+      spriteID: 9a0c6576d99bd86419046bf689b381d2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_4
+      name: Rank_4
       rect:
         serializedVersion: 2
-        x: 2316
-        y: 1495
-        width: 131
-        height: 120
+        x: 508
+        y: 343
+        width: 98
+        height: 104
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f78a2fc8a755d240b90a28b416591f7
+      spriteID: 788aeaf4a3f6e664094f8a3bb99b3a8d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_5
+      name: Rank_5
       rect:
         serializedVersion: 2
-        x: 1466
-        y: 1293
-        width: 131
-        height: 121
+        x: 733
+        y: 423
+        width: 67
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5fcf396a94676b40b383af03c865ded
+      spriteID: 06f861498143bbe478f8cb4c40b21a75
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_6
+      name: Rank_6
       rect:
         serializedVersion: 2
-        x: 1670
-        y: 1287
-        width: 131
-        height: 119
+        x: 660
+        y: 356
+        width: 50
+        height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 958cc6abd85ef4f4f8d507b5b6aa1fe7
+      spriteID: c3fa079669d29e14d9bd43c3c2ef05ff
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_7
+      name: Rank_7
       rect:
         serializedVersion: 2
-        x: 1713
-        y: 986
-        width: 103
-        height: 115
-      alignment: 9
-      pivot: {x: 0.39410815, y: 0.50000215}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fcc6c8a4d01404d44abfa014e7f658f4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI -sprite sheet_8
-      rect:
-        serializedVersion: 2
-        x: 1930
-        y: 984
-        width: 100
-        height: 114
-      alignment: 9
-      pivot: {x: 0.4454663, y: 0.50000215}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c1b93fb46579994f8ff9828776d7835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI -sprite sheet_9
-      rect:
-        serializedVersion: 2
-        x: 2143
-        y: 988
-        width: 101
-        height: 110
+        x: 731
+        y: 356
+        width: 50
+        height: 47
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7be4e5ba35949cb44833a8c3ad47a760
+      spriteID: ace34d764d534534e9a61ad519ff0f62
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_10
+      name: Rank_8
       rect:
         serializedVersion: 2
-        x: 1691
-        y: 839
-        width: 100
-        height: 114
-      alignment: 9
-      pivot: {x: 0.6363391, y: 0.5478392}
+        x: 506
+        y: 224
+        width: 98
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05a2bb21347a8954e99d3f828350b71b
+      spriteID: b93a05a32838fdf428d786ebef968fca
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI -sprite sheet_11
+      name: Rank_9
       rect:
         serializedVersion: 2
-        x: 1878
-        y: 833
-        width: 101
-        height: 116
-      alignment: 9
-      pivot: {x: 0.58099544, y: 0.5000021}
+        x: 634
+        y: 208
+        width: 341
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eccb22861c78ea04e92021d02a7ecd49
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI -sprite sheet_12
-      rect:
-        serializedVersion: 2
-        x: 2081
-        y: 827
-        width: 105
-        height: 115
-      alignment: 9
-      pivot: {x: 0.603876, y: 0.5000011}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 890e88b18e5be21438c2aa3e8a89493d
+      spriteID: d9479de89c6e3ae43bfaf919d544378d
       vertices: []
       indices: 
       edges: []
@@ -370,7 +307,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d53938d265345834894c31dc1eb15ee7
+    spriteID: c7014b9b8617d2e418f98d4600e687ac
     vertices: []
     indices: 
     edges: []
