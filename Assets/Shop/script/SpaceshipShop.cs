@@ -29,6 +29,7 @@ public class SpaceshipShop : MonoBehaviour {
             holder.ItemHolder_1.transform.GetChild(4).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
             // Buy first item
             if (spaceshipList[i].bought) {
+
             }
             else
             {
@@ -43,6 +44,7 @@ public class SpaceshipShop : MonoBehaviour {
             // Buy second item
             if (spaceshipList[i].bought)
             {
+
             }
             else
             {

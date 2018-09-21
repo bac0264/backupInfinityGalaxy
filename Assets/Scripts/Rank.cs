@@ -86,6 +86,7 @@ public class Rank : MonoBehaviour
         }
         else
         {
+
         }
 
     }
@@ -123,7 +124,7 @@ public class Rank : MonoBehaviour
         Rect rec = new Rect(0, 0, textFb.width, textFb.height);
         img.Add(Sprite.Create(textFb, rec, new Vector2(0, 0), .01f));
 
-      /*  GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
+        GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
         rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
         rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
         if (imgnum <= 2)
@@ -137,14 +138,14 @@ public class Rank : MonoBehaviour
         }
         //GameObject item = Instantiate(imgPref, friendsPhotoContainer);
         //item.GetComponent<Image>().sprite = img[imgnum];
-        imgnum++;*/
+        imgnum++;
     }
     void DisplayProfilePic(IGraphResult result)
     {
 
         if (result.Texture != null)
         {
-          /*  GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
+            GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
             if (rankButton != null)
             {
                 img.Add(Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2()));
@@ -154,7 +155,7 @@ public class Rank : MonoBehaviour
                 rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
                 rankButton.transform.GetChild(0).GetChild(4).GetComponent<RectTransform>().sizeDelta = new Vector2(1.6f, 2);
                 imgnum++;
-            }*/
+            }
         }
     }
 }

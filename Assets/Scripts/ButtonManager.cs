@@ -22,7 +22,7 @@ public class ButtonManager : MonoBehaviour
         //    Fade.instance.FadeIn = true;
         //    Fade.instance.sceneName = "SelectPlanet";
         //}
-        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 2.0f);
+        Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
         GameObject button = GameObject.FindGameObjectWithTag("ButtonMenu");
         if (button != null)
         {

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class BuyButton : MonoBehaviour {
     public int spaceshipID;
+    public bool select;
+    public GameObject Panel;
     public void _buyButton()
     {
         if (spaceshipID == 0) {
@@ -13,18 +15,24 @@ public class BuyButton : MonoBehaviour {
         Debug.Log(SpaceshipShop.instance);
         for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
         {
+            // check id
             if (spaceshipID == SpaceshipShop.instance.spaceshipList[i].spaceshipID)
             {
+                Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
+                Panel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "Do u want to buy it";
+                // check bought
                 if (!SpaceshipShop.instance.spaceshipList[i].bought)
                 {
-                    if (ShopManager.instance.requestMoney(SpaceshipShop.instance.spaceshipList[i].Gold))
-                    {
-                        SpaceshipShop.instance.spaceshipList[i].bought = true;
-                        ShopManager.instance.reduceMoney(SpaceshipShop.instance.spaceshipList[i].Gold);
-                        Debug.Log(SpaceshipShop.instance.spaceshipList[i].Gold);
-                        break;
-                    }
+                    Instantiate(Panel, null);
                 }
+                else
+                {
+
+                }
+            }
+            else
+            {
+
             }
         }
     }
