@@ -18,6 +18,8 @@ public class BuyingPanel : MonoBehaviour {
             SpaceshipShop.instance.spaceshipList[i].bought = true;
             ShopManager.instance.reduceMoney(SpaceshipShop.instance.spaceshipList[i].Gold);
             Debug.Log(SpaceshipShop.instance.spaceshipList[i].Gold);
+            BuyButton.instance.UpdateBuyButton();
+
         }
         else    
         {

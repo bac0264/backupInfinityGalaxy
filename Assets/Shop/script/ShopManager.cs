@@ -6,9 +6,10 @@ public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
     [SerializeField]
-    private float Gold;
-    private float Diamond;
+    public float Gold;
+    public float Diamond;
     private bool touching = false;
+    public int curSpaceshipID;
     public Text goldText;
     public Text diamondText;
     Vector2 ScrollVelocity;

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpaceshipShop : MonoBehaviour {
+public class SpaceshipShop : MonoBehaviour
+{
     public static SpaceshipShop instance;
     public List<SpaceShip> spaceshipList = new List<SpaceShip>();
 
@@ -17,7 +18,8 @@ public class SpaceshipShop : MonoBehaviour {
     // Load spaceshipList
     void FillList()
     {
-        for (int i = 0; i < spaceshipList.Count; i++) {
+        for (int i = 0; i < spaceshipList.Count; i++)
+        {
             GameObject spaceship = Instantiate(Holder, list, false);
             Holder holder = spaceship.GetComponent<Holder>();
 
@@ -28,7 +30,8 @@ public class SpaceshipShop : MonoBehaviour {
             spaceshipScript_1.spriteName.sprite = spaceshipList[i].spriteName;
             holder.ItemHolder_1.transform.GetChild(4).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
             // Buy first item
-            if (spaceshipList[i].bought) {
+            if (spaceshipList[i].bought)
+            {
 
             }
             else
@@ -49,6 +52,20 @@ public class SpaceshipShop : MonoBehaviour {
             else
             {
 
+            }
+        }
+    }
+    public void UpdateBuyButtons()
+    {
+        for (int i = 0; i < spaceshipList.Count; i++)
+        {
+            if (spaceshipList[i].bought && instance.spaceshipList[i].spaceshipID == ShopManager.instance.curSpaceshipID)
+            {
+                Debug.Log("index:" +spaceshipList[i] + "Use");
+            }
+            else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID != ShopManager.instance.curSpaceshipID)
+            {
+                Debug.Log("Using");
             }
         }
     }

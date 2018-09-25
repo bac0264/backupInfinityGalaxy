@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 1e33d1dc719795142a36ea6071550940
+guid: dabb54fb8c1f1074d8f5e63fd6814ac5
 TextureImporter:
   fileIDToRecycleName:
-    21300000: selectlevel_0
-    21300002: selectlevel_1
-    21300004: selectlevel_2
-    21300006: selectlevel_3
+    21300000: Map15_0
+    21300002: Map15_1
+    21300004: Map15_2
+    21300006: Map15_3
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 53
+  spritePixelsToUnits: 48
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: selectlevel_0
+      name: Map15_0
       rect:
         serializedVersion: 2
-        x: 178
-        y: 58
-        width: 580
-        height: 2052
+        x: 41
+        y: 36
+        width: 526
+        height: 1864
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,19 +111,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c03b401e40dd8641981f961cabba8aa
+      spriteID: 550ed75a35d53d646b62b3059e2fc04a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: selectlevel_1
+      name: Map15_1
       rect:
         serializedVersion: 2
-        x: 894
-        y: 58
-        width: 580
-        height: 2052
+        x: 650
+        y: 36
+        width: 526
+        height: 1864
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,19 +131,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f039ad09a02fdec49a32a8272fd5878d
+      spriteID: e273cc6a826a94b41ac90573e80b7726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: selectlevel_2
+      name: Map15_2
       rect:
         serializedVersion: 2
-        x: 1594
-        y: 58
-        width: 581
-        height: 2052
+        x: 1274
+        y: 36
+        width: 526
+        height: 1864
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,19 +151,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb0043e173ce6e42897f4c632d8b77a
+      spriteID: e732624fe7d5a4a4a924d5fb581a39c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: selectlevel_3
+      name: Map15_3
       rect:
         serializedVersion: 2
-        x: 2302
-        y: 58
-        width: 580
-        height: 2052
+        x: 1905
+        y: 36
+        width: 527
+        height: 1864
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f69783cfe5b6974caa743f009be451f
+      spriteID: f68e43ca570cab64891aa2d5baf573c9
       vertices: []
       indices: 
       edges: []
@@ -179,7 +179,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b07d720fa844efe49b47783634f29f11
+    spriteID: 256f223a589d2574faceaa486a029ba2
     vertices: []
     indices: 
     edges: []
