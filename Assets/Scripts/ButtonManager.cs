@@ -8,7 +8,7 @@ public class ButtonManager : MonoBehaviour
     GameObject map;
     GameObject setting;
     bool check;
-    private void Start()
+    private void Awake()
     {
         map = GameObject.FindGameObjectWithTag("Map");
         setting = GameObject.Find("Setting");
@@ -55,6 +55,11 @@ public class ButtonManager : MonoBehaviour
         //    Fade.instance.check = true;
         //    Fade.instance.FadeIn = true;
         //    Fade.instance.sceneName = "SelectPlanet";
+        Debug.Log(SaveLoad.instance);
+        if(SaveLoad.instance != null)
+        {
+            SaveLoad.instance.saving();
+        }
         Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
         if (map != null)
         {
@@ -136,8 +141,7 @@ public class ButtonManager : MonoBehaviour
         else
         {
             if (setting != null)
-            {
-                setting.GetComponent<Animator>().Play("BackSetting");
+            {                setting.GetComponent<Animator>().Play("BackSetting");
                 yield return new WaitForSeconds(0.6f);
             }
             check = true;

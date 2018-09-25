@@ -35,6 +35,7 @@ public class SelectPlanetManager : MonoBehaviour
         _setOpenPlanet();
         _setSpaceshipPosition();
         _setNameScene();
+      // PlayerPrefs.SetInt("IsGameStartedForTheFirstTime");
     }
     private void Start()
     {

@@ -8,11 +8,12 @@ public class ItemHolder : MonoBehaviour {
     public Text spaceshipName;
     public Image spriteName;
     public Text Gold;
+    public Text Diamond;
     bool Selected = false;
     public void Select()
     {
         Selected = true;
-        transform.DOScale(1.0f, 0.1f).From().OnComplete(SelectComplete);
+        gameObject.GetComponent<RectTransform>().DOScale(1.0f, 0.15f).From().OnComplete(SelectComplete);
     }
     void SelectComplete()
     {
@@ -25,8 +26,6 @@ public class ItemHolder : MonoBehaviour {
             float distaneToCamera = ((Vector2)transform.position - (Vector2)Camera.main.transform.position).magnitude*2;
             if (distaneToCamera < Camera.main.orthographicSize)
             {
-                Debug.Log(distaneToCamera);
-                Debug.Log(Camera.main.orthographicSize);
                 float size = 0.8f + 0.5f * (Camera.main.orthographicSize - distaneToCamera) / Camera.main.orthographicSize;
                 if (size > 1f) size = 1f;
                 transform.localScale = new Vector3(size, size);

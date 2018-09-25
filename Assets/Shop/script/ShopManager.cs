@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 public class ShopManager : MonoBehaviour
 {
     public static ShopManager instance;
@@ -14,7 +15,9 @@ public class ShopManager : MonoBehaviour
     public Text diamondText;
     Vector2 ScrollVelocity;
     Vector2 beginPos;
-    private void Start()
+    float limitUp;
+    float limitDown;
+    private void Awake()
     {
         if (instance == null) instance = this;
         UpdateUI();

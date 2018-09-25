@@ -17,7 +17,6 @@ public class BuyButton : MonoBehaviour {
             Debug.Log("Error");
             return;
         }
-        Debug.Log(SpaceshipShop.instance);
         for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
         {
             // check id
@@ -43,6 +42,7 @@ public class BuyButton : MonoBehaviour {
     }
     public void UpdateBuyButton()
     {
-        SpaceshipShop.instance.UpdateBuyButtons();
+        if (SpaceshipShop.instance != null)
+            SpaceshipShop.instance.UpdateBuyButtons();
     }
 }
