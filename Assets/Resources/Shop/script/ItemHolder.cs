@@ -6,9 +6,11 @@ using DG.Tweening;
 public class ItemHolder : MonoBehaviour {
     public Text id;
     public Text spaceshipName;
-    public Image spriteName;
+    public Image sprite;
     public Text Gold;
     public Text Diamond;
+    public Sprite[] Types;
+    public Image Marked;
     bool Selected = false;
     public void Select()
     {
@@ -35,5 +37,20 @@ public class ItemHolder : MonoBehaviour {
                 transform.localScale = new Vector3(0.8f, 0.8f);
             }
         }
+    }
+    public Sprite _types(int index) {
+        switch (index)
+        {
+            case 0: return Types[0];
+
+            case 1: return Types[1];
+
+            case 2: return Types[2];
+    
+            case 3: return Types[3];
+     
+            default: break;
+        }
+        return null; 
     }
 }

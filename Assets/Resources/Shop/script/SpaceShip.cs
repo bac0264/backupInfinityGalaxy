@@ -9,6 +9,6 @@ public class SpaceShip {
     public string spriteName;
     public float Gold;
     public bool bought;
-
+    public float Diamond;
 
 }

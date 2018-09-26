@@ -37,7 +37,7 @@ public class ShopManager : MonoBehaviour
         if (amount <= Gold) return true;
         return false;
     }
-    void UpdateUI()
+    public void UpdateUI()
     {
         if (goldText != null)
             goldText.text = Gold.ToString();

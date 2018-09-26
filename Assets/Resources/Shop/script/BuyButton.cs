@@ -7,7 +7,7 @@ public class BuyButton : MonoBehaviour {
     public int spaceshipID;
     public bool select;
     public GameObject Panel;
-    private void Start()
+    private void Awake()
     {
         if (instance != null) instance = this;
     }
@@ -27,11 +27,15 @@ public class BuyButton : MonoBehaviour {
                 // check bought
                 if (!SpaceshipShop.instance.spaceshipList[i].bought)
                 {
+                    Debug.Log("not bought");
                     Instantiate(Panel, null);
                 }
                 else 
                 {
+                    Debug.Log("bought");
+                    Debug.Log("using");
                     ShopManager.instance.curSpaceshipID = spaceshipID;
+                    UpdateBuyButton();
                 }
             }
             else
