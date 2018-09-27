@@ -35,7 +35,6 @@ public class SaveLoad : MonoBehaviour
         for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
         {
             saveData.shopList.Add(SpaceshipShop.instance.spaceshipList[i]);
-            Debug.Log("index "+i+":"+SpaceshipShop.instance.spaceshipList[i].bought);
         }
         for (int i = 0; i < SpaceshipShop.instance.buybuttonList.Count; i++)
         {
@@ -70,12 +69,10 @@ public class SaveLoad : MonoBehaviour
                 for (int i = 0; i < saveData.buybuttonList.Count; i++)
                 {
                     SpaceshipShop.instance.buybuttonList.Add(saveData.buybuttonList[i]);
-                    Debug.Log("index " + i + ":" + SpaceshipShop.instance.spaceshipList[i].bought);
                 }
                 for (int i = 0; i < saveData.shopList.Count; i++)
                 {
                     SpaceshipShop.instance.spaceshipList[i] = saveData.shopList[i];
-                    Debug.Log("index " + i + ":" + SpaceshipShop.instance.spaceshipList[i].bought);
                 }
             }
         }

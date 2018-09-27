@@ -27,13 +27,11 @@ public class BuyButton : MonoBehaviour {
                 // check bought
                 if (!SpaceshipShop.instance.spaceshipList[i].bought)
                 {
-                    Debug.Log("not bought");
                     Instantiate(Panel, null);
                 }
                 else 
                 {
-                    Debug.Log("bought");
-                    Debug.Log("using");
+                    PlayerPrefs.SetInt("Spaceship", spaceshipID);
                     ShopManager.instance.curSpaceshipID = spaceshipID;
                     UpdateBuyButton();
                 }

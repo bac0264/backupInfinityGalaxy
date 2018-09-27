@@ -56,6 +56,7 @@ public class SelectPlanetManager : MonoBehaviour
             PlayerPrefs.SetInt("CompleteLastPlanet", 0);
             PlayerPrefs.SetInt("IsGameStartedForTheFirstTime", 0);
             PlayerPrefs.SetInt("PlayerLevel", 0);
+            PlayerPrefs.SetInt("Spaceship",1);
         }
 
     }
@@ -73,7 +74,7 @@ public class SelectPlanetManager : MonoBehaviour
     }
     void _setOpenPlanet()
     {
-        PlayerPrefs.SetInt("CompleteLastPlanet", 3);
+        //PlayerPrefs.SetInt("CompleteLastPlanet", 3);
         complete = PlayerPrefs.GetInt("CompleteLastPlanet");
         PlanetContainer.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = imageList[0];
         for (int i = 1; i < PlanetContainer.childCount; i++)
@@ -82,13 +83,13 @@ public class SelectPlanetManager : MonoBehaviour
             {
                 PlanetContainer.transform.GetChild(i).GetChild(0).gameObject.SetActive(true);
                 PlanetContainer.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = imageList[i];
-                PlanetContainer.transform.GetChild(i).GetComponent<Collider2D>().enabled = true;
+                //PlanetContainer.transform.GetChild(i).GetComponent<Collider2D>().enabled = true;
             }
             else
             {
                 PlanetContainer.transform.GetChild(i).GetChild(0).gameObject.SetActive(false);
                 PlanetContainer.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = imageList[i + 3];
-                PlanetContainer.transform.GetChild(i).GetComponent<Collider2D>().enabled = false;
+                //PlanetContainer.transform.GetChild(i).GetComponent<Collider2D>().enabled = false;
             }
         }
     }

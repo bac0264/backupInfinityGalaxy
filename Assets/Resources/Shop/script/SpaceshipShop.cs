@@ -18,6 +18,8 @@ public class SpaceshipShop : MonoBehaviour
     }
     private void Start()
     {
+        ShopManager.instance.curSpaceshipID = PlayerPrefs.GetInt("Spaceship");
+        Debug.Log("Cur:" + ShopManager.instance.curSpaceshipID);
         SaveLoad.instance.loading();
         FillList();
     }
@@ -25,6 +27,11 @@ public class SpaceshipShop : MonoBehaviour
     {
         Sprite[] sprites ;
         sprites = Resources.LoadAll<Sprite>("Shop/sprite/PT");
+        if (spaceshipList != null) {
+            spaceshipList[0].bought = true;
+            buybuttonList.Add(spaceshipList[0]);
+            Debug.Log("ss0:"+spaceshipList[0].spaceshipID);
+        }
         for (int i = 0; i < spaceshipList.Count; i++)
         {
             GameObject spaceship = Instantiate(Holder, list, false);
@@ -86,43 +93,44 @@ public class SpaceshipShop : MonoBehaviour
     }
     public void UpdateBuyButtons()
     {
-        Debug.Log(saveHolder.Count);
-        Debug.Log("Update Shop: ");
         int curID = ShopManager.instance.curSpaceshipID;
+        PlayerPrefs.SetInt("Spaceship", curID);
         for (int j = 0; j < buybuttonList.Count; j++)
         {
             for (int i = 0; i < spaceshipList.Count; i++)
             {
+                int div = i % 2;
                 if (spaceshipList[i].bought && spaceshipList[i].spaceshipID != curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
-                {
-                    if (i % 2 == 0)
+                {                   
+                    if (div == 0)
                     {
                         Debug.Log("index:" + spaceshipList[i].spaceshipID + "Use");
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(2);
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
                     }
                     else {
-                        saveHolder[i / 2].transform.GetChild(1).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(2);
-                        saveHolder[i / 2].transform.GetChild(1).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(1).GetChild(5).gameObject.SetActive(true);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(2);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
                     }
 
                 }
                 else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID == curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
+                   
                     if (i % 2 == 0)
                     {
                         Debug.Log("using");
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(3);
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(3);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
                     }
                     else
                     {
-                        saveHolder[i / 2].transform.GetChild(1).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(3);
-                        saveHolder[i / 2].transform.GetChild(1).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(3);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
                     }
                 }
             }

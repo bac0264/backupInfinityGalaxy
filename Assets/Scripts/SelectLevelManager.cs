@@ -83,11 +83,13 @@ public class SelectLevelManager : MonoBehaviour
     }
     void LevelClick(GameObject obj, int lv)
     {
-        if (map != null)
+        SceneManager.LoadScene("MainGame");
+        /*if (map != null)
         {
             map.GetComponent<Map>().pos = Camera.main.transform.position;
             map.GetComponent<Map>().transform.GetChild(0).gameObject.SetActive(false);
             map.GetComponent<Map>().transform.GetChild(1).gameObject.SetActive(false);
+            
         }
         if (Fade.instance != null)
         {
@@ -95,7 +97,7 @@ public class SelectLevelManager : MonoBehaviour
             Fade.instance.FadeIn = true;
             Fade.instance.sceneName = "MainGame";
         }
-       // _enableButton(false);
+       // _enableButton(false);*/
     }
     public static void setPlanetID(int x)
     {

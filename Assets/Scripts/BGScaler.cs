@@ -7,10 +7,14 @@ public class BGScaler : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //float screenHeight = Camera.main.orthographicSize * 2f;
-        //float bgHeight = GetComponent<SpriteRenderer>().bounds.size.y;
-        //float screenWidth = screenHeight * Screen.width / Screen.height;
-        //float bgWidth = GetComponent<SpriteRenderer>().bounds.size.x;
-        //transform.localScale = new Vector3(screenWidth / bgWidth, transform.localPosition.y);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        Vector3 tempScale = transform.localScale;
+        float height = sr.bounds.size.y;
+        float width = sr.bounds.size.x;
+        float WorldHeight = Camera.main.orthographicSize * 2f;
+        float WorldWidth = WorldHeight * Screen.width / Screen.height;
+        tempScale.y = WorldHeight / height;
+        tempScale.x = WorldWidth / width;
+        transform.localScale = tempScale;
     }
 }
