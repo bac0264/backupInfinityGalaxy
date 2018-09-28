@@ -19,21 +19,22 @@ public class SpaceshipShop : MonoBehaviour
     private void Start()
     {
         ShopManager.instance.curSpaceshipID = PlayerPrefs.GetInt("Spaceship");
-        Debug.Log("Cur:" + ShopManager.instance.curSpaceshipID);
         SaveLoad.instance.loading();
         FillList();
     }
     void FillList()
     {
+        // Load image
         Sprite[] sprites ;
         sprites = Resources.LoadAll<Sprite>("Shop/sprite/PT");
         if (spaceshipList != null) {
+            // Load 
             spaceshipList[0].bought = true;
             buybuttonList.Add(spaceshipList[0]);
-            Debug.Log("ss0:"+spaceshipList[0].spaceshipID);
         }
         for (int i = 0; i < spaceshipList.Count; i++)
         {
+            // Make list shop
             GameObject spaceship = Instantiate(Holder, list, false);
             Holder holder = spaceship.GetComponent<Holder>();
 
@@ -100,11 +101,11 @@ public class SpaceshipShop : MonoBehaviour
             for (int i = 0; i < spaceshipList.Count; i++)
             {
                 int div = i % 2;
+                // ss were bought but not used
                 if (spaceshipList[i].bought && spaceshipList[i].spaceshipID != curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {                   
                     if (div == 0)
                     {
-                        Debug.Log("index:" + spaceshipList[i].spaceshipID + "Use");
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
@@ -116,12 +117,12 @@ public class SpaceshipShop : MonoBehaviour
                     }
 
                 }
+                // ss were bought but used
                 else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID == curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
                    
                     if (i % 2 == 0)
                     {
-                        Debug.Log("using");
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(3);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);

@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpaceshipList : MonoBehaviour {
-    public List<Sprite> head = new List<Sprite>();
-    public List<Sprite> tail = new List<Sprite>();
-    private void Start()
+    public List<GameObject> ss = new List<GameObject>();
+    private void Awake()
     {
         updateSS();
     }
     void updateSS()
     {
-        Debug.Log("Update SS");
+        for(int j = 0; j < transform.childCount; j++)
+        {
+            Destroy(transform.GetChild(j));
+        }
         int i = PlayerPrefs.GetInt("Spaceship") - 1 ;
-        Debug.Log("index:" + i);
-        transform.GetChild(0).GetComponent <SpriteRenderer>().sprite = head[i];
-        transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = tail[i%3];
+        Instantiate(ss[i], transform);
     }
 }

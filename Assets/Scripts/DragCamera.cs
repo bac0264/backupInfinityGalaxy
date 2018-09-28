@@ -8,14 +8,31 @@ public class DragCamera : MonoBehaviour
     // Use this for initialization
     public float speed = 100f;
     public float limitDown = 0;
-    public float limitUp = 40.0f;
+    [SerializeField]
+    private float limitUp;
     Vector3 MouseStart;
     Vector3 ScrollVelocity;
     private bool touching;
-    private void Awake()
+    private void Start()
     {
         if (instance == null)
             instance = this;
+        float rate_1 = 2.0f / 3;
+        float rate_2 = 9.0f / 18;
+        float rate_3 = 1080.0f / 1920;
+        float temp = (float)Screen.width / Screen.height;
+        Debug.Log(temp);
+        if (temp == rate_3)
+            limitUp = 16.55f;
+        else if (temp == rate_2)
+        {
+            limitUp = 21.0f;
+        }
+        else if (-0.1f < (temp - rate_1) && (temp - rate_1) < 0.1f)
+        {
+            limitUp = 28.5f;
+        }
+        else limitUp = 21.0f;
     }
     private void FixedUpdate()
     {

@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class AppearPlanet
@@ -22,6 +23,8 @@ public enum GameLimit{
 public class PlanetGenerator : SerializedMonoBehaviour
 {
     //public GameObject PlanetPrefab;
+    [BoxGroup("Texture create background")]
+    public Texture2D loi, lom;
     LineRenderer Line;
     [BoxGroup("Game Limit")]
     public GameLimit gameLimit;
@@ -42,8 +45,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
     // Use this for initialization
     void Start () {
         Line = GetComponentInChildren<LineRenderer>();
-        Camera.main.orthographicSize = ((6 + 1) * 1.0f / Screen.width * Screen.height) / 2;
+        //Camera.main.orthographicSize = ((6 + 1) * 1.0f / Screen.width * Screen.height) / 2;
         Camera.main.transform.position = new Vector3(2.5f,3.5f, -10f);
+        setBackground(matrixIns);
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
@@ -63,14 +67,63 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 }
             }
         }
+        
 	}
+    void setBackground(GameObject[,] matrixIns)
+    {
+        Texture2D res = new Texture2D(100*6+30, 100*7+30, TextureFormat.ARGB32,false);
+        for (int i = 0; i < res.width; i++)
+        {
+            for (int j = 0; j < res.height; j++)
+            {
+                res.SetPixel(i, j, new Color(0, 0, 0, 0));
+            }
+        }
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                if (matrixIns[i, 6-j] != null)
+                {
+                    for (int k = 0; k < loi.width; k++)
+                    {
+                        for (int l = 0; l < loi.height; l++)
+                        {
+                            if(loi.GetPixel(k, l).a> res.GetPixel(i * 100 + k, j * 100 + l).a)
+                                res.SetPixel(i * 100 + k, j * 100 + l, loi.GetPixel(k, l));
+                        }
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                if ((matrixIns[i, 5-j] != null && matrixIns[i + 1, 5 - j + 1]!=null) || (matrixIns[i + 1, 5 - j] != null && matrixIns[i, 5 - j + 1]!=null))
+                {
+                    for (int k = 0; k < lom.width; k++)
+                    {
+                        for (int l = 0; l < lom.height; l++)
+                        {
+                            if(lom.GetPixel(k, l).a > res.GetPixel(i * 100 + 85 + k, j * 100 + 85 + l).a)
+                                res.SetPixel(i * 100 + 85 + k, j * 100 + 85 + l, lom.GetPixel(k, l));
+                        }
+                    }
+                }
+            }
+        }
+        res.Apply();
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));
+        //File.WriteAllBytes("D:/Saved.png", res.EncodeToPNG());
+    }
     GameObject rndPlanet()
     {
         return appearPlanet[UnityEngine.Random.Range(0, appearPlanet.Count)].Planet;
         //return null;
     }
     // Update is called once per frame
-    void Update () {
+    void FixedUpdate () {
         if (Input.GetMouseButtonDown(0) && !touching)
         {
             touching = true;
@@ -117,7 +170,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 //cham vien dau tien
                 planetConnected.Add(curObj);
                 curObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                curObj.GetComponent<Animator>().SetTrigger("Touched");
+                //curObj.GetComponent<Animator>().SetTrigger("Touched");
+                curObj.transform.DOScale(1.2f, 0.2f);
+                curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);
                 //Dat mau line la mau diem chinh giua cua planet
                 Color lineColor = curObj.GetComponent<PlanetElement>().GetPlanetColor();
                 Line.SetColors(lineColor, lineColor);
@@ -133,7 +188,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
                     //khong thuoc cac vien da noi
                     planetConnected.Add(curObj);
                     curObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                    curObj.GetComponent<Animator>().SetTrigger("Touched");
+                    //curObj.GetComponent<Animator>().SetTrigger("Touched");
+                    curObj.transform.DOScale(1.2f, 0.2f);
+                    curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);
                 }
                 else
                 {
@@ -148,16 +205,18 @@ public class PlanetGenerator : SerializedMonoBehaviour
                         }
                         else if(saveLoopPos == new Vector3(-1, -1, -1) && curObj != planetConnected[planetConnected.Count - 1])
                         {
-                            /*//noi thanh vong
+                            //noi thanh vong
                             saveLoopPos = curObj.transform.position;
                             for (int i = 0; i < 6; i++)
                             {
                                 for (int j = 0; j < 6; j++)
                                 {
                                     if(matrix[i, j].GetComponent<SpriteRenderer>().sprite == planetConnected[0].GetComponent<SpriteRenderer>().sprite)
-                                        matrix[i,j].GetComponent<Animator>().SetTrigger("Touched");
+                                        // matrix[i,j].GetComponent<Animator>().SetTrigger("Touched");
+                                        matrix[i, j].transform.DOScale(1.2f, 0.2f);
+                                        matrix[i, j].transform.DOScale(1f, 0.2f).SetDelay(0.2f);
                                 }
-                            }*/
+                            }
                         }
                     }
                 }
@@ -172,7 +231,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
         Line.positionCount = planetConnected.Count + 1;
         for (int i = 0; i < planetConnected.Count; i++)
         {
-            Vector3 tempPos = planetConnected[i].transform.position;
+            Vector3 tempPos = planetConnected[i].transform.localPosition;
             tempPos.z = -0.01f;
             Line.SetPosition(i, tempPos);
         }

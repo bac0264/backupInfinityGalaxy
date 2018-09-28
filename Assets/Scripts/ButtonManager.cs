@@ -55,11 +55,6 @@ public class ButtonManager : MonoBehaviour
         //    Fade.instance.check = true;
         //    Fade.instance.FadeIn = true;
         //    Fade.instance.sceneName = "SelectPlanet";
-        Debug.Log(SaveLoad.instance);
-        if(SaveLoad.instance != null)
-        {
-            SaveLoad.instance.saving();
-        }
         Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 4.0f);
         if (map != null)
         {
@@ -67,6 +62,32 @@ public class ButtonManager : MonoBehaviour
             map.transform.GetChild(1).gameObject.SetActive(false);
             StartCoroutine(timetoTransforms());
        // }
+        }
+    }
+    public void _BackingButtonShop()
+    {
+        if (SaveLoad.instance != null)
+        {
+            SaveLoad.instance.saving();
+        }
+        Initiate.Fade(PlayerPrefs.GetString("Scene"),new Color(0, 0, 0, 1), 4.0f);
+        if (map != null)
+        {
+            map.transform.GetChild(0).gameObject.SetActive(false);
+            map.transform.GetChild(1).gameObject.SetActive(false);
+            StartCoroutine(timetoTransforms());
+            // }
+        }
+    }
+    public void _BackingButtonRank()
+    {
+        Initiate.Fade(PlayerPrefs.GetString("Scene"), new Color(0, 0, 0, 1), 4.0f);
+        if (map != null)
+        {
+            map.transform.GetChild(0).gameObject.SetActive(false);
+            map.transform.GetChild(1).gameObject.SetActive(false);
+            StartCoroutine(timetoTransforms());
+            // }
         }
     }
     public void _nextresetGameScene()

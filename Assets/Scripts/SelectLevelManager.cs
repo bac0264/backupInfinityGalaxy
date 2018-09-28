@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
-
 public class SelectLevelManager : MonoBehaviour
 {
     public GameObject ItemPrefab;
@@ -19,7 +18,8 @@ public class SelectLevelManager : MonoBehaviour
     // Use this for initializationS
     private void Start()
     {
-        Debug.Log("Start");
+        Scene getName = SceneManager.GetActiveScene();
+        PlayerPrefs.SetString("Scene", getName.name);
         //if (Fade.instance != null)
         //{
         //    if (Fade.instance.check == true)

@@ -24,6 +24,8 @@ public class SelectPlanetManager : MonoBehaviour
     //Vector2 temp = new Vector2();
     private void Awake()
     {
+        Scene getName = SceneManager.GetActiveScene();
+        PlayerPrefs.SetString("Scene", getName.name);
         if (Map.instance != null) Destroy(Map.instance);
         int i = 0;
         foreach (GameObject _planet in planets)
