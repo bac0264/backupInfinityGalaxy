@@ -1,35 +1,35 @@
 fileFormatVersion: 2
-guid: 2a75f1886f5f2964ebacf6202da5b533
+guid: 68b3b3e357c368a4d97b8118ec9b5dcc
 TextureImporter:
   fileIDToRecycleName:
-    21300000: planets sprite sheet_0
-    21300002: planets sprite sheet_1
-    21300004: planets sprite sheet_2
-    21300006: planets sprite sheet_3
-    21300008: planets sprite sheet_4
-    21300010: planets sprite sheet_5
-    21300012: planets sprite sheet_6
-    21300014: planets sprite sheet_7
-    21300016: planets sprite sheet_8
-    21300018: planets sprite sheet_9
-    21300020: planets sprite sheet_10
-    21300022: planets sprite sheet_11
-    21300024: planets sprite sheet_12
-    21300026: planets sprite sheet_13
-    21300028: planets sprite sheet_14
-    21300030: planets sprite sheet_15
-    21300032: planets sprite sheet_16
-    21300034: planets sprite sheet_17
-    21300036: planets sprite sheet_18
-    21300038: planets sprite sheet_19
-    21300040: planets sprite sheet_20
-    21300042: planets sprite sheet_21
-    21300044: planets sprite sheet_22
-    21300046: planets sprite sheet_23
-    21300048: planets sprite sheet_24
-    21300050: planets sprite sheet_25
-    21300052: planets sprite sheet_26
-    21300054: planets sprite sheet_27
+    21300000: phi thuyenn_0
+    21300002: phi thuyenn_1
+    21300004: phi thuyenn_2
+    21300006: phi thuyenn_3
+    21300008: phi thuyenn_4
+    21300010: phi thuyenn_5
+    21300012: phi thuyenn_6
+    21300014: phi thuyenn_7
+    21300016: phi thuyenn_8
+    21300018: phi thuyenn_9
+    21300020: phi thuyenn_10
+    21300022: phi thuyenn_11
+    21300024: phi thuyenn_12
+    21300026: phi thuyenn_13
+    21300028: phi thuyenn_14
+    21300030: phi thuyenn_15
+    21300032: phi thuyenn_16
+    21300034: phi thuyenn_17
+    21300036: phi thuyenn_18
+    21300038: phi thuyenn_19
+    21300040: phi thuyenn_20
+    21300042: phi thuyenn_21
+    21300044: phi thuyenn_22
+    21300046: phi thuyenn_23
+    21300048: phi thuyenn_24
+    21300050: phi thuyenn_25
+    21300052: phi thuyenn_26
+    21300054: phi thuyenn_27
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -73,7 +73,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -91,7 +91,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: planets sprite sheet_0
+      name: phi thuyenn_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 435
-        width: 161
-        height: 127
+        x: 110
+        y: 1735
+        width: 643
+        height: 510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,19 +137,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22aefaae4b9da714885cdc8ce2484166
+      spriteID: 70b76b41f449d4148a398c0d90f6d88e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_1
+      name: phi thuyenn_1
       rect:
         serializedVersion: 2
-        x: 257
-        y: 435
-        width: 130
-        height: 127
+        x: 1026
+        y: 1735
+        width: 518
+        height: 510
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,19 +157,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e17fd9171fcb233459295a1e8bbbcf25
+      spriteID: 3e64e14099dc1344eb06453883268cf5
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_2
+      name: phi thuyenn_2
       rect:
         serializedVersion: 2
-        x: 424
-        y: 540
-        width: 20
-        height: 19
+        x: 1692
+        y: 2156
+        width: 78
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,19 +177,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6de0b93662f84744a5a043cd9c96dd6
+      spriteID: d3d9081e23be8214e9283443bbf25e89
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_3
+      name: phi thuyenn_3
       rect:
         serializedVersion: 2
-        x: 526
-        y: 439
-        width: 161
-        height: 128
+        x: 2097
+        y: 1751
+        width: 644
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,19 +197,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01a140ba96dd6f044bac8077658ff7c9
+      spriteID: fe557acacbebbf240b56b4a85ecdaca7
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_4
+      name: phi thuyenn_4
       rect:
         serializedVersion: 2
-        x: 756
-        y: 439
-        width: 130
-        height: 128
+        x: 3014
+        y: 1751
+        width: 518
+        height: 512
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,19 +217,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a509bf65c94905a418b6d7a8b11e96d8
+      spriteID: c21e98a21cbce8a48a737232cb40975c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_5
+      name: phi thuyenn_5
       rect:
         serializedVersion: 2
-        x: 922
-        y: 545
-        width: 20
-        height: 18
+        x: 3680
+        y: 2173
+        width: 78
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,19 +237,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fda23b42a6688b64e98fdd7920e61ef0
+      spriteID: 3fd19e8528bc7e14f804fa9422c9543a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_6
+      name: phi thuyenn_6
       rect:
         serializedVersion: 2
-        x: 431
-        y: 509
-        width: 13
-        height: 14
+        x: 1719
+        y: 2031
+        width: 51
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,19 +257,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4f500dc3b8ce1447b76ee2fd78e16c9
+      spriteID: d895c59b9d84a9244b1945ccfc0c9482
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_7
+      name: phi thuyenn_7
       rect:
         serializedVersion: 2
-        x: 929
-        y: 513
-        width: 13
-        height: 15
+        x: 3706
+        y: 2047
+        width: 52
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,19 +277,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 471cdf6ab331efa44b2ecdbf7d8b38ed
+      spriteID: 96c3b4c6c4d21d9448aaaf064ec46c53
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_8
+      name: phi thuyenn_8
       rect:
         serializedVersion: 2
-        x: 426
-        y: 476
-        width: 23
-        height: 15
+        x: 1699
+        y: 1901
+        width: 92
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,19 +297,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3464068f783cff741a5119880fe11b57
+      spriteID: 92df2af9380142146bf3274f71232e65
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_9
+      name: phi thuyenn_9
       rect:
         serializedVersion: 2
-        x: 924
-        y: 481
-        width: 23
-        height: 14
+        x: 3686
+        y: 1918
+        width: 94
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -317,19 +317,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90c494d6346fece46815db79bb5e0b53
+      spriteID: 384240a03c255904c9f6c898e896b8fa
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_10
+      name: phi thuyenn_10
       rect:
         serializedVersion: 2
-        x: 416
-        y: 438
-        width: 42
-        height: 21
+        x: 1657
+        y: 1749
+        width: 171
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,199 +337,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36fa50ed64212cd4681a46758bea5bcc
+      spriteID: 20b29092b5c0d9346a3a78fb2fee205a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_11
+      name: phi thuyenn_11
       rect:
         serializedVersion: 2
-        x: 914
-        y: 442
-        width: 43
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dfedb3be0e808ed43a4294f9695d4a10
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_12
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 244
-        width: 153
-        height: 144
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cca5de377bdc894681b2235b5d93236
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_13
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 254
-        width: 152
-        height: 134
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38cccd0e234aa4a45a71a0336cdf584e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_14
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 346
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6031137d146d984494971c216a64273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_15
-      rect:
-        serializedVersion: 2
-        x: 539
-        y: 236
-        width: 152
-        height: 143
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a6794066a2185644b54d357d9511780
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_16
-      rect:
-        serializedVersion: 2
-        x: 767
-        y: 246
-        width: 152
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71c47dd309cb883418565c9a47278067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_17
-      rect:
-        serializedVersion: 2
-        x: 942
-        y: 337
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 370c24d536d35b54e877e697ba3cd455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_18
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 287
-        width: 23
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15d9b9f5e6aa3224b854c244dc6a9551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_19
-      rect:
-        serializedVersion: 2
-        x: 937
-        y: 278
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0aa916a8dff3de4caae7f765f829f73
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: planets sprite sheet_20
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 59
+        x: 3645
+        y: 1766
         width: 172
-        height: 144
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -537,19 +357,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9acdfbcafed9ad48a9744daa75ff07b
+      spriteID: 91006b9601501e849ae5ae8a3cc63265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_21
+      name: phi thuyenn_12
       rect:
         serializedVersion: 2
-        x: 248
-        y: 53
-        width: 172
-        height: 134
+        x: 141
+        y: 975
+        width: 610
+        height: 573
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -557,19 +377,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dffac4a2f956c143ae555504f23d847
+      spriteID: defb36a5b560a0d46a92402c684da40a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_22
+      name: phi thuyenn_13
       rect:
         serializedVersion: 2
-        x: 438
-        y: 112
-        width: 27
-        height: 26
+        x: 1051
+        y: 1016
+        width: 609
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -577,19 +397,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2920e87d6d1d1fe42ad937a9b33dc4ba
+      spriteID: b0f569d4f13fdb84d9acea2746987f3b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_23
+      name: phi thuyenn_14
       rect:
         serializedVersion: 2
-        x: 537
-        y: 46
-        width: 172
-        height: 144
+        x: 1748
+        y: 1380
+        width: 57
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -597,19 +417,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6eddc0de78aeb534984c10f4d3953efd
+      spriteID: 6a4520b768b0d6c4e97fe21570b6da2f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_24
+      name: phi thuyenn_15
       rect:
         serializedVersion: 2
-        x: 753
-        y: 45
-        width: 173
-        height: 134
+        x: 2151
+        y: 940
+        width: 610
+        height: 573
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -617,19 +437,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c621e17ea7c70f49b1066962bb3a1ee
+      spriteID: 189d8c8be826991488652a73d639e23b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_25
+      name: phi thuyenn_16
       rect:
         serializedVersion: 2
-        x: 944
-        y: 104
-        width: 26
-        height: 26
+        x: 3061
+        y: 981
+        width: 610
+        height: 532
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,19 +457,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37f7ffaab0459eb4c99520b3fe80ab0b
+      spriteID: 3f7601592444e544bb31eb8be8459aa6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_26
+      name: phi thuyenn_17
       rect:
         serializedVersion: 2
-        x: 445
-        y: 84
-        width: 13
-        height: 13
+        x: 3758
+        y: 1345
+        width: 57
+        height: 57
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -657,19 +477,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6d989824436def41ba21d7719c5ecca
+      spriteID: 84367951a898aaf46ae3a3b8ce4b1581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: planets sprite sheet_27
+      name: phi thuyenn_18
       rect:
         serializedVersion: 2
-        x: 950
-        y: 76
-        width: 13
-        height: 13
+        x: 1729
+        y: 1143
+        width: 89
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -677,7 +497,187 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab06c8d503063a14095983f2895deea1
+      spriteID: 134bf505e88babc43bff67527575aff7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_19
+      rect:
+        serializedVersion: 2
+        x: 3739
+        y: 1108
+        width: 89
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f11582c8d8b95db46a7a1cf978540b21
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_20
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 237
+        width: 689
+        height: 574
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e65f85f5c57c554499aedb76281ee064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_21
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 211
+        width: 689
+        height: 534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a65fe4fc3858246834f47d11d5d0d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_22
+      rect:
+        serializedVersion: 2
+        x: 1748
+        y: 445
+        width: 105
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21895457827680046843f9da9b8a93d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_23
+      rect:
+        serializedVersion: 2
+        x: 2142
+        y: 184
+        width: 689
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 124582ed847d47a46948777adcd89776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_24
+      rect:
+        serializedVersion: 2
+        x: 3004
+        y: 180
+        width: 690
+        height: 534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e65f24e1e4569c419a09053a854544c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_25
+      rect:
+        serializedVersion: 2
+        x: 3764
+        y: 414
+        width: 105
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b56740aa1d0e9d4f8781d9a235c29fc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_26
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 336
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabadefb1be2d73489c355038557122f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: phi thuyenn_27
+      rect:
+        serializedVersion: 2
+        x: 3791
+        y: 303
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41543550ee37c2b48a4b270d5b558c58
       vertices: []
       indices: 
       edges: []
@@ -685,7 +685,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 202c9e804d37c274596344661fe3863a
+    spriteID: 8393a7a8676a7884cb0412de1047ab08
     vertices: []
     indices: 
     edges: []
