@@ -16,6 +16,7 @@ public class ItemHolder : MonoBehaviour {
     {
         Selected = true;
         gameObject.GetComponent<RectTransform>().DOScale(1.0f, 0.15f).From().OnComplete(SelectComplete);
+        //SelectComplete();
     }
     void SelectComplete()
     {

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BG_Scaler : MonoBehaviour {
-
-    void Awake()
+    void Start()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Vector3 tempScale = transform.localScale;

@@ -17,6 +17,7 @@ public class BuyButton : MonoBehaviour {
             Debug.Log("Error");
             return;
         }
+       // gameObject.GetComponent<Animator>().Play("PickUp");
         for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
         {
             // check id
