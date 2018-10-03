@@ -23,12 +23,13 @@ public class BuyButton : MonoBehaviour {
             // check id
             if (spaceshipID == SpaceshipShop.instance.spaceshipList[i].spaceshipID)
             {
-                Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
-                Panel.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "Do u want to buy it";
                 // check bought
                 if (!SpaceshipShop.instance.spaceshipList[i].bought)
                 {
+                    Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
+                    Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do u want to buy it";
                     Instantiate(Panel, null);
+                   // Panel.GetComponent<Animator>().Play("In");
                 }
                 else 
                 {

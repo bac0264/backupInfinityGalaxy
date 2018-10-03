@@ -15,6 +15,7 @@ TagManager:
   - Facebook
   - Panel
   - container
+  - Drag Camera
   layers:
   - Default
   - TransparentFX

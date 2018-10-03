@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 114335575869207212}
   - component: {fileID: 114667004725902888}
   - component: {fileID: 61076102595517254}
-  - component: {fileID: 95121544467211748}
   m_Layer: 5
   m_Name: itemHolder (2)
   m_TagString: Untagged
@@ -285,7 +284,6 @@ GameObject:
   - component: {fileID: 114978741518066106}
   - component: {fileID: 114756907377102088}
   - component: {fileID: 61030189243869468}
-  - component: {fileID: 95866115590844738}
   m_Layer: 5
   m_Name: itemHolder
   m_TagString: Untagged
@@ -360,24 +358,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.019944, y: 3.5135384}
   m_EdgeRadius: 0
---- !u!95 &95121544467211748
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1053375890184360}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43b9052a75d47bc4e9edfc61f40dab74, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95830165306494348
 Animator:
   serializedVersion: 3
@@ -388,24 +368,6 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f854d0778ddd3f94c99125c25de1c7df, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95866115590844738
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864245184015732}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 43b9052a75d47bc4e9edfc61f40dab74, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

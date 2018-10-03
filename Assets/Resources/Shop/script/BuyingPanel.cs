@@ -9,7 +9,8 @@ public class BuyingPanel : MonoBehaviour {
     GameObject Container;
     private void Start()
     {
-        Container = GameObject.FindGameObjectWithTag("container");
+        gameObject.GetComponent<Animator>().Play("In");
+        gameObject.GetComponent<Animator>().SetBool("In", false);
     }
     public void isYes()
     {
@@ -32,10 +33,17 @@ public class BuyingPanel : MonoBehaviour {
         Destroy(gameObject);
     }
     public void isNo() {
-        Destroy(gameObject);
+        StartCoroutine(loadAnimation());
     }
     public void isExit()
     {
+        StartCoroutine(loadAnimation());
+    }
+    IEnumerator loadAnimation()
+    {
+        Animator ani = gameObject.GetComponent<Animator>();
+        ani.Play("out");
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

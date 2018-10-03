@@ -15,6 +15,7 @@ public class SpaceshipList : MonoBehaviour {
             Destroy(transform.GetChild(j));
         }
         int i = PlayerPrefs.GetInt("Spaceship") - 1 ;
-        Instantiate(ss[i], transform);
+        Debug.Log(i);
+        Instantiate(ss[i], gameObject.transform);
     }
 }

@@ -12,6 +12,10 @@ public class ItemHolder : MonoBehaviour {
     public Sprite[] Types;
     public Image Marked;
     bool Selected = false;
+    private void Start()
+    {
+        Selected = false;
+    }
     public void Select()
     {
         Selected = true;
@@ -29,13 +33,13 @@ public class ItemHolder : MonoBehaviour {
             float distaneToCamera = ((Vector2)transform.position - (Vector2)Camera.main.transform.position).magnitude*2;
             if (distaneToCamera < Camera.main.orthographicSize)
             {
-                float size = 0.8f + 0.5f * (Camera.main.orthographicSize - distaneToCamera) / Camera.main.orthographicSize;
+                float size = 0.7f + 0.5f * (Camera.main.orthographicSize - distaneToCamera) / Camera.main.orthographicSize;
                 if (size > 1f) size = 1f;
                 transform.localScale = new Vector3(size, size);
             }
             else
             {
-                transform.localScale = new Vector3(0.8f, 0.8f);
+                transform.localScale = new Vector3(0.7f, 0.7f);
             }
         }
     }

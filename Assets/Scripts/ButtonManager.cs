@@ -148,12 +148,25 @@ public class ButtonManager : MonoBehaviour
     }
     IEnumerator TimeToDo()
     {
+        GameObject panel = GameObject.FindGameObjectWithTag("Panel");
+        GameObject dragCam = GameObject.FindGameObjectWithTag("Drag Camera");
         if (check)
         {
             Debug.Log(map);
 
             if (setting != null)
             {
+                if (panel != null)
+                {
+                    panel.transform.GetChild(0).localScale = new Vector3(1.1f, 1.1f, 1);
+                }
+                if(dragCam != null)
+                {
+                    dragCam.GetComponent<DragCamera>().enabled = false;
+                }
+                if (Camera.main.gameObject.GetComponent<SelectPlanetManager>() != null) {
+                    Camera.main.gameObject.GetComponent<SelectPlanetManager>().enabled = false;
+                }
                 setting.GetComponent<Animator>().Play("Setting");
                 yield return new WaitForSeconds(0.8f);
             }
@@ -162,7 +175,20 @@ public class ButtonManager : MonoBehaviour
         else
         {
             if (setting != null)
-            {                setting.GetComponent<Animator>().Play("BackSetting");
+            {
+                if (panel != null)
+                {
+                    panel.transform.GetChild(0).localScale = new Vector3(0, 0, 1);
+                }
+                if (dragCam != null)
+                {
+                    dragCam.GetComponent<DragCamera>().enabled = true;
+                }
+                if (Camera.main.gameObject.GetComponent<SelectPlanetManager>() != null)
+                {
+                    Camera.main.gameObject.GetComponent<SelectPlanetManager>().enabled = true;
+                }
+                setting.GetComponent<Animator>().Play("BackSetting");
                 yield return new WaitForSeconds(0.6f);
             }
             check = true;
