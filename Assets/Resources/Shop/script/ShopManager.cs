@@ -14,6 +14,10 @@ public class ShopManager : MonoBehaviour
     public int curSpaceshipID;
     public Text goldText;
     public Text diamondText;
+    public float curGold;
+    public float curDiamond;
+
+
     Vector2 ScrollVelocity;
     Vector2 beginPos;
     float limitUp;

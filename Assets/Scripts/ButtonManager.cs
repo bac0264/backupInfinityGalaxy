@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using DG.Tweening;
 public class ButtonManager : MonoBehaviour
 {
     GameObject map;
@@ -152,15 +153,15 @@ public class ButtonManager : MonoBehaviour
         GameObject dragCam = GameObject.FindGameObjectWithTag("Drag Camera");
         if (check)
         {
-            Debug.Log(map);
 
             if (setting != null)
             {
                 if (panel != null)
                 {
-                    panel.transform.GetChild(0).localScale = new Vector3(1.1f, 1.1f, 1);
+                    panel.transform.GetChild(0).gameObject.SetActive(true);
+                    panel.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(0, 0, 0, 225f/255), 0.8f);
                 }
-                if(dragCam != null)
+                if (dragCam != null)
                 {
                     dragCam.GetComponent<DragCamera>().enabled = false;
                 }
@@ -178,7 +179,8 @@ public class ButtonManager : MonoBehaviour
             {
                 if (panel != null)
                 {
-                    panel.transform.GetChild(0).localScale = new Vector3(0, 0, 1);
+                    Tween fade = panel.transform.GetChild(0).GetComponent<Image>().DOColor(new Color(0, 0, 0, 0), 0.6f);
+                    // panel.transform.GetChild(0).localScale = new Vector3(0, 0, 1);
                 }
                 if (dragCam != null)
                 {
@@ -190,6 +192,7 @@ public class ButtonManager : MonoBehaviour
                 }
                 setting.GetComponent<Animator>().Play("BackSetting");
                 yield return new WaitForSeconds(0.6f);
+                panel.transform.GetChild(0).gameObject.SetActive(false);
             }
             check = true;
         }

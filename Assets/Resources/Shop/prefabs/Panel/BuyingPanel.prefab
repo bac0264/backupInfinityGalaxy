@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1076442994827950
 GameObject:
   m_ObjectHideFlags: 1
@@ -269,11 +269,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2fc6662f9e36b14393996b881bbdcf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curID: 4
-  warningPanel: {fileID: 1884790704509676, guid: c0eb1207d2509094dbe1c3b648e7ab08,
+  curID: 7
+  prefabTextEffect: {fileID: 1670316709731280, guid: 8288c889c1f9257469f9ca9f54d09075,
     type: 2}
-  successingPanel: {fileID: 1067405436593900, guid: c23e3318881afd449be575684370fb81,
-    type: 2}
+  subGoldButton: {fileID: 0}
+  subDiamondButton: {fileID: 0}
+  panel: {fileID: 1054157002267448}
 --- !u!114 &114094605022112454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,7 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

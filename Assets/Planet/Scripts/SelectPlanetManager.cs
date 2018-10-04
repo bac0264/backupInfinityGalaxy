@@ -52,7 +52,7 @@ public class SelectPlanetManager : MonoBehaviour
     void _IsGameStartedForTheFirstTime()
     {
 
-        if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
+       if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
         {
             PlayerPrefs.SetInt("PlayingPlanet", -1);
             PlayerPrefs.SetInt("CompleteLastPlanet", 0);

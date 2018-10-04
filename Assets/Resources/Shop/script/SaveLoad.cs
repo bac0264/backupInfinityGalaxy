@@ -52,8 +52,11 @@ public class SaveLoad : MonoBehaviour
         {
             print(e);
         }
-        Initiate.Fade(PlayerPrefs.GetString("Scene"), new Color(0, 0, 0, 1), 4.0f);
         print("saved data to " + Application.persistentDataPath + "/shop.txt");
+    }
+    public void Back()
+    {
+        Initiate.Fade(PlayerPrefs.GetString("Scene"), new Color(0, 0, 0, 1), 4.0f);
     }
     public void loading()
     {
