@@ -96,6 +96,7 @@ public class SpaceshipShop : MonoBehaviour
     {
         int curID = ShopManager.instance.curSpaceshipID;
         PlayerPrefs.SetInt("Spaceship", curID);
+        Debug.Log(PlayerPrefs.GetInt("Spaceship"));
         for (int j = 0; j < buybuttonList.Count; j++)
         {
             for (int i = 0; i < spaceshipList.Count; i++)
@@ -115,13 +116,12 @@ public class SpaceshipShop : MonoBehaviour
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
                     }
-
                 }
                 // ss were bought but used
                 else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID == curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
                    
-                    if (i % 2 == 0)
+                    if (i % 2 == 0) 
                     {
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(3);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
@@ -136,5 +136,6 @@ public class SpaceshipShop : MonoBehaviour
                 }
             }
         }
+        SaveLoad.instance.saving();
     }
 }

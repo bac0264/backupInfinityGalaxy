@@ -22,8 +22,6 @@ public class ItemHolder : MonoBehaviour {
         Selected = true;
         DOTween.Kill(select);
         select = gameObject.GetComponent<RectTransform>().DOScale(1f, 0.2f).From().OnComplete(SelectComplete);
-        //DOTween.Kill(select);
-        //SelectComplete();
     }
     void SelectComplete()
     {

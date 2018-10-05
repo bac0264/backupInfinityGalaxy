@@ -1,12 +1,13 @@
 fileFormatVersion: 2
-guid: 4f55d81e42f45224fa6de099351b85b3
+guid: 2ea9c281e41af1c41806c209f7f277fe
 TextureImporter:
   fileIDToRecycleName:
-    21300000: hanhtinxa_0
-    21300002: hanhtinxa_1
-    21300004: hanhtinxa_2
-    21300006: hanhtinxa_3
-    21300008: hanhtinxa_4
+    21300000: thienha4_0
+    21300002: thienha4_1
+    21300004: thienha4_2
+    21300006: thienha4_3
+    21300008: thienha4_4
+    21300010: thienha4_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -50,9 +51,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 38
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -100,101 +101,121 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hanhtinxa_0
+      name: thienha4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 77
-        width: 281
-        height: 147
-      alignment: 9
-      pivot: {x: 0.52793103, y: 0.49767858}
+        x: 132
+        y: 312
+        width: 699
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f01eaf6dc3d9f42b0c3b11deab3897
+      spriteID: e1c674e515755894b9bdfe8fd3d2a7c0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanhtinxa_1
+      name: thienha4_1
       rect:
         serializedVersion: 2
-        x: 347
-        y: 177
-        width: 56
-        height: 55
+        x: 872
+        y: 348
+        width: 699
+        height: 387
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8fdd6cd5759e71e4389e59eb74a9fb6e
+      spriteID: b1f00fba80d123049b905e8ef9f202be
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanhtinxa_2
+      name: thienha4_2
       rect:
         serializedVersion: 2
-        x: 358
-        y: 118
-        width: 34
-        height: 34
+        x: 1747
+        y: 612
+        width: 146
+        height: 146
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c4eb340d9b7654ab63beeebf04f064
+      spriteID: 54a8d9819b4c281448405c34babebab1
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanhtinxa_3
+      name: thienha4_3
       rect:
         serializedVersion: 2
-        x: 370
-        y: 82
-        width: 11
-        height: 11
+        x: 1776
+        y: 455
+        width: 90
+        height: 91
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5be8df89f3bd1340a43e944f2bef83a
+      spriteID: 398efae02718292479c6a370460911ba
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanhtinxa_4
+      name: thienha4_4
       rect:
         serializedVersion: 2
-        x: 367
-        y: 43
-        width: 14
-        height: 14
+        x: 1808
+        y: 361
+        width: 27
+        height: 28
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63ad99da20d6a734e9ef5d58d1a38339
+      spriteID: 1797c6a81022dea4aae02519e7ec9593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thienha4_5
+      rect:
+        serializedVersion: 2
+        x: 1799
+        y: 259
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52a8b0449c5cc36469e7289f4e3f9530
       vertices: []
       indices: 
       edges: []
@@ -202,7 +223,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: c0013af26cb779047a4e37e753ca8db2
+    spriteID: a890287028a05d549afceb4762f3f033
     vertices: []
     indices: 
     edges: []
