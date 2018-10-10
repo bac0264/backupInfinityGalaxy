@@ -8,6 +8,7 @@ public class SpaceshipShop : MonoBehaviour
     public List<SpaceShip> spaceshipList = new List<SpaceShip>();
     public List<SpaceShip> buybuttonList = new List<SpaceShip>();
     public List<GameObject> saveHolder = new List<GameObject>();
+    public List<Sprite> background = new List<Sprite>();
     public GameObject Holder;
     public Transform list;
 
@@ -48,6 +49,7 @@ public class SpaceshipShop : MonoBehaviour
             if (spaceshipList[i].bought)
             {
                 spaceshipScript_1.transform.GetChild(5).gameObject.SetActive(true);
+                spaceshipScript_1.GetComponent<Image>().sprite = background[0];
                 if (spaceshipList[i].spaceshipID == ShopManager.instance.curSpaceshipID)
                 {
                     spaceshipScript_1.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = spaceshipScript_1._types(3);
@@ -61,7 +63,8 @@ public class SpaceshipShop : MonoBehaviour
             }
             else
             {
-
+                spaceshipScript_1.GetComponent<Image>().sprite = background[1];
+                spaceshipScript_1.transform.GetChild(2).GetComponent<Image>().color = new Color(0,0,0,1);
             }
             ItemHolder spaceshipScript_2 = holder.ItemHolder_2.GetComponent<ItemHolder>();
             spaceshipScript_2.spaceshipName.text = spaceshipList[++i].spaceshipName;
@@ -73,6 +76,7 @@ public class SpaceshipShop : MonoBehaviour
             if (spaceshipList[i].bought)
             {
                 spaceshipScript_2.transform.GetChild(5).gameObject.SetActive(true);
+                spaceshipScript_2.GetComponent<Image>().sprite = background[0];
                 if (spaceshipList[i].spaceshipID == ShopManager.instance.curSpaceshipID)
                 {
                     spaceshipScript_2.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = spaceshipScript_2._types(3);
@@ -86,7 +90,8 @@ public class SpaceshipShop : MonoBehaviour
             }
             else
             {
-
+                spaceshipScript_2.GetComponent<Image>().sprite = background[1];
+                spaceshipScript_2.transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
             }
             saveHolder.Add(spaceship);
         }
@@ -104,35 +109,39 @@ public class SpaceshipShop : MonoBehaviour
                 int div = i % 2;
                 // ss were bought but not used
                 if (spaceshipList[i].bought && spaceshipList[i].spaceshipID != curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
-                {                   
-                    if (div == 0)
-                    {
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
+                {
+                    //if (div == 0)
+                    //{
+                    saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
-                    }
-                    else {
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(2);
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
-                    }
+                   // }
+                    //else {
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(2);
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
+                    //}
                 }
                 // ss were bought but used
                 else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID == curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
-                   
-                    if (i % 2 == 0) 
-                    {
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(0).GetComponent<ItemHolder>()._types(3);
+
+                    // if (i % 2 == 0) 
+                    //  {
+                    saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(3);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                         saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
-                    }
-                    else
-                    {
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(3);
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
-                        saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
-                    }
+                  //  }
+                    //else
+                    //{
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(1).GetComponent<ItemHolder>()._types(3);
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
+                    //    saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);
+                    //}
                 }
             }
         }

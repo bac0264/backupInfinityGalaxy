@@ -9,10 +9,10 @@ public class PlanetElement : MonoBehaviour {
     [SerializeField]
     private GameObject explosionEffect;
     // Use this for initialization
-    void Start () {
-        /*Sprite temp= ListNormalPlanet[Random.Range(0,8)];
-         GetComponentsInChildren<SpriteRenderer>()[0].sprite = temp;
-         GetComponentsInChildren<SpriteRenderer>()[1].sprite = temp;*/
+    IEnumerator Start () {
+        GetComponent<Animator>().enabled = false;
+        yield return new WaitForSeconds(Random.Range(0,2f));
+        GetComponent<Animator>().enabled = true;
     }
     public void Explosion()
     {
@@ -20,12 +20,11 @@ public class PlanetElement : MonoBehaviour {
         obj.GetComponentsInChildren<ParticleSystem>()[0].startColor = GetPlanetColor();
         obj.GetComponentsInChildren<ParticleSystem>()[2].startColor = GetPlanetColor();
         Destroy(obj, 1f);
-        transform.DOScale(0, 0.3f);
+        GetComponent<Animator>().SetTrigger("Destroyed");
         Destroy(gameObject, 0.3f);
     }
     public Color GetPlanetColor()
     {
-   
         Rect rect = gameObject.GetComponent<SpriteRenderer>().sprite.textureRect;
         return gameObject.GetComponent<SpriteRenderer>().sprite.texture.GetPixel((int)(rect.x + rect.width / 2), (int)(rect.y + rect.height / 2));
     }

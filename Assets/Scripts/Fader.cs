@@ -43,9 +43,9 @@ public class Fader : MonoBehaviour {
 		GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), myTex);
         //Fade in and out control
         if (isFadeIn)
-			alpha = Mathf.Lerp (alpha, -0.1f, fadeDamp * Time.deltaTime);
+			alpha = Mathf.Lerp (alpha, -0.5f, fadeDamp * Time.deltaTime);
 		else
-			alpha = Mathf.Lerp (alpha, 1.1f, fadeDamp * Time.deltaTime);
+			alpha = Mathf.Lerp (alpha, 1.5f, fadeDamp * Time.deltaTime);
         //Load scene
 		if (alpha >= 1 && !isFadeIn) {
             SceneManager.LoadScene(fadeScene);

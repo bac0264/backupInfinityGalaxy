@@ -2011,8 +2011,6 @@ public class Reporter : MonoBehaviour
 		}
 
 
-
-
 		// float startTime = Time.realtimeSinceStartup;
 		WWW www = new WWW(url);
 		yield return www;

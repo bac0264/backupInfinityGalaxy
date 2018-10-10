@@ -34,6 +34,7 @@ public class SaveLoad : MonoBehaviour
             saveData.curspaceshipID = ShopManager.instance.curSpaceshipID;
             Debug.Log(ShopManager.instance.curSpaceshipID);
             saveData.Diamond = ShopManager.instance.Diamond;
+            saveData.Gold = ShopManager.instance.Gold;
             for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
             {
                 saveData.shopList.Add(SpaceshipShop.instance.spaceshipList[i]);

@@ -1,7 +1,72 @@
 fileFormatVersion: 2
 guid: 57101822dfdb55444b323b2890e6dd7d
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Shop_Item_2_0
+    21300002: Shop_Item_2_1
+    21300004: Shop_Item_2_2
+    21300006: Shop_Item_2_3
+    21300008: Shop_Item_2_4
+    21300010: Shop_Item_2_5
+    21300012: Shop_Item_2_6
+    21300014: Shop_Item_2_7
+    21300016: Shop_Item_2_8
+    21300018: Shop_Item_2_9
+    21300020: Shop_Item_2_10
+    21300022: Shop_Item_2_11
+    21300024: Shop_Item_2_12
+    21300026: Shop_Item_2_13
+    21300028: Shop_Item_2_14
+    21300030: Shop_Item_2_15
+    21300032: Shop_Item_2_16
+    21300034: Shop_Item_2_17
+    21300036: Shop_Item_2_18
+    21300038: Shop_Item_2_19
+    21300040: Shop_Item_2_20
+    21300042: Shop_Item_2_21
+    21300044: Shop_Item_2_22
+    21300046: Shop_Item_2_23
+    21300048: Shop_Item_2_24
+    21300050: Shop_Item_2_25
+    21300052: Shop_Item_2_26
+    21300054: Shop_Item_2_27
+    21300056: Shop_Item_2_28
+    21300058: Shop_Item_2_29
+    21300060: Shop_Item_2_30
+    21300062: Shop_Item_2_31
+    21300064: Shop_Item_2_32
+    21300066: Shop_Item_2_33
+    21300068: Shop_Item_2_34
+    21300070: Shop_Item_2_35
+    21300072: Shop_Item_2_36
+    21300074: Shop_Item_2_37
+    21300076: Shop_Item_2_38
+    21300078: Shop_Item_2_39
+    21300080: Shop_Item_2_40
+    21300082: Shop_Item_2_41
+    21300084: Shop_Item_2_42
+    21300086: Shop_Item_2_43
+    21300088: Shop_Item_2_44
+    21300090: Shop_Item_2_45
+    21300092: Shop_Item_2_46
+    21300094: Shop_Item_2_47
+    21300096: Shop_Item_2_48
+    21300098: Shop_Item_2_49
+    21300100: Shop_Item_2_50
+    21300102: Shop_Item_2_51
+    21300104: Shop_Item_2_52
+    21300106: Shop_Item_2_53
+    21300108: Shop_Item_2_54
+    21300110: Shop_Item_2_55
+    21300112: Shop_Item_2_56
+    21300114: Shop_Item_2_57
+    21300116: Shop_Item_2_58
+    21300118: Shop_Item_2_59
+    21300120: Shop_Item_2_60
+    21300122: Shop_Item_2_61
+    21300124: Shop_Item_2_62
+    21300126: Shop_Item_2_63
+    21300128: Shop_Item_2_64
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -40,7 +105,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -69,9 +134,351 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Shop_Item_2_0
+      rect:
+        serializedVersion: 2
+        x: 2133
+        y: 2246
+        width: 86
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba63c3b7c35bf5046991f834430d7419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_1
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 299
+        width: 1083
+        height: 1923
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63bed24fc67e07045a9938019377aa92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_2
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 2080
+        width: 254
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8b1239eb037bd5439946eac33e3faef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_3
+      rect:
+        serializedVersion: 2
+        x: 2210
+        y: 2083
+        width: 252
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6210e53d206b6684a80414ab6e83d438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_4
+      rect:
+        serializedVersion: 2
+        x: 1811
+        y: 1718
+        width: 283
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 012ee14c6a251c4428c0a851d6426d2a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_5
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 1719
+        width: 284
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 963949b8dead1cd45b1f3bd1c2118214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_6
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1644
+        width: 120
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d9c8d196b09420409af573b804a1d39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_7
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 1632
+        width: 61
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3fdf6748eec66847a00ddd15b04142c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_8
+      rect:
+        serializedVersion: 2
+        x: 2305
+        y: 1636
+        width: 86
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c65a52ba117fc84fabe78abd72fe5ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_9
+      rect:
+        serializedVersion: 2
+        x: 2437
+        y: 1616
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c39b9eccc0f5a341b8dfc1afdea6e7c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_10
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 1148
+        width: 391
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff9bcc9848035040b2b7d0c11f90d7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_11
+      rect:
+        serializedVersion: 2
+        x: 2221
+        y: 1155
+        width: 393
+        height: 388
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98fa75b797e333545a84eeffc866696f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_12
+      rect:
+        serializedVersion: 2
+        x: 1804
+        y: 790
+        width: 253
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617dc997bb52e224088d277416941ae4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_13
+      rect:
+        serializedVersion: 2
+        x: 2274
+        y: 788
+        width: 258
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c716c884e2e1b6438b446cfca3d25f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_14
+      rect:
+        serializedVersion: 2
+        x: 2464
+        y: 754
+        width: 35
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf07b9cbef8bbb942901879bd67a8e3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Item_2_33
+      rect:
+        serializedVersion: 2
+        x: 2069
+        y: 86
+        width: 578
+        height: 472
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a61fe339634f2de43a752f217cb1c294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

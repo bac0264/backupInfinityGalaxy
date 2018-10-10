@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 220
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,10 +104,10 @@ TextureImporter:
       name: planet_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 240
-        width: 149
-        height: 149
+        x: 7
+        y: 120
+        width: 75
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,7 +115,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a898720e2c699047ad0d9b0d2797f26
+      spriteID: 64265bda5cff4554aade0981189ff3a8
       vertices: []
       indices: 
       edges: []
@@ -124,10 +124,10 @@ TextureImporter:
       name: planet_1
       rect:
         serializedVersion: 2
-        x: 196
-        y: 240
-        width: 191
-        height: 150
+        x: 98
+        y: 121
+        width: 96
+        height: 74
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,7 +135,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65b1a1f0ca19a114ebf8ca327015bbdc
+      spriteID: 440bce80db44fe94ebe54f289c9723a1
       vertices: []
       indices: 
       edges: []
@@ -144,10 +144,10 @@ TextureImporter:
       name: planet_2
       rect:
         serializedVersion: 2
-        x: 412
-        y: 226
-        width: 178
-        height: 174
+        x: 206
+        y: 113
+        width: 89
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 701064ded4c2c6d46ae62132e67d2e3f
+      spriteID: a604120d999bf3f46bff273aaf809c31
       vertices: []
       indices: 
       edges: []
@@ -164,10 +164,10 @@ TextureImporter:
       name: planet_3
       rect:
         serializedVersion: 2
-        x: 628
-        y: 232
-        width: 154
-        height: 152
+        x: 314
+        y: 116
+        width: 77
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,7 +175,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 963759599e42f8b41afec2d30d22ef51
+      spriteID: f0dca2ee9a70d1a4aabf9cdf937f0317
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: planet_4
       rect:
         serializedVersion: 2
-        x: 12
-        y: 41
-        width: 152
-        height: 153
+        x: 6
+        y: 20
+        width: 76
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,7 +195,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9a8a02b19dd4004e9ea01e314f16217
+      spriteID: 1fc9785536336aa46a373a9a07109df7
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
       name: planet_5
       rect:
         serializedVersion: 2
-        x: 202
-        y: 31
-        width: 158
-        height: 157
+        x: 100
+        y: 15
+        width: 80
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,7 +215,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f847ae3929fbf24691289ca7cc44ca7
+      spriteID: 58297bbbcd3ab014aa1f6babdd6a666e
       vertices: []
       indices: 
       edges: []
@@ -224,10 +224,10 @@ TextureImporter:
       name: planet_6
       rect:
         serializedVersion: 2
-        x: 416
-        y: 30
-        width: 148
-        height: 150
+        x: 208
+        y: 15
+        width: 74
+        height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,7 +235,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc8c622f59f34cc4d96cae82c0389817
+      spriteID: 94b2b7969a36dce4fac8f2db0435186d
       vertices: []
       indices: 
       edges: []
@@ -244,10 +244,10 @@ TextureImporter:
       name: planet_7
       rect:
         serializedVersion: 2
-        x: 618
-        y: 28
-        width: 171
-        height: 160
+        x: 309
+        y: 14
+        width: 86
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,7 +255,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e9ed7eab1d38834c95d015bcafde9f8
+      spriteID: c4f44cc29fbf42647b606334cb570660
       vertices: []
       indices: 
       edges: []

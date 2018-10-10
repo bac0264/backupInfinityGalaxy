@@ -5,36 +5,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class AppearPlanet
-{
-    public GameObject Planet;
-    public float PercentAppear;
-}
-public class TargetPlanet
-{
-    public GameObject Planet;
-    public int NumOfTarget;
-}
-public enum GameLimit{
-    Move,
-    Time
-}
 public class PlanetGenerator : SerializedMonoBehaviour
 {
     //public GameObject PlanetPrefab;
+    public GameObject flyPaticle;
     [BoxGroup("Texture create background")]
     public Texture2D loi, lom;
     LineRenderer Line;
-    [BoxGroup("Game Limit")]
-    public GameLimit gameLimit;
-    [BoxGroup("Game Limit")]
-    public int ValueLimit;
-    [BoxGroup("Score Star")]
-    public int oneStar, twoStar, threeStar;
-    public List<AppearPlanet> appearPlanet;
-    public List<TargetPlanet> targetPlanet;
-
     [TableMatrix(SquareCells = true)]
     public GameObject[,] matrixIns = new GameObject[6, 7];
     GameObject[,] matrix = new GameObject[6, 7];
@@ -42,8 +21,10 @@ public class PlanetGenerator : SerializedMonoBehaviour
     Vector3 saveLoopPos=new Vector3(-1,-1,-1);
     bool isFalling = false;
     bool touching = false;
+    float saveTime;
     // Use this for initialization
     void Start () {
+        Application.targetFrameRate = 60;
         Line = GetComponentInChildren<LineRenderer>();
         //Camera.main.orthographicSize = ((6 + 1) * 1.0f / Screen.width * Screen.height) / 2;
         Camera.main.transform.position = new Vector3(2.5f,3.5f, -10f);
@@ -71,7 +52,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
 	}
     void setBackground(GameObject[,] matrixIns)
     {
-        Texture2D res = new Texture2D(100*6+30, 100*7+30, TextureFormat.ARGB32,false);
+        Texture2D res = new Texture2D(100*6+lom.width/2, 100*7+lom.height/2, TextureFormat.ARGB32,false);
         for (int i = 0; i < res.width; i++)
         {
             for (int j = 0; j < res.height; j++)
@@ -106,20 +87,22 @@ public class PlanetGenerator : SerializedMonoBehaviour
                     {
                         for (int l = 0; l < lom.height; l++)
                         {
-                            if(lom.GetPixel(k, l).a > res.GetPixel(i * 100 + 85 + k, j * 100 + 85 + l).a)
-                                res.SetPixel(i * 100 + 85 + k, j * 100 + 85 + l, lom.GetPixel(k, l));
+                            if(lom.GetPixel(k, l).a > res.GetPixel(i * 100 + 90 + k, j * 100 + 90 + l).a)
+                                res.SetPixel(i * 100 + 90 + k, j * 100 + 90 + l, lom.GetPixel(k, l));
                         }
                     }
                 }
             }
         }
         res.Apply();
-        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));
+        Sprite tempSprite= Sprite.Create(res, new Rect(0, 0, res.width, res.height), new Vector2(0.5f, 0.5f));
+        gameObject.GetComponentInChildren<SpriteRenderer>().sprite = tempSprite;
+        gameObject.GetComponentInChildren<SpriteMask>().sprite = tempSprite;
         //File.WriteAllBytes("D:/Saved.png", res.EncodeToPNG());
     }
     GameObject rndPlanet()
     {
-        return appearPlanet[UnityEngine.Random.Range(0, appearPlanet.Count)].Planet;
+        return GetComponent<GamePlayManager>().getRandromPlanet();
         //return null;
     }
     // Update is called once per frame
@@ -138,11 +121,14 @@ public class PlanetGenerator : SerializedMonoBehaviour
             touching = false;
             touchEnd(Input.mousePosition);
         }
-        if (Input.touchCount > 0)
+      
+    }
+    private void Update()
+    {
+        /*if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                touching = true;
                 touchBegin(Input.GetTouch(0).position);
             }
             if (Input.GetTouch(0).phase == TouchPhase.Moved)
@@ -151,10 +137,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
             }
             if (Input.GetTouch(0).phase == TouchPhase.Ended)
             {
-                touching = false;
                 touchEnd(Input.GetTouch(0).position);
             }
-        }
+        }*/
     }
     private void touchBegin(Vector3 mousePosition)
     {
@@ -163,16 +148,16 @@ public class PlanetGenerator : SerializedMonoBehaviour
     private void touchMove(Vector3 mousePosition)
     {
         GameObject curObj = ObjectClicked(mousePosition);
-        if (curObj != null)
+        if (curObj != null && !isFalling)
         {
             if (planetConnected.Count == 0)
             {
                 //cham vien dau tien
                 planetConnected.Add(curObj);
                 curObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                //curObj.GetComponent<Animator>().SetTrigger("Touched");
-                curObj.transform.DOScale(1.2f, 0.2f);
-                curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);
+                curObj.GetComponent<Animator>().SetTrigger("Touched");
+                /*curObj.transform.DOScale(1.2f, 0.2f);
+                curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);*/
                 //Dat mau line la mau diem chinh giua cua planet
                 Color lineColor = curObj.GetComponent<PlanetElement>().GetPlanetColor();
                 Line.SetColors(lineColor, lineColor);
@@ -188,9 +173,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
                     //khong thuoc cac vien da noi
                     planetConnected.Add(curObj);
                     curObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
-                    //curObj.GetComponent<Animator>().SetTrigger("Touched");
-                    curObj.transform.DOScale(1.2f, 0.2f);
-                    curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);
+                    curObj.GetComponent<Animator>().SetTrigger("Touched");
+                    /*curObj.transform.DOScale(1.2f, 0.2f);
+                    curObj.transform.DOScale(1f, 0.2f).SetDelay(0.2f);*/
                 }
                 else
                 {
@@ -211,10 +196,14 @@ public class PlanetGenerator : SerializedMonoBehaviour
                             {
                                 for (int j = 0; j < 6; j++)
                                 {
-                                    if(matrix[i, j].GetComponent<SpriteRenderer>().sprite == planetConnected[0].GetComponent<SpriteRenderer>().sprite)
-                                        // matrix[i,j].GetComponent<Animator>().SetTrigger("Touched");
-                                        matrix[i, j].transform.DOScale(1.2f, 0.2f);
-                                        matrix[i, j].transform.DOScale(1f, 0.2f).SetDelay(0.2f);
+                                    if (matrix[i, j] != null)
+                                    {
+                                        if (matrix[i, j].GetComponent<SpriteRenderer>().sprite == planetConnected[0].GetComponent<SpriteRenderer>().sprite)
+                                            matrix[i, j].GetComponent<Animator>().SetTrigger("Touched");
+
+                                       /* matrix[i, j].transform.DOScale(1.2f, 0.2f);
+                                        matrix[i, j].transform.DOScale(1f, 0.2f).SetDelay(0.2f);*/
+                                    }
                                 }
                             }
                         }
@@ -226,7 +215,6 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 saveLoopPos = new Vector3(-1, -1, -1);
             }
         }
-        
         //DrawLine
         Line.positionCount = planetConnected.Count + 1;
         for (int i = 0; i < planetConnected.Count; i++)
@@ -260,39 +248,52 @@ public class PlanetGenerator : SerializedMonoBehaviour
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    if (matrix[i, j].GetComponent<SpriteRenderer>().sprite == temp)
-                        planetConnected.Add(matrix[i,j]);
+                    if (matrix[i, j] != null)
+                    {
+                        if (matrix[i, j].GetComponent<SpriteRenderer>().sprite == temp)
+                            planetConnected.Add(matrix[i, j]);
+                    }
                 }
             }
+            saveLoopPos=new Vector3(-1, -1, -1);
         }
 
         if (planetConnected.Count >= 2)
         {
             //AnDiem
+            saveTime = Time.timeSinceLevelLoad;
+           
             for (int i = 0; i < 6; i++)
             {
-                //Xet tung cot
-                int dropStep = 0;
                 for (int j = 0; j < 7; j++)
                 {
-                    if (dropStep != 0)
-                    {
-                        matrix[i, j - dropStep] = matrix[i, j];
-                        StartCoroutine(PlanetFalling(matrix[i, j - dropStep].transform, j - dropStep));
-                    }
                     if (planetConnected.IndexOf(matrix[i, j]) > -1)
                     {
-                        //thuoc day da noi
-                        dropStep++;
+                        matrix[i, j] = null;
                     }
                 }
-                //tao them 
-                for (int k = dropStep; k > 0; k--)
+                for (int j = 0; j < 7; j++)
                 {
-                    matrix[i, 7 - k] = Instantiate(rndPlanet(), new Vector3(i, 7 + dropStep - k, 0), Quaternion.identity, transform);
-                    //matrix[i, 6 - k].transform.DOMoveY(6 - k, 0.5f).SetEase(Ease.InCubic);
-                    StartCoroutine(PlanetFalling(matrix[i, 7 - k].transform, 7 - k));
-                    matrix[i, 7 - k].transform.DOScale(0, 0.2f).SetEase(Ease.OutCirc).From();
+                    if (matrix[i, j] == null && matrixIns[i, 6 - j] != null)
+                    {
+                        bool check = false;
+                        for (int k = j + 1; k < 7; k++)
+                        {
+                            if (matrix[i, k] != null)
+                            {
+                                matrix[i, j] = matrix[i, k];
+                                StartCoroutine(PlanetFalling(matrix[i, j].transform, j));
+                                matrix[i, k] = null;
+                                check = true; break;
+                                
+                            }
+                        }
+                        if (!check)
+                        {
+                            matrix[i, j] = Instantiate(rndPlanet(), new Vector3(i, 7 , 0), Quaternion.identity, transform);
+                            StartCoroutine(PlanetFalling(matrix[i, j].transform, j));
+                        }
+                    }
                 }
             }
             StartCoroutine(Explosion());
@@ -301,24 +302,63 @@ public class PlanetGenerator : SerializedMonoBehaviour
         }
         else if(planetConnected.Count==1)
         {
-            planetConnected[0].GetComponent<SpriteRenderer>().sortingOrder = 1;
+            planetConnected[0].GetComponent<SpriteRenderer>().sortingOrder = 0;
             planetConnected.Clear();
         }
         Line.positionCount = 0;
     }
     IEnumerator Explosion()
     {
+        TargetPlanet targetFly = null;
+        foreach (var item in GetComponent<GamePlayManager>().targetPlanet)
+        {
+            if (planetConnected[0].GetComponent<SpriteRenderer>().sprite == item.ItemTarget.GetComponent<Image>().sprite&& item.Count<item.NumOfTarget)
+            {
+                targetFly = item;
+                //set color
+                var col = flyPaticle.GetComponent<ParticleSystem>().colorOverLifetime;
+                col.enabled = true;
+                Gradient grad = new Gradient();
+                Color c = planetConnected[0].GetComponent<PlanetElement>().GetPlanetColor();
+                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(c, 0.3f), new GradientColorKey(c, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 0.4f), new GradientAlphaKey(0.0f, 1.0f) });
+
+                col.color = grad;
+                break;
+            }
+        }
+
         for (int i=0;i<planetConnected.Count;i++)
         {
             planetConnected[i].GetComponent<PlanetElement>().Explosion();
             if(planetConnected.Count-i<=6)
                 yield return new WaitForSeconds(0.08f);
+            GetComponent<GamePlayManager>().addScore(5*i);
+            if (targetFly != null)
+            {
+                GameObject particle = Instantiate(flyPaticle, new Vector3(planetConnected[i].transform.position.x, planetConnected[i].transform.position.y,-1f), Quaternion.identity);
+                float timeFly = 1.5f;
+                particle.transform.DOMove(targetFly.ItemTarget.transform.position, timeFly).SetEase(Ease.InOutCubic);
+                StartCoroutine(flyComplete(targetFly, timeFly));
+                Destroy(particle, timeFly);
+            }
         }
         planetConnected.Clear();
     }
+    IEnumerator flyComplete(TargetPlanet target,float time)
+    {
+        yield return new WaitForSeconds(time);
+        if(target.Count< target.NumOfTarget)
+        {
+            target.Count++;
+            target.ItemTarget.GetComponentInChildren<Text>().text = (target.NumOfTarget - target.Count).ToString();
+            DOTween.Kill("scoreAdd");
+            target.ItemTarget.transform.DOScale(1.3f, 0.05f).SetId("scoreAdd");
+            target.ItemTarget.transform.DOScale(1f, 0.2f).SetId("scoreAdd").SetDelay(0.05f);
+        }
+    }
     IEnumerator PlanetFalling(Transform transform,float endValue)
     {
-       
+        isFalling = true;
         yield return new WaitForSeconds(0.11f);
         float v = 0;
         do
@@ -348,38 +388,69 @@ public class PlanetGenerator : SerializedMonoBehaviour
             transform.DOMoveY(transform.position.y + 0.15f, 0.05f).SetEase(Ease.OutSine);
             transform.DOMoveY(transform.position.y, 0.05f).SetDelay(0.05f).SetEase(Ease.InSine);
         }
-       
+        yield return new WaitForSeconds(0.1f);
+        isFalling = false;
     }
     IEnumerator affterGetScore()
     {
-        yield return new WaitForSeconds(5f);
-        if (!canConnect())
+        do
         {
-         SwapPlanet();
+            yield return new WaitForEndOfFrame();
+        } while (isFalling);
+        //Debug.Log("roi xong "+(Time.timeSinceLevelLoad-saveTime));
+        bool swapped = false;
+        while (!canConnect())
+        {
+            swapped = true;
+            SwapPlanet();
         }
+        if (swapped)
+        {
+            isFalling = true;
+            for (int i = 0; i < 6; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (matrix[i, j] != null)
+                    {
+                        matrix[i, j].transform.DOMove(new Vector3(i, j, 0), 0.5f).SetEase(Ease.InOutQuad);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+            isFalling = false;
+        }
+
     }
     public void SwapPlanet()
     {
         List<GameObject> allObj = new List<GameObject>();
         foreach (var item in matrix)
         {
-            allObj.Add(item);
+            if(item!=null)
+                allObj.Add(item);
         }
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                matrix[i, j] = allObj[UnityEngine.Random.Range(0, allObj.Count)];
-                allObj.Remove(matrix[i, j]);
+                if (matrixIns[i, 6 - j] != null)
+                {
+                    matrix[i, j] = allObj[UnityEngine.Random.Range(0, allObj.Count)];
+                    allObj.Remove(matrix[i, j]);
+                }
             }
         }
-        for (int i = 0; i < 6; i++)
+       /* for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                matrix[i, j].transform.DOMove(new Vector3(i, j, 0), 1.5f).SetEase(Ease.OutBack); 
+                if (matrixIns[i, 6 - j] != null)
+                {
+                    matrix[i, j].transform.DOMove(new Vector3(i, j, 0), 1f).SetEase(Ease.OutCirc);
+                }
             }
-        }
+        }*/
     }
     bool canConnect()
     {
@@ -387,14 +458,14 @@ public class PlanetGenerator : SerializedMonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                if (getObj(i, j + 1) != null)
+                if (getObj(i, j + 1) != null && getObj(i, j) != null)
                 {
                     if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i, j + 1).GetComponent<SpriteRenderer>().sprite)
                     {
                         return true;
                     }
                 }
-                if (getObj(i + 1, j) != null)
+                if (getObj(i + 1, j) != null && getObj(i, j) != null)
                 {
                     if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i + 1, j).GetComponent<SpriteRenderer>().sprite)
                     {
