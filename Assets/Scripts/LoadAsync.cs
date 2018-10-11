@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class LoadAsync : MonoBehaviour
 {
+   // public Text loading;
     public Image fill;
     public GameObject btnGo;
     public GameObject panel;
@@ -33,6 +34,7 @@ public class LoadAsync : MonoBehaviour
             // [0, 0.9] > [0, 1]
             float progress = Mathf.Clamp01(ao.progress / 0.9f);
             Debug.Log("Loading progress: " + (progress * 100) + "%");
+           // loading.text = "Loading: " + (progress * 100) + "%";
             fill.fillAmount = progress;
             // Loading completed
             yield return null;

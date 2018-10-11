@@ -103,6 +103,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _rankingButton()
     {
+        //Scene getName = SceneManager.GetActiveScene();
+       // PlayerPrefs.SetString("Scene", getName.name);
         Initiate.Fade("rank", new Color(0, 0, 0, 1), 4.0f);
         if (map != null) StartCoroutine(timetoTransforms()); ;
     }
@@ -112,6 +114,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _shopButton()
     {
+        //Scene getName = SceneManager.GetActiveScene();
+       // PlayerPrefs.SetString("Scene", getName.name);
         Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
         if (map != null) StartCoroutine(timetoTransforms()); ;
     }

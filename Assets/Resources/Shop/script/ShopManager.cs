@@ -16,7 +16,7 @@ public class ShopManager : MonoBehaviour
     public Text diamondText;
     public float curGold;
     public float curDiamond;
-
+    public bool select;
 
     Vector2 ScrollVelocity;
     Vector2 beginPos;
@@ -95,7 +95,7 @@ public class ShopManager : MonoBehaviour
     void touchEnd(Vector2 screenPos)
     {
         GameObject selectItemHolder = ObjectClicked(screenPos);
-        if (selectItemHolder != null)
+        if (selectItemHolder != null && !select )
         {
             selectItemHolder.GetComponent<ItemHolder>().Select();
         }

@@ -41,6 +41,7 @@ public class BuyingPanel : MonoBehaviour {
             prefabTextEffect.transform.GetChild(0).GetComponent<Text>().text = "NOT ENOUGH";
             Instantiate(prefabTextEffect, SpaceshipShop.instance.saveHolder[i / 2].transform.GetChild(div));
         }
+        ShopManager.instance.select = false;
         Destroy(gameObject);
     }
     public void isNo() {
@@ -59,6 +60,7 @@ public class BuyingPanel : MonoBehaviour {
         Animator ani = gameObject.GetComponent<Animator>();
         ani.Play("out");
         yield return new WaitForSeconds(0.5f);
+        ShopManager.instance.select = false;
         Destroy(gameObject);
     }
 }

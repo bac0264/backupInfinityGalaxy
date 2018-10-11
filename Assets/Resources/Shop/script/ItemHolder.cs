@@ -19,9 +19,14 @@ public class ItemHolder : MonoBehaviour {
     }
     public void Select()
     {
-        Selected = true;
-        DOTween.Kill(select);
-        select = gameObject.GetComponent<RectTransform>().DOScale(1f, 0.2f).From().OnComplete(SelectComplete);
+        Selected = false;
+        StartCoroutine(timetoSelect());
+    }
+    IEnumerator timetoSelect()
+    {
+        gameObject.GetComponent<Animator>().Play("pickup");
+        yield return new WaitForSeconds(0.1f);
+        SelectComplete();
     }
     void SelectComplete()
     {

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class BuyButton : MonoBehaviour {
     public static BuyButton instance;
     public int spaceshipID;
-    public bool select;
     public GameObject Panel;
     private void Awake()
     {
@@ -26,6 +25,7 @@ public class BuyButton : MonoBehaviour {
                 // check bought
                 if (!SpaceshipShop.instance.spaceshipList[i].bought)
                 {
+                    ShopManager.instance.select = true;
                     Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
                     Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do u want to buy it";
                     Instantiate(Panel, null);

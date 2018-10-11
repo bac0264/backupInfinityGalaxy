@@ -607,6 +607,7 @@ MonoBehaviour:
   diamondText: {fileID: 524331118}
   curGold: 0
   curDiamond: 0
+  select: 0
 --- !u!114 &159571387
 MonoBehaviour:
   m_ObjectHideFlags: 0
