@@ -51,6 +51,7 @@ public class SpaceshipShop : MonoBehaviour
             {
                 spaceshipScript_1.transform.GetChild(5).gameObject.SetActive(true);
                 spaceshipScript_1.GetComponent<Image>().sprite = background[0];
+                spaceshipScript_1.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 245f/255, 100f/255, 225f/255);
                 if (spaceshipList[i].spaceshipID == ShopManager.instance.curSpaceshipID)
                 {
                     spaceshipScript_1.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = spaceshipScript_1._types(3);
@@ -62,10 +63,12 @@ public class SpaceshipShop : MonoBehaviour
                     spaceshipScript_1.transform.GetChild(3).GetChild(0).gameObject.SetActive(false);
                 }
             }
+            // Dont buy
             else
             {
                 spaceshipScript_1.GetComponent<Image>().sprite = background[1];
                 spaceshipScript_1.transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
+                spaceshipScript_1.transform.GetChild(0).GetComponent<Image>().color = new Color(0, 0, 0, 1);
             }
             ItemHolder spaceshipScript_2 = holder.ItemHolder_2.GetComponent<ItemHolder>();
             spaceshipScript_2.spaceshipName.text = spaceshipList[++i].spaceshipName;
@@ -77,6 +80,7 @@ public class SpaceshipShop : MonoBehaviour
             if (spaceshipList[i].bought)
             {
                 spaceshipScript_2.GetComponent<Image>().sprite = background[0];
+                spaceshipScript_2.transform.GetChild(0).GetComponent<Image>().color = new Color(1, 245f / 255, 100f / 255, 225f / 255);
                 if (spaceshipList[i].spaceshipID == ShopManager.instance.curSpaceshipID)
                 {
                     spaceshipScript_2.transform.GetChild(3).gameObject.GetComponent<Image>().sprite = spaceshipScript_2._types(3);
@@ -94,6 +98,7 @@ public class SpaceshipShop : MonoBehaviour
             {
                 spaceshipScript_2.GetComponent<Image>().sprite = background[1];
                 spaceshipScript_2.transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
+                spaceshipScript_2.transform.GetChild(0).GetComponent<Image>().color = new Color(0, 0, 0, 1);
             }
             saveHolder.Add(spaceship);
         }
