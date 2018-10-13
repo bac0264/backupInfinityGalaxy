@@ -112,6 +112,10 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("ListMap");
     }
+    public void BacktoSelectLV()
+    {
+        Initiate.Fade("SelectLevel", new Color(0, 0, 0, 1), 4.0f);
+    }
     public void _shopButton()
     {
         //Scene getName = SceneManager.GetActiveScene();

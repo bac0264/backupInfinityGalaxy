@@ -15,6 +15,7 @@ public class SelectLevelManager : MonoBehaviour
     public int IsWinning = 15;
     public Transform[] listContainer;
     GameObject map;
+    public GameObject loading;
     // Use this for initializationS
     private void Start()
     {
@@ -67,7 +68,7 @@ public class SelectLevelManager : MonoBehaviour
         {
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
-            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(item, lv); });
+            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading,item, lv); });
             if (i > playerLevel)
             {
                 item.transform.GetChild(0).GetComponent<Image>().sprite = lockImage;
@@ -81,9 +82,11 @@ public class SelectLevelManager : MonoBehaviour
             }
         }
     }
-    void LevelClick(GameObject obj, int lv)
+    void LevelClick(GameObject _loading, GameObject _item, int lv)
     {
-        SceneManager.LoadScene("MainGame");
+        // LoadAsync.instance.LoadingMainGame();
+        _loading.GetComponent<LoadAsync>().LoadingMainGame();
+      //  Initiate.Fade("MainGame", new Color(0, 0, 0, 1), 4.0f);
         /*if (map != null)
         {
             map.GetComponent<Map>().pos = Camera.main.transform.position;

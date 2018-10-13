@@ -16,7 +16,8 @@ public class BuyButton : MonoBehaviour {
             Debug.Log("Error");
             return;
         }
-       // gameObject.GetComponent<Animator>().Play("PickUp");
+        // gameObject.GetComponent<Animator>().Play("PickUp");
+        Debug.Log("Spaceshipid: " +spaceshipID);
         for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
         {
             // check id
@@ -27,7 +28,7 @@ public class BuyButton : MonoBehaviour {
                 {
                     ShopManager.instance.select = true;
                     Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
-                    Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do u want to buy it";
+                    Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do you want to buy it";
                     Instantiate(Panel, null);
                    // Panel.GetComponent<Animator>().Play("In");
                 }

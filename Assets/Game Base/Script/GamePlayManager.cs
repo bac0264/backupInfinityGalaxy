@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamePlayManager : SerializedMonoBehaviour
@@ -17,13 +16,13 @@ public class GamePlayManager : SerializedMonoBehaviour
     public int oneStar, twoStar, threeStar;
     [BoxGroup("Score Star")]
     public GameObject OneStarPos, TwoStarPos, ThreeStarPos, SpaceShip, ScoreBar, StarExplo;
-    int score = 0;
+    [HideInInspector]
+    public int score = 0;
     public List<AppearPlanet> appearPlanet;
     [BoxGroup("Target")]
     public GameObject itemTargetPrefab, containerTarget;
     [BoxGroup("Target")]
     public List<TargetPlanet> targetPlanet;
-
     // Use this for initialization
     void Start () {
         //Debug.Log(ScoreBar.GetComponent<RectTransform>().rect.width);
@@ -47,10 +46,6 @@ public class GamePlayManager : SerializedMonoBehaviour
         ScoreBar.GetComponent<Image>().fillAmount = 0;
         OneStarPos.GetComponent<RectTransform>().anchoredPosition = new Vector2(ScoreBar.GetComponent<RectTransform>().rect.width*(oneStar*1f/threeStar), 0);
         TwoStarPos.GetComponent<RectTransform>().anchoredPosition = new Vector2(ScoreBar.GetComponent<RectTransform>().rect.width * (twoStar * 1f / threeStar), 0);
-    }
-    public void BackClick()
-    {
-        SceneManager.LoadScene("SelectLevel");
     }
     private void Update()
     {
@@ -76,35 +71,67 @@ public class GamePlayManager : SerializedMonoBehaviour
     public void addScore(int num)
     {
         score += num;
+        //checkQuaman
+        /*bool check = true;
+        for (int i = 0; i < targetPlanet.Count; i++)
+        {
+            if(a)
+        }
+        if(check)//qua man*/
         //ScoreBar.GetComponent<Image>().fillAmount = score * 1f / threeStar;
     }
-    
     IEnumerator TimeCountDown()
     {
         while (ValueLimit > 0)
         {
             yield return new WaitForSeconds(1f);
-            ValueLimit--;
+            if(ValueLimit>0) ValueLimit--;
             txtGameLimit.GetComponentsInChildren<Text>()[1].text = ValueLimit.ToString();
         }
-        //Thua
+        checkGame();
     }
     public GameObject getRandromPlanet()
     {
         return appearPlanet[UnityEngine.Random.Range(0, appearPlanet.Count)].Planet;        
-    }
-    //public void 
+    }    
     public void Moved()
     {
         if (gameLimit == GameLimit.Move)
         {
             ValueLimit--;
             txtGameLimit.GetComponentsInChildren<Text>()[1].text = ValueLimit.ToString();
-            if (ValueLimit == 0)
+        }
+    }
+    IEnumerator waitCheckGame()
+    {
+        yield return new WaitForSeconds(2f);
+        bool check = true;
+        for (int i = 0; i < targetPlanet.Count; i++)
+        {
+            if (targetPlanet[i].Count != targetPlanet[i].NumOfTarget)
             {
-                //Thua
+                check = false;
+                break;
             }
         }
+        if (check && ValueLimit >= 0)
+        {
+            //qua man
+            Debug.Log("victory");
+            ValueLimit = 0;
+            GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showDialog("Victory");
+        }
+        else if (!check && ValueLimit == 0)
+        {
+            //gameover
+            Debug.Log("gameover");
+            GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showDialog("GameOver");
+        }
+    }
+    public void checkGame()
+    {
+        StartCoroutine(waitCheckGame());
+
     }
 }
 public class AppearPlanet

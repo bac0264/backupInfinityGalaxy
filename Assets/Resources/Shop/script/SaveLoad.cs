@@ -32,7 +32,6 @@ public class SaveLoad : MonoBehaviour
             saveData.shopList.Clear();
             saveData.buybuttonList.Clear();
             saveData.curspaceshipID = ShopManager.instance.curSpaceshipID;
-            Debug.Log(ShopManager.instance.curSpaceshipID);
             saveData.Diamond = ShopManager.instance.Diamond;
             saveData.Gold = ShopManager.instance.Gold;
             for (int i = 0; i < SpaceshipShop.instance.spaceshipList.Count; i++)
@@ -61,6 +60,7 @@ public class SaveLoad : MonoBehaviour
     }
     public void loading()
     {
+        Debug.Log(Application.persistentDataPath + "/shop.txt");
         if (File.Exists(Application.persistentDataPath + "/shop.txt"))
         {
             try

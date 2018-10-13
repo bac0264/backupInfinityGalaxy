@@ -19,14 +19,15 @@ public class ItemHolder : MonoBehaviour {
     }
     public void Select()
     {
-        Selected = false;
+       // Selected = false;
         StartCoroutine(timetoSelect());
     }
     IEnumerator timetoSelect()
     {
         gameObject.GetComponent<Animator>().Play("pickup");
-        yield return new WaitForSeconds(0.1f);
-        SelectComplete();
+       // yield return new WaitForSeconds(0.05f);
+       // SelectComplete();
+        yield return null;
     }
     void SelectComplete()
     {

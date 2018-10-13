@@ -82,7 +82,6 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-
     void touchBegin(Vector2 screenPos)
     {
         beginPos = Camera.main.ScreenToWorldPoint(screenPos);
@@ -104,7 +103,11 @@ public class ShopManager : MonoBehaviour
 
         }
     }
-
+    public void Add()
+    {
+        Gold = Gold + 500f;
+        UpdateUI();
+    }
     GameObject ObjectClicked(Vector2 screenPosition)
     {
         //Converting Mouse Pos to 2D (vector2) World Pos

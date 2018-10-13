@@ -45,7 +45,7 @@ public class SpaceshipShop : MonoBehaviour
             spaceshipScript_1.id.text = spaceshipList[i].spaceshipID.ToString();
             spaceshipScript_1.Gold.text = spaceshipList[i].Gold.ToString();
             spaceshipScript_1.sprite.sprite = sprites[i];
-            holder.ItemHolder_1.transform.GetChild(4).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
+            holder.ItemHolder_1.transform.GetChild(7).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
             // Buy first item
             if (spaceshipList[i].bought)
             {
@@ -75,7 +75,7 @@ public class SpaceshipShop : MonoBehaviour
             spaceshipScript_2.id.text = spaceshipList[i].spaceshipID.ToString();
             spaceshipScript_2.Gold.text = spaceshipList[i].Gold.ToString();
             spaceshipScript_2.sprite.sprite = sprites[i];
-            holder.ItemHolder_2.transform.GetChild(4).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
+            holder.ItemHolder_2.transform.GetChild(7).GetComponent<BuyButton>().spaceshipID = spaceshipList[i].spaceshipID;
             // Buy second item
             if (spaceshipList[i].bought)
             {
@@ -108,7 +108,6 @@ public class SpaceshipShop : MonoBehaviour
     {
         int curID = ShopManager.instance.curSpaceshipID;
         PlayerPrefs.SetInt("Spaceship", curID);
-        Debug.Log(PlayerPrefs.GetInt("Spaceship"));
         for (int j = 0; j < buybuttonList.Count; j++)
         {
             for (int i = 0; i < spaceshipList.Count; i++)
@@ -119,6 +118,7 @@ public class SpaceshipShop : MonoBehaviour
                 {
                     saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
                     saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(0).GetComponent<Image>().color = new Color(1, 245f / 255, 100f / 255, 225f / 255);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(false);
@@ -128,6 +128,7 @@ public class SpaceshipShop : MonoBehaviour
                 {
                     saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
                     saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(0).GetComponent<Image>().color = new Color(1, 245f / 255, 100f / 255, 225f / 255);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(3);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(5).gameObject.SetActive(true);

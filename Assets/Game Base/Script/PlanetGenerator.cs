@@ -19,7 +19,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
     GameObject[,] matrix = new GameObject[6, 7];
     List<GameObject> planetConnected=new List<GameObject>();
     Vector3 saveLoopPos=new Vector3(-1,-1,-1);
-    bool isFalling = false;
+    public bool isFalling = false;
     bool touching = false;
     float saveTime;
     // Use this for initialization
@@ -148,7 +148,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
     private void touchMove(Vector3 mousePosition)
     {
         GameObject curObj = ObjectClicked(mousePosition);
-        if (curObj != null && !isFalling)
+        if (curObj != null && !isFalling && GetComponent<GamePlayManager>().ValueLimit>0)
         {
             if (planetConnected.Count == 0)
             {
@@ -298,7 +298,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             }
             StartCoroutine(Explosion());
             StartCoroutine(affterGetScore());
-
+            GetComponent<GamePlayManager>().Moved();
         }
         else if(planetConnected.Count==1)
         {
@@ -321,18 +321,20 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 Gradient grad = new Gradient();
                 Color c = planetConnected[0].GetComponent<PlanetElement>().GetPlanetColor();
                 grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(c, 0.3f), new GradientColorKey(c, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 0.4f), new GradientAlphaKey(0.0f, 1.0f) });
-
                 col.color = grad;
                 break;
             }
         }
-
+        if (planetConnected.Count >= 5)
+        {
+            GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showPopup("Great");
+        }
         for (int i=0;i<planetConnected.Count;i++)
         {
             planetConnected[i].GetComponent<PlanetElement>().Explosion();
             if(planetConnected.Count-i<=6)
                 yield return new WaitForSeconds(0.08f);
-            GetComponent<GamePlayManager>().addScore(5*i);
+            GetComponent<GamePlayManager>().addScore(10);
             if (targetFly != null)
             {
                 GameObject particle = Instantiate(flyPaticle, new Vector3(planetConnected[i].transform.position.x, planetConnected[i].transform.position.y,-1f), Quaternion.identity);
@@ -344,17 +346,25 @@ public class PlanetGenerator : SerializedMonoBehaviour
         }
         planetConnected.Clear();
     }
+ 
     IEnumerator flyComplete(TargetPlanet target,float time)
     {
+        isFalling = true;
         yield return new WaitForSeconds(time);
         if(target.Count< target.NumOfTarget)
         {
             target.Count++;
-            target.ItemTarget.GetComponentInChildren<Text>().text = (target.NumOfTarget - target.Count).ToString();
+            if (target.Count == target.NumOfTarget)
+            {
+                target.ItemTarget.GetComponentInChildren<Text>().text = "✔";
+                target.ItemTarget.GetComponentInChildren<Text>().color = Color.green;
+            }
+            else target.ItemTarget.GetComponentInChildren<Text>().text = (target.NumOfTarget - target.Count).ToString();
             DOTween.Kill("scoreAdd");
             target.ItemTarget.transform.DOScale(1.3f, 0.05f).SetId("scoreAdd");
             target.ItemTarget.transform.DOScale(1f, 0.2f).SetId("scoreAdd").SetDelay(0.05f);
         }
+        isFalling = false;
     }
     IEnumerator PlanetFalling(Transform transform,float endValue)
     {
@@ -397,7 +407,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         } while (isFalling);
-        //Debug.Log("roi xong "+(Time.timeSinceLevelLoad-saveTime));
+        GetComponent<GamePlayManager>().checkGame();
         bool swapped = false;
         while (!canConnect())
         {
@@ -407,6 +417,8 @@ public class PlanetGenerator : SerializedMonoBehaviour
         if (swapped)
         {
             isFalling = true;
+            yield return new WaitForSeconds(0.05f);
+            GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showPopup("Shuffling");
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
@@ -420,7 +432,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             yield return new WaitForSeconds(0.5f);
             isFalling = false;
         }
-
+            
     }
     public void SwapPlanet()
     {
