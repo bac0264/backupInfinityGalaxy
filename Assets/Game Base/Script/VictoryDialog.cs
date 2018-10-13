@@ -27,11 +27,12 @@ public class VictoryDialog : MonoBehaviour {
 	}
     public void playAgain()
     {
+        LevelManager.levelSelected--;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void continueBtn()
     {
-        LevelManager.levelSelected = (LevelManager.levelSelected + 1) % 15;
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

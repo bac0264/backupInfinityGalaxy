@@ -258,7 +258,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             saveLoopPos=new Vector3(-1, -1, -1);
         }
 
-        if (planetConnected.Count >= 2)
+        if (planetConnected.Count >= 2||(planetConnected.Count==1&&planetConnected[0].GetComponent<CircleCollider2D>().enabled==false))
         {
             //AnDiem
             saveTime = Time.timeSinceLevelLoad;
@@ -407,6 +407,22 @@ public class PlanetGenerator : SerializedMonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         } while (isFalling);
+
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                if (matrix[i, j] != null)
+                {
+                    if (matrix[i,j].GetComponent<CircleCollider2D>().enabled==false)
+                    {
+                        planetConnected.Add(matrix[i, j]);
+                    }
+                    break;
+                }
+            }
+        }
+        touchEnd(new Vector2(0,0));
         GetComponent<GamePlayManager>().checkGame();
         bool swapped = false;
         while (!canConnect())
@@ -432,21 +448,20 @@ public class PlanetGenerator : SerializedMonoBehaviour
             yield return new WaitForSeconds(0.5f);
             isFalling = false;
         }
-            
     }
     public void SwapPlanet()
     {
         List<GameObject> allObj = new List<GameObject>();
         foreach (var item in matrix)
         {
-            if(item!=null)
+            if(item!=null&&item.GetComponent<CircleCollider2D>().enabled == true)
                 allObj.Add(item);
         }
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                if (matrixIns[i, 6 - j] != null)
+                if (matrixIns[i, 6 - j] != null&& matrix[i,j].GetComponent<CircleCollider2D>().enabled == true)
                 {
                     matrix[i, j] = allObj[UnityEngine.Random.Range(0, allObj.Count)];
                     allObj.Remove(matrix[i, j]);
@@ -472,14 +487,14 @@ public class PlanetGenerator : SerializedMonoBehaviour
             {
                 if (getObj(i, j + 1) != null && getObj(i, j) != null)
                 {
-                    if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i, j + 1).GetComponent<SpriteRenderer>().sprite)
+                    if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i, j + 1).GetComponent<SpriteRenderer>().sprite&& getObj(i, j).GetComponent<CircleCollider2D>().enabled == true)
                     {
                         return true;
                     }
                 }
                 if (getObj(i + 1, j) != null && getObj(i, j) != null)
                 {
-                    if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i + 1, j).GetComponent<SpriteRenderer>().sprite)
+                    if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i + 1, j).GetComponent<SpriteRenderer>().sprite&& getObj(i, j).GetComponent<CircleCollider2D>().enabled == true)
                     {
                         return true;
                     }

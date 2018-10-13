@@ -117,6 +117,9 @@ public class GamePlayManager : SerializedMonoBehaviour
         if (check && ValueLimit >= 0)
         {
             //qua man
+            //đoạn này lưu vào playpref
+            LevelManager.levelSelected++;
+            PlayerPrefs.SetInt("PlayerLevel", LevelManager.levelSelected);
             Debug.Log("victory");
             ValueLimit = 0;
             GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showDialog("Victory");

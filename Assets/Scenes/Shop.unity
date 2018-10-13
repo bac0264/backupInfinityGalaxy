@@ -589,6 +589,7 @@ MonoBehaviour:
   - {fileID: 21300022, guid: 57101822dfdb55444b323b2890e6dd7d, type: 3}
   Holder: {fileID: 1238047449713138, guid: e481d47936f41de45884867a218a7eb3, type: 2}
   list: {fileID: 835217365}
+  GrayScale: {fileID: 2100000, guid: d76175db95c18d748adc6efae43519ad, type: 2}
 --- !u!114 &159571386
 MonoBehaviour:
   m_ObjectHideFlags: 0

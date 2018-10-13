@@ -13,6 +13,13 @@ public class GameOverDialog : MonoBehaviour {
 	
     public void PlayAgain()
     {
+        // mấy cái loadscene này chỉnh thêm cái loading nhé
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void exitclick()
+    {
+        //load scene cũ
+        SceneManager.LoadScene("SelectLevel");
+        
     }
 }

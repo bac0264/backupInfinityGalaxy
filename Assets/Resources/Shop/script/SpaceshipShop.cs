@@ -11,7 +11,7 @@ public class SpaceshipShop : MonoBehaviour
     public List<Sprite> background = new List<Sprite>();
     public GameObject Holder;
     public Transform list;
-
+    public Material GrayScale;
 
     private void Awake()
     {
@@ -67,7 +67,7 @@ public class SpaceshipShop : MonoBehaviour
             else
             {
                 spaceshipScript_1.GetComponent<Image>().sprite = background[1];
-                spaceshipScript_1.transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
+                spaceshipScript_1.transform.GetChild(2).GetComponent<Image>().material = GrayScale;
                 spaceshipScript_1.transform.GetChild(0).GetComponent<Image>().color = new Color(0, 0, 0, 1);
             }
             ItemHolder spaceshipScript_2 = holder.ItemHolder_2.GetComponent<ItemHolder>();
@@ -97,7 +97,7 @@ public class SpaceshipShop : MonoBehaviour
             else
             {
                 spaceshipScript_2.GetComponent<Image>().sprite = background[1];
-                spaceshipScript_2.transform.GetChild(2).GetComponent<Image>().color = new Color(0, 0, 0, 1);
+                spaceshipScript_2.transform.GetChild(2).GetComponent<Image>().material = GrayScale;
                 spaceshipScript_2.transform.GetChild(0).GetComponent<Image>().color = new Color(0, 0, 0, 1);
             }
             saveHolder.Add(spaceship);
@@ -117,7 +117,7 @@ public class SpaceshipShop : MonoBehaviour
                 if (spaceshipList[i].bought && spaceshipList[i].spaceshipID != curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
                     saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
-                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().material = null;
                     saveHolder[i / 2].transform.GetChild(div).GetChild(0).GetComponent<Image>().color = new Color(1, 245f / 255, 100f / 255, 225f / 255);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(2);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
@@ -127,7 +127,7 @@ public class SpaceshipShop : MonoBehaviour
                 else if (spaceshipList[i].bought && spaceshipList[i].spaceshipID == curID && buybuttonList[j].spaceshipID == spaceshipList[i].spaceshipID)
                 {
                     saveHolder[i / 2].transform.GetChild(div).GetComponent<Image>().sprite = background[0];
-                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().color = new Color(1, 1, 1, 1);
+                    saveHolder[i / 2].transform.GetChild(div).GetChild(2).GetComponent<Image>().material = null;
                     saveHolder[i / 2].transform.GetChild(div).GetChild(0).GetComponent<Image>().color = new Color(1, 245f / 255, 100f / 255, 225f / 255);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).gameObject.GetComponent<Image>().sprite = saveHolder[i / 2].transform.GetChild(div).GetComponent<ItemHolder>()._types(3);
                     saveHolder[i / 2].transform.GetChild(div).GetChild(3).GetChild(0).gameObject.SetActive(false);
