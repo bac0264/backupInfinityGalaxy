@@ -86,6 +86,8 @@ public class SelectLevelManager : MonoBehaviour
     {
         // LoadAsync.instance.LoadingMainGame();
         _loading.GetComponent<LoadAsync>().LoadingMainGame();
+        PlayerPrefs.SetInt("IsPlaying", lv);
+        Debug.Log(PlayerPrefs.GetInt("IsPlaying"));
       //  Initiate.Fade("MainGame", new Color(0, 0, 0, 1), 4.0f);
         /*if (map != null)
         {

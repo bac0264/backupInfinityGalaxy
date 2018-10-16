@@ -55,11 +55,12 @@ public class SelectPlanetManager : MonoBehaviour
        if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
         {
             PlayerPrefs.SetInt("PlayingPlanet", -1);
-            PlayerPrefs.SetInt("CompleteLastPlanet", 4);
+            PlayerPrefs.SetInt("CompleteLastPlanet", 0);
             PlayerPrefs.SetInt("IsGameStartedForTheFirstTime", 0);
             PlayerPrefs.SetInt("PlayerLevel", 0);
             PlayerPrefs.SetInt("Spaceship",1);
-        }
+            PlayerPrefs.SetInt("IsPlaying", 0);
+         }
 
     }
     void _setSpaceshipPosition()

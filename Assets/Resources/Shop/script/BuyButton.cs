@@ -28,7 +28,7 @@ public class BuyButton : MonoBehaviour {
                 {
                     ShopManager.instance.select = true;
                     Panel.GetComponent<BuyingPanel>().curID = spaceshipID;
-                    Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do you want to buy it";
+                    Panel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Do you want to buy it?";
                     Instantiate(Panel, null);
                    // Panel.GetComponent<Animator>().Play("In");
                 }

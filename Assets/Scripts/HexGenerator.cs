@@ -152,14 +152,6 @@ public class HexGenerator : MonoBehaviour {
         {
             int x = (level+1)/isWinning;
             PlayerPrefs.SetInt("CompleteLastPlanet", x);
-            //LPC.Add(x.ToString());
-            //foreach (GameObject _planet in Menu.instance.planet)
-            //{
-            //    if (_planet.GetComponent<Planet>().PlanetID == x)
-            //    {
-            //        saveListLPC(_planet);
-            //    }
-            //}
         }
     }
     void saveListLPC(GameObject _planet)

@@ -8,7 +8,8 @@ public class LevelManager : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-            transform.GetChild(levelSelected).gameObject.SetActive(true);
+        levelSelected = PlayerPrefs.GetInt("IsPlaying");
+        transform.GetChild(levelSelected).gameObject.SetActive(true);
 	}
 	// Update is called once per frame
 	void Update () {

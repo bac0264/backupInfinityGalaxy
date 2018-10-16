@@ -23,6 +23,7 @@ public class GamePlayManager : SerializedMonoBehaviour
     public GameObject itemTargetPrefab, containerTarget;
     [BoxGroup("Target")]
     public List<TargetPlanet> targetPlanet;
+    public const int isWinning = 15;
     // Use this for initialization
     void Start () {
         //Debug.Log(ScoreBar.GetComponent<RectTransform>().rect.width);
@@ -102,6 +103,14 @@ public class GamePlayManager : SerializedMonoBehaviour
             txtGameLimit.GetComponentsInChildren<Text>()[1].text = ValueLimit.ToString();
         }
     }
+    void checkWin()
+    {
+        if (PlayerPrefs.GetInt("PlayerLevel") % isWinning == 0)
+        {
+            int x = PlayerPrefs.GetInt("PlayerLevel") / isWinning;
+            PlayerPrefs.SetInt("CompleteLastPlanet", x);
+        }
+    }
     IEnumerator waitCheckGame()
     {
         yield return new WaitForSeconds(2f);
@@ -118,8 +127,13 @@ public class GamePlayManager : SerializedMonoBehaviour
         {
             //qua man
             //đoạn này lưu vào playpref
-            LevelManager.levelSelected++;
-            PlayerPrefs.SetInt("PlayerLevel", LevelManager.levelSelected);
+            Debug.Log("Level selected: " + LevelManager.levelSelected);
+            if (LevelManager.levelSelected >= PlayerPrefs.GetInt("PlayerLevel"))
+            {
+                PlayerPrefs.SetInt("PlayerLevel", LevelManager.levelSelected + 1 );
+                Debug.Log("Level Playerpref: "+PlayerPrefs.GetInt("PlayerLevel"));
+                checkWin();
+            }
             Debug.Log("victory");
             ValueLimit = 0;
             GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showDialog("Victory");

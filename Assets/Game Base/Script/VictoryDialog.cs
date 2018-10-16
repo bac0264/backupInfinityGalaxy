@@ -32,7 +32,8 @@ public class VictoryDialog : MonoBehaviour {
     }
     public void continueBtn()
     {
-        
+        LevelManager.levelSelected++;
+        PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
