@@ -11,6 +11,7 @@ public class Rank : MonoBehaviour
     List<Sprite> img = new List<Sprite>();
     public GameObject yourRank;
     public List<Sprite> ranking = new List<Sprite>();
+    public List<Sprite> bgRank = new List<Sprite>();
     int imgnum = 0;
     // public GameObject DialogProfilePicOfFriends;
     void Awake()
@@ -128,14 +129,18 @@ public class Rank : MonoBehaviour
         GameObject rankButton = Instantiate(rankPref, ListContainer.transform);
         rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
         rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
+        Debug.Log("index: " + img);
         if (imgnum <= 2)
         {
-            rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
+            rankButton.transform.GetChild(0).GetChild(imgnum + 4 ).gameObject.SetActive(true);
+            rankButton.GetComponent<Image>().sprite = bgRank[0];
+
         }
         else {
-            rankButton.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
-            rankButton.transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
-            rankButton.transform.GetChild(0).GetChild(5).gameObject.GetComponent<Text>().text = (imgnum + 1).ToString();
+            //rankButton.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+            rankButton.GetComponent<Image>().sprite = bgRank[1];
+            rankButton.transform.GetChild(0).GetChild(7).gameObject.SetActive(true);
+            rankButton.transform.GetChild(0).GetChild(7).gameObject.GetComponent<Text>().text = (imgnum + 1).ToString();
         }
         //GameObject item = Instantiate(imgPref, friendsPhotoContainer);
         //item.GetComponent<Image>().sprite = img[imgnum];
@@ -152,9 +157,11 @@ public class Rank : MonoBehaviour
                 img.Add(Sprite.Create(result.Texture, new Rect(0, 0, 128, 128), new Vector2()));
                 rankButton.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = img[imgnum];
                 rankButton.transform.GetChild(0).GetChild(1).GetComponent<Text>().text = name;
-                yourRank.GetComponent<Text>().text = (imgnum + 1).ToString();
-                rankButton.transform.GetChild(0).GetChild(4).GetComponent<Image>().sprite = ranking[imgnum];
-                rankButton.transform.GetChild(0).GetChild(4).GetComponent<RectTransform>().sizeDelta = new Vector2(1.6f, 2);
+                if (imgnum <= 2)
+                {
+                    rankButton.transform.GetChild(0).GetChild(imgnum + 4).gameObject.SetActive(true);
+                }
+                else yourRank.GetComponent<Text>().text = (imgnum + 1).ToString();
                 imgnum++;
             }
         }
