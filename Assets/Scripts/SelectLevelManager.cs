@@ -21,6 +21,7 @@ public class SelectLevelManager : MonoBehaviour
     {
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
+        PlayerPrefs.SetString("LastScene", getName.name);
         //if (Fade.instance != null)
         //{
         //    if (Fade.instance.check == true)

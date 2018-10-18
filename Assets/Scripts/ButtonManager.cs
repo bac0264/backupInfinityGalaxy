@@ -103,8 +103,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _rankingButton()
     {
-        //Scene getName = SceneManager.GetActiveScene();
-       // PlayerPrefs.SetString("Scene", getName.name);
+        Scene getName = SceneManager.GetActiveScene();
+        PlayerPrefs.SetString("Scene", getName.name);
         Initiate.Fade("rank", new Color(0, 0, 0, 1), 4.0f);
         if (map != null) StartCoroutine(timetoTransforms()); ;
     }
@@ -118,8 +118,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void _shopButton()
     {
-        //Scene getName = SceneManager.GetActiveScene();
-       // PlayerPrefs.SetString("Scene", getName.name);
+        Scene getName = SceneManager.GetActiveScene();
+        PlayerPrefs.SetString("Scene", getName.name);
         Initiate.Fade("shop", new Color(0, 0, 0, 1), 4.0f);
         if (map != null) StartCoroutine(timetoTransforms()); ;
     }
@@ -154,6 +154,12 @@ public class ButtonManager : MonoBehaviour
         if (map != null)
             Destroy(map);
 
+    }
+    public void Back()
+    {
+        if(PlayerPrefs.GetString("Scene") != SceneManager.GetActiveScene().name)
+            Initiate.Fade(PlayerPrefs.GetString("Scene"), new Color(0, 0, 0, 1), 4.0f);
+        else Initiate.Fade(PlayerPrefs.GetString("LastScene"), new Color(0, 0, 0, 1), 4.0f);
     }
     IEnumerator TimeToDo()
     {

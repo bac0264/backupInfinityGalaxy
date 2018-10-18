@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.SceneManagement;
 public class SaveLoad : MonoBehaviour
 {
     public static SaveLoad instance;
@@ -53,10 +54,6 @@ public class SaveLoad : MonoBehaviour
             print(e);
         }
         print("saved data to " + Application.persistentDataPath + "/shop.txt");
-    }
-    public void Back()
-    {
-        Initiate.Fade(PlayerPrefs.GetString("Scene"), new Color(0, 0, 0, 1), 4.0f);
     }
     public void loading()
     {

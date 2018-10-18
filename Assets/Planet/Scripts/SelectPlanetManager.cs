@@ -26,6 +26,7 @@ public class SelectPlanetManager : MonoBehaviour
     {
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
+        PlayerPrefs.SetString("LastScene", getName.name);
         if (Map.instance != null) Destroy(Map.instance);
         int i = 0;
         foreach (GameObject _planet in planets)
@@ -210,6 +211,10 @@ public class SelectPlanetManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
         if (!sceneChanging)
         {
             if (touching)

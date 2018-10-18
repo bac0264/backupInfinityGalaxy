@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BG_Scaler : MonoBehaviour {
+public class BG_Scaler : MonoBehaviour
+{
     void Start()
     {
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -14,5 +15,12 @@ public class BG_Scaler : MonoBehaviour {
         float WorldWidth = WorldHeight * Screen.width / Screen.height;
         tempScale.x = WorldWidth / width + WorldWidth / width * 0.01f;
         transform.localScale = tempScale;
+    }
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
 }
