@@ -55,20 +55,11 @@ public class SetCamera : MonoBehaviour
         {
             panel.transform.GetChild(0).gameObject.SetActive(false);
         }
-        if (Fade.instance != null)
-        {
-            GameObject Button = GameObject.FindGameObjectWithTag("ButtonMenu");
-            if (Button != null) {
-                Button.SetActive(false);
-            }
-            Fade.instance.check = true;
-            Fade.instance.FadeIn = true;
-            Fade.instance.sceneName = "SelectLevel";
+       
             yield return new WaitForSeconds(0.3f);
             //if (map != null)
             //{
             //    map.SetActive(true);
             //}
-        }
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class SelectPlanetManager : MonoBehaviour
 {
+    public static SelectPlanetManager instance;
     bool touching = false, sceneChanging = false;
     public Transform PlanetContainer;
     public Transform SpaceShip;
@@ -24,6 +25,7 @@ public class SelectPlanetManager : MonoBehaviour
     //Vector2 temp = new Vector2();
     private void Awake()
     {
+        if (instance == null) instance = this;
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
@@ -37,7 +39,6 @@ public class SelectPlanetManager : MonoBehaviour
         _IsGameStartedForTheFirstTime();
         _setOpenPlanet();
         _setSpaceshipPosition();
-        _setNameScene();
       // PlayerPrefs.SetInt("IsGameStartedForTheFirstTime");
     }
     private void Start()
@@ -64,7 +65,7 @@ public class SelectPlanetManager : MonoBehaviour
          }
 
     }
-    void _setSpaceshipPosition()
+    public void _setSpaceshipPosition()
     {
         if (PlayerPrefs.GetInt("PlayingPlanet", -1) >= 0)
         {
@@ -96,11 +97,6 @@ public class SelectPlanetManager : MonoBehaviour
                 //PlanetContainer.transform.GetChild(i).GetComponent<Collider2D>().enabled = false;
             }
         }
-    }
-    void _setNameScene(){
-        PlayerPrefs.SetString("SelectLevel", "SelectLevel");
-        PlayerPrefs.SetString("SelectPlanet", "SelectPlanet");
-        PlayerPrefs.SetString("Menu", "Menu");
     }
     void touchBegin(Vector2 screenPosition)
     {
@@ -175,25 +171,26 @@ public class SelectPlanetManager : MonoBehaviour
             yield return resetCamera.WaitForCompletion();
         }
         PlayerPrefs.SetInt("PlayingPlanet", id);
-        if (id <= complete)
-        {
-            SelectLevelManager.setPlanetID(id);
-            //Initiate.Fade("SelectLevel", new Color(1, 1, 1), 15.0f);
-            //if (Fade.instance != null)
-          //  {
-                GameObject map = GameObject.FindGameObjectWithTag("Map");
-                map.transform.GetChild(0).gameObject.SetActive(false);
-            // Fade.instance.sceneName = PlayerPrefs.GetString("SelectLevel");
-            // Fade.instance.check = true;
-            //Fade.instance.FadeIn = true;
-            // }
-            Initiate.Fade("SelectLevel", new Color(0, 0, 0, 1), 4.0f);
-        }
-        else
-        {
-            _setSpaceshipPosition();
-            sceneChanging = false;
-        }
+        //if (id <= complete)
+        //{
+        //    SelectLevelManager.setPlanetID(id);
+        //    Initiate.Fade("SelectLevel", new Color(1, 1, 1), 15.0f);
+        //    if (Fade.instance != null)
+        //    {
+        //        GameObject map = GameObject.FindGameObjectWithTag("Map");
+        //        map.transform.GetChild(0).gameObject.SetActive(false);
+        //        Fade.instance.sceneName = PlayerPrefs.GetString("SelectLevel");
+        //        Fade.instance.check = true;
+        //        Fade.instance.FadeIn = true;
+        //    }
+        //    Initiate.Fade("SelectLevel", new Color(0, 0, 0, 1), 4.0f);
+        //}
+        //else
+        //{
+        //    _setSpaceshipPosition();
+        //    sceneChanging = false;
+        //}
+        LoadAsync.instance._nextScene(id, complete,ref sceneChanging);
     }
 
     GameObject ObjectClicked(Vector2 screenPosition)

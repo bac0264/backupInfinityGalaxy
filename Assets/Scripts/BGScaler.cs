@@ -21,11 +21,11 @@ public class BGScaler : MonoBehaviour {
         float limit = _height - distance;
         DragCamera.instance.setLimitUp(limit);
     }
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey("escape"))
         {
-            Application.Quit();
+            LoadAsync.instance._BackToSelectPlanet();
         }
     }
 }

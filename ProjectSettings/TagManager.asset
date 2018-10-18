@@ -16,6 +16,13 @@ TagManager:
   - Panel
   - container
   - Drag Camera
+  - planetgenerator
+  - shuffling
+  - PopupContainer
+  - levelManager
+  - completed
+  - cool
+  - ParentSetting
   layers:
   - Default
   - TransparentFX

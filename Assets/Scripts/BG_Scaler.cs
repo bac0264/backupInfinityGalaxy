@@ -6,6 +6,7 @@ public class BG_Scaler : MonoBehaviour
 {
     void Start()
     {
+        //sHOP & RANK
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Vector3 tempScale = transform.localScale;
         float height = sr.bounds.size.y;
@@ -20,7 +21,7 @@ public class BG_Scaler : MonoBehaviour
     {
         if (Input.GetKey("escape"))
         {
-            Application.Quit();
+            LoadAsync.instance.Back();
         }
     }
 }

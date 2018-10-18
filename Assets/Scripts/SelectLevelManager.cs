@@ -22,13 +22,6 @@ public class SelectLevelManager : MonoBehaviour
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
-        //if (Fade.instance != null)
-        //{
-        //    if (Fade.instance.check == true)
-        //    {
-        //        Fade.instance.FadeOut = true;
-        //    }
-        //}
         map = GameObject.FindGameObjectWithTag("Map");
         if (map.GetComponent<Map>().back)
         {
@@ -41,7 +34,6 @@ public class SelectLevelManager : MonoBehaviour
 
         listMapId.AddRange(listidstr.Split('|'));
         _SelectLvCase(PlanetID, playerLevel);
-        //_enableButton(true);
     }
     public void _SelectLvCase(int mapID, int playerLevel)
     {
@@ -85,25 +77,15 @@ public class SelectLevelManager : MonoBehaviour
     }
     void LevelClick(GameObject _loading, GameObject _item, int lv)
     {
-        // LoadAsync.instance.LoadingMainGame();
         _loading.GetComponent<LoadAsync>().LoadingMainGame();
         PlayerPrefs.SetInt("IsPlaying", lv);
-        Debug.Log(PlayerPrefs.GetInt("IsPlaying"));
-      //  Initiate.Fade("MainGame", new Color(0, 0, 0, 1), 4.0f);
-        /*if (map != null)
-        {
-            map.GetComponent<Map>().pos = Camera.main.transform.position;
-            map.GetComponent<Map>().transform.GetChild(0).gameObject.SetActive(false);
-            map.GetComponent<Map>().transform.GetChild(1).gameObject.SetActive(false);
-            
+        GameObject[] ParentSetting = GameObject.FindGameObjectsWithTag("ParentSetting");
+        if (ParentSetting != null) {
+            foreach(GameObject ps in ParentSetting)
+            {
+                ps.SetActive(false);
+            }
         }
-        if (Fade.instance != null)
-        {
-            Fade.instance.check = true;
-            Fade.instance.FadeIn = true;
-            Fade.instance.sceneName = "MainGame";
-        }
-       // _enableButton(false);*/
     }
     public static void setPlanetID(int x)
     {

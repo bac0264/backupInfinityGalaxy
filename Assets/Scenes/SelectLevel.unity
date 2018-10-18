@@ -782,6 +782,12 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6da732b3be7e86946b64241ba52deba9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &100878442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114601549894328846, guid: 6da732b3be7e86946b64241ba52deba9,
+    type: 2}
+  m_PrefabInternal: {fileID: 100878441}
+  m_Script: {fileID: 11500000, guid: e1c2bb02fc8850f4ea6d03795a31a128, type: 3}
 --- !u!1 &114757270
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,8 +948,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605482}
-        m_MethodName: 
+      - m_Target: {fileID: 1666135129}
+        m_MethodName: FBlogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1233,7 +1239,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 0}
         m_MethodName: _shopButton
         m_Mode: 1
         m_Arguments:
@@ -2440,7 +2446,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1666135129}
         m_MethodName: FBlogout
         m_Mode: 1
         m_Arguments:
@@ -2788,7 +2794,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 0}
         m_MethodName: _SettingClicked
         m_Mode: 1
         m_Arguments:
@@ -6082,7 +6088,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 100878442}
         m_MethodName: _rankingButton
         m_Mode: 1
         m_Arguments:
@@ -7196,7 +7202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 100878442}
         m_MethodName: _shopButton
         m_Mode: 1
         m_Arguments:
@@ -7768,6 +7774,69 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1666135128
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224036985236961678, guid: 28ed271f997375543ac192fb9c03dd9d,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4.1956153
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.808566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.25815988
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4734819642363296, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 114433329844035484, guid: 28ed271f997375543ac192fb9c03dd9d,
+        type: 2}
+      propertyPath: DialogLoggedOut
+      value: 
+      objectReference: {fileID: 331896960}
+    - target: {fileID: 114433329844035484, guid: 28ed271f997375543ac192fb9c03dd9d,
+        type: 2}
+      propertyPath: buttonLogOut
+      value: 
+      objectReference: {fileID: 8612768}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28ed271f997375543ac192fb9c03dd9d, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!114 &1666135129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114433329844035484, guid: 28ed271f997375543ac192fb9c03dd9d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1666135128}
+  m_Script: {fileID: 11500000, guid: d194ce8f17184594ead0a45ea04eac3f, type: 3}
 --- !u!1 &1677304969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8012,7 +8081,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 0}
         m_MethodName: _rankingButton
         m_Mode: 1
         m_Arguments:
@@ -8072,7 +8141,7 @@ GameObject:
   - component: {fileID: 1713296993}
   m_Layer: 5
   m_Name: UIBtn
-  m_TagString: Untagged
+  m_TagString: ParentSetting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8387,7 +8456,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1748605484}
-  - component: {fileID: 1748605483}
   m_Layer: 0
   m_Name: ButtonManager
   m_TagString: Untagged
@@ -8395,17 +8463,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1748605483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1748605482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f48f9148cccad194391df153bfe94ef0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1748605484
 Transform:
   m_ObjectHideFlags: 0
@@ -8770,7 +8827,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 100878442}
         m_MethodName: _SettingClicked
         m_Mode: 1
         m_Arguments:
@@ -9109,7 +9166,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1748605483}
+      - m_Target: {fileID: 100878442}
         m_MethodName: _BackToSelectPlanet
         m_Mode: 1
         m_Arguments:
@@ -10497,7 +10554,7 @@ GameObject:
   - component: {fileID: 2029172281}
   m_Layer: 5
   m_Name: BackClick
-  m_TagString: Untagged
+  m_TagString: ParentSetting
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
