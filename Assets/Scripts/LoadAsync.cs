@@ -40,11 +40,34 @@ public class LoadAsync : MonoBehaviour
     }
     public void _BackToMenu()
     {
+        //GameObject button = GameObject.FindGameObjectWithTag("Facebook");
+        //if (button != null) button.SetActive(false);
+
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad("Menu"));
+        //if (map != null)
+        //{
+        //    map.transform.GetChild(0).gameObject.SetActive(false);
+        //    map.transform.GetChild(1).gameObject.SetActive(false);
+        //    StartCoroutine(timetoTransforms());
+        //}
+        //if (LoadingScene.instance != null)
+        //{
+        //    LoadingScene.instance._nextScene = true;
+        //    LoadingScene.instance.FadeIn = true;
+        //    LoadingScene.instance.sceneName = "Menu";
+        //}
+        //else
+        //{
+
+        //}
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("Menu");
+        }
         GameObject button = GameObject.FindGameObjectWithTag("Facebook");
         if (button != null) button.SetActive(false);
-
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad("Menu"));
+        //Initiate.Fade("Menu", new Color(0, 0, 0, 1), 4.0f);
         if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
@@ -54,8 +77,12 @@ public class LoadAsync : MonoBehaviour
     }
     public void _BackToSelectPlanet()
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad("SelectPlanet"));
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad("SelectPlanet"));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("SelectPlanet");
+        }
         if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
@@ -68,8 +95,12 @@ public class LoadAsync : MonoBehaviour
         {
             SaveLoad.instance.saving();
         }
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc(PlayerPrefs.GetString("Scene"));
+        }
         if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
@@ -80,8 +111,12 @@ public class LoadAsync : MonoBehaviour
     }
     public void _BackingButtonRank()
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc(PlayerPrefs.GetString("Scene"));
+        }
         if (map != null)
         {
             map.transform.GetChild(0).gameObject.SetActive(false);
@@ -109,8 +144,12 @@ public class LoadAsync : MonoBehaviour
     }
     public void BacktoSelectLV()
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad("SelectLevel"));
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad("SelectLevel"));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("SelectLevel");
+        }
     }
     public void _shopButton()
     {
@@ -129,8 +168,12 @@ public class LoadAsync : MonoBehaviour
         if (ParentSetting != null) ParentSetting.SetActive(false);
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad(scene));
+        //gameObject.SetActive(true);
+        //StartCoroutine(AsynchronousLoad(scene));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc(scene);
+        }
         if (map != null) StartCoroutine(timetoTransforms()); ;
     }
     IEnumerator timetoTransforms()
@@ -142,11 +185,25 @@ public class LoadAsync : MonoBehaviour
     }
     public void Back()
     {
-        gameObject.SetActive(true);
+        Debug.Log("Scene:" +PlayerPrefs.GetString("Scene"));
+        Debug.Log("LastScene:" + PlayerPrefs.GetString("LastScene"));
+       // gameObject.SetActive(true);
         if (PlayerPrefs.GetString("Scene") != SceneManager.GetActiveScene().name)
-            StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        // StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("Scene")));
+        {
+            if (Fade.instance != null)
+            {
+                Fade.instance.FadeInfc(PlayerPrefs.GetString("Scene"));
+            }
+        }
         else
-            StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString(PlayerPrefs.GetString("LastScene"))));
+        //StartCoroutine(AsynchronousLoad(PlayerPrefs.GetString("LastScene")));
+        {
+            if (Fade.instance != null)
+            {
+                Fade.instance.FadeInfc(PlayerPrefs.GetString("LastScene"));
+            }
+        }
         GameObject ParentSetting = GameObject.FindGameObjectWithTag("ParentSetting");
         if (ParentSetting != null) ParentSetting.SetActive(false);
     }
@@ -202,13 +259,38 @@ public class LoadAsync : MonoBehaviour
     }
     public void LoadingMenu()
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad("SelectPlanet"));
+        // gameObject.SetActive(true);
+        // StartCoroutine(AsynchronousLoad("SelectPlanet"));
+        //if (LoadingScene.instance != null)
+        //{
+        //    LoadingScene.instance._nextScene = true;
+        //    LoadingScene.instance.FadeIn = true;
+        //    LoadingScene.instance.sceneName = "SelectPlanet";
+        //}
+        //else
+        //{
+
+        //}
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("SelectPlanet");
+        }
+        //Initiate.Fade("SelectPlanet", new Color(0, 0, 0, 1), 2.0f);
+        GameObject button = GameObject.FindGameObjectWithTag("ButtonMenu");
+        if (button != null)
+        {
+            button.gameObject.SetActive(false);
+        }
+        //SceneManager.LoadScene("SelectPlanet");
     }
     public void LoadingMainGame()
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad("MainGame"));
+        // gameObject.SetActive(true);
+        // StartCoroutine(AsynchronousLoad("MainGame"));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("MainGame");
+        }
     }
     IEnumerator AsynchronousLoad(string scene)
     {
@@ -229,8 +311,12 @@ public class LoadAsync : MonoBehaviour
     }
     public void Loading(string scene)
     {
-        gameObject.SetActive(true);
-        StartCoroutine(AsynchronousLoad(scene));
+        // gameObject.SetActive(true);
+        // StartCoroutine(AsynchronousLoad(scene));
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc(scene);
+        }
     }
     public void _nextScene(int id, int complete, ref bool sceneChanging)
     {
@@ -239,7 +325,11 @@ public class LoadAsync : MonoBehaviour
             SelectLevelManager.setPlanetID(id);
             GameObject map = GameObject.FindGameObjectWithTag("Map");
             map.transform.GetChild(0).gameObject.SetActive(false);
-            StartCoroutine(AsynchronousLoad("SelectLevel"));
+            // StartCoroutine(AsynchronousLoad("SelectLevel"));
+            if (Fade.instance != null)
+            {
+                Fade.instance.FadeInfc("SelectLevel");
+            }
         }
         else
         {

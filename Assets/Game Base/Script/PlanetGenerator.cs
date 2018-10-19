@@ -258,7 +258,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             saveLoopPos=new Vector3(-1, -1, -1);
         }
 
-        if (planetConnected.Count >= 2||(planetConnected.Count==1&&planetConnected[0].GetComponent<CircleCollider2D>().enabled==false))
+        if (planetConnected.Count >= 2)
         {
             //AnDiem
             saveTime = Time.timeSinceLevelLoad;
@@ -408,21 +408,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             yield return new WaitForEndOfFrame();
         } while (isFalling);
 
-        for (int i = 0; i < 6; i++)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                if (matrix[i, j] != null)
-                {
-                    if (matrix[i,j].GetComponent<CircleCollider2D>().enabled==false)
-                    {
-                        planetConnected.Add(matrix[i, j]);
-                    }
-                    break;
-                }
-            }
-        }
-        touchEnd(new Vector2(0,0));
+      
         GetComponent<GamePlayManager>().checkGame();
         bool swapped = false;
         while (!canConnect())

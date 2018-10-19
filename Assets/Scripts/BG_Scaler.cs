@@ -6,6 +6,10 @@ public class BG_Scaler : MonoBehaviour
 {
     void Start()
     {
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeOutfc();
+        }
         //sHOP & RANK
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Vector3 tempScale = transform.localScale;

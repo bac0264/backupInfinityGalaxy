@@ -223,6 +223,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &385170556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1912979746552358, guid: 6da732b3be7e86946b64241ba52deba9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1792359589}
 --- !u!1 &669993650
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,12 +345,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &909145744 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114601549894328846, guid: 6da732b3be7e86946b64241ba52deba9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1792359589}
-  m_Script: {fileID: 11500000, guid: e1c2bb02fc8850f4ea6d03795a31a128, type: 3}
 --- !u!1 &1136485811
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,7 +421,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 909145744}
+      - m_Target: {fileID: 1509604724}
         m_MethodName: LoadingMenu
         m_Mode: 1
         m_Arguments:
@@ -487,6 +486,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1509604723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1509604725}
+  - component: {fileID: 1509604724}
+  m_Layer: 0
+  m_Name: LoadAsyn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1509604724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1509604723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1c2bb02fc8850f4ea6d03795a31a128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingText: {fileID: 385170556}
+  btnGo: {fileID: 1136485811}
+  panel: {fileID: 1569395569}
+--- !u!4 &1509604725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1509604723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 988.19995, y: 1837.6499, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1569395569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1732562700540470, guid: 6da732b3be7e86946b64241ba52deba9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1792359589}
 --- !u!1 &1583369372
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +545,7 @@ GameObject:
   - component: {fileID: 1583369373}
   - component: {fileID: 1583369375}
   - component: {fileID: 1583369376}
+  - component: {fileID: 1583369377}
   m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
@@ -596,6 +644,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1583369377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583369372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331b29deb3e70e74da25b87c64cdfca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1651771370
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +927,28 @@ Prefab:
       propertyPath: btnGo
       value: 
       objectReference: {fileID: 1136485811}
-    m_RemovedComponents: []
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: check
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: im
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: sceneName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: FadeIn
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114601549894328846, guid: 6da732b3be7e86946b64241ba52deba9, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6da732b3be7e86946b64241ba52deba9, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1902968379

@@ -345,7 +345,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: check
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: im
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9,
+        type: 2}
+      propertyPath: sceneName
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114827484948478330, guid: 6da732b3be7e86946b64241ba52deba9, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 6da732b3be7e86946b64241ba52deba9, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &107812508

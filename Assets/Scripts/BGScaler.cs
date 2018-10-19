@@ -8,6 +8,10 @@ public class BGScaler : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeOutfc();
+        }
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         Vector3 tempScale = transform.localScale;
         float height = sr.bounds.size.y;

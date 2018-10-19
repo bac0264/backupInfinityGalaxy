@@ -29,6 +29,10 @@ public class SelectPlanetManager : MonoBehaviour
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
+        if(LoadingScene.instance != null)
+        {
+            LoadingScene.instance.FadeOut = true;
+        }
         if (Map.instance != null) Destroy(Map.instance);
         int i = 0;
         foreach (GameObject _planet in planets)
@@ -43,13 +47,9 @@ public class SelectPlanetManager : MonoBehaviour
     }
     private void Start()
     {
-        //if (Fade.instance != null) {
-        //    if(Fade.instance.check == true)
-        //    {
-        //        Fade.instance.FadeOut = true;
-        //       // Fade.instance.check = false;
-        //    }
-        //}
+        if (Fade.instance != null) {
+            Fade.instance.FadeOutfc();
+        }
     }
     void _IsGameStartedForTheFirstTime()
     {

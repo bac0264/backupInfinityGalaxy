@@ -27,7 +27,11 @@ public class GamePlayManager : SerializedMonoBehaviour
     // Use this for initialization
     void Start () {
         //Debug.Log(ScoreBar.GetComponent<RectTransform>().rect.width);
-        if(gameLimit==GameLimit.Time)
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeOutfc();
+        }
+        if (gameLimit==GameLimit.Time)
         {
             txtGameLimit.GetComponentsInChildren<Text>()[0].text = "Time";
             txtGameLimit.GetComponentsInChildren<Text>()[1].text = ValueLimit.ToString();
