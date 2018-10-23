@@ -17,7 +17,7 @@ public class SelectLevelManager : MonoBehaviour
     GameObject map;
     public GameObject loading;
     // Use this for initializationS
-    private void Start()
+    private void Awake()
     {
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
@@ -28,7 +28,7 @@ public class SelectLevelManager : MonoBehaviour
             Camera.main.transform.position = map.GetComponent<Map>().pos;
             map.GetComponent<Map>().back = false;
         }
-        map.GetComponent<Map>()._changeSprite(PlayerPrefs.GetInt("PlayingPlanet"));
+        map.GetComponent<Map>()._changeMap(PlayerPrefs.GetInt("PlayingPlanet"));
         string listidstr = PlayerPrefs.GetString("ListMapId");
         int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
 

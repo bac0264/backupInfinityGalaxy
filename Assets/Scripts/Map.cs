@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Map : MonoBehaviour {
     public static Map instance;
-    public List<Sprite> spriteList;
+    public List<GameObject> mapList ;
     public Vector3 pos;
     public bool back = false;
     void Start () {
@@ -17,9 +17,11 @@ public class Map : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
-    public void _changeSprite(int _id)
+    public void _changeMap(int _id)
     {
-        transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = spriteList[_id];
+        //transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = spriteList[_id];
+        mapList[_id].SetActive(true);
+        transform.GetChild(3).GetChild(0).SetParent(mapList[_id].transform);
     }
 
 }
