@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 114100394176555002}
   - component: {fileID: 114982347777823584}
   - component: {fileID: 61884755700756488}
-  - component: {fileID: 95608011795036264}
+  - component: {fileID: 95706889846722404}
   m_Layer: 5
   m_Name: itemHolder
   m_TagString: Untagged
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 114579751058341372}
   - component: {fileID: 114206642488220194}
   - component: {fileID: 61497826751809500}
-  - component: {fileID: 95624638506792608}
+  - component: {fileID: 95359608699891892}
   m_Layer: 5
   m_Name: itemHolder (2)
   m_TagString: Untagged
@@ -462,6 +462,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.953205, y: 4.998964}
   m_EdgeRadius: 0
+--- !u!95 &95359608699891892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1771076156123950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4769df1536749548a8f099bbfbe7bf5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95549262391998710
 Animator:
   serializedVersion: 3
@@ -480,31 +498,13 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95608011795036264
+--- !u!95 &95706889846722404
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1606654312744640}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e4769df1536749548a8f099bbfbe7bf5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!95 &95624638506792608
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1771076156123950}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: e4769df1536749548a8f099bbfbe7bf5, type: 2}
