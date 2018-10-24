@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 public class SelectLevelManager : MonoBehaviour
 {
+
     public GameObject ItemPrefab;
     public Sprite lockImage;
     public Sprite[] unlockImage;
@@ -16,9 +20,12 @@ public class SelectLevelManager : MonoBehaviour
     public Transform[] listContainer;
     GameObject map;
     public GameObject loading;
+    const float temp = 7.7f;
     // Use this for initializationS
     private void Awake()
     {
+        float position = PlayerPrefs.GetFloat("Position");
+        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, position + temp, Camera.main.transform.position.z);
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
@@ -77,6 +84,7 @@ public class SelectLevelManager : MonoBehaviour
     }
     void LevelClick(GameObject _loading, GameObject _item, int lv)
     {
+        Debug.Log(_item.transform.position);
         _loading.GetComponent<LoadAsync>().LoadingMainGame();
         PlayerPrefs.SetInt("IsPlaying", lv);
         GameObject[] ParentSetting = GameObject.FindGameObjectsWithTag("ParentSetting");
@@ -86,6 +94,7 @@ public class SelectLevelManager : MonoBehaviour
                 ps.SetActive(false);
             }
         }
+        PlayerPrefs.SetFloat("Position", _item.transform.position.y);
     }
     public static void setPlanetID(int x)
     {
