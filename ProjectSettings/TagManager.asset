@@ -23,6 +23,7 @@ TagManager:
   - completed
   - cool
   - ParentSetting
+  - cloud
   layers:
   - Default
   - TransparentFX

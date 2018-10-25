@@ -21,6 +21,7 @@ public class Map : MonoBehaviour {
     {
         //transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = spriteList[_id];
         mapList[_id].SetActive(true);
+        transform.GetChild(3).GetChild(1).SetParent(mapList[_id].transform);
         transform.GetChild(3).GetChild(0).SetParent(mapList[_id].transform);
     }
 
