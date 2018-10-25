@@ -25,7 +25,6 @@ public class ItemHolder : MonoBehaviour {
     IEnumerator timetoSelect()
     {
         gameObject.GetComponent<Animator>().Play("pickup");
-        gameObject.GetComponent<Animator>().SetBool("Bound",true);
         // yield return new WaitForSeconds(0.05f);
         // SelectComplete();
         yield return null;

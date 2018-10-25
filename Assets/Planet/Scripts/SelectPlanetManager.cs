@@ -62,7 +62,6 @@ public class SelectPlanetManager : MonoBehaviour
             PlayerPrefs.SetInt("PlayerLevel", 0);
             PlayerPrefs.SetInt("Spaceship",1);
             PlayerPrefs.SetInt("IsPlaying", 0);
-            PlayerPrefs.SetFloat("Position", 0);
         }
 
     }

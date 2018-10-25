@@ -113,6 +113,7 @@ public class GamePlayManager : SerializedMonoBehaviour
         {
             int x = PlayerPrefs.GetInt("PlayerLevel") / isWinning;
             PlayerPrefs.SetInt("CompleteLastPlanet", x);
+            PlayerPrefs.SetInt("CloudOpened", 0);
         }
     }
     IEnumerator waitCheckGame()

@@ -9,6 +9,7 @@ public class BuyingPanel : MonoBehaviour {
     public GameObject subGoldButton;
     public GameObject subDiamondButton;
     public GameObject panel;
+    public GameObject warningPanel;
     public enum _Type
     {
         Exit,
@@ -64,8 +65,9 @@ public class BuyingPanel : MonoBehaviour {
             }
             else
             {
-                prefabTextEffect.transform.GetChild(0).GetComponent<Text>().text = "NOT ENOUGH";
-                Instantiate(prefabTextEffect, SpaceshipShop.instance.saveHolder[i / 2].transform.GetChild(div));
+               // prefabTextEffect.transform.GetChild(0).GetComponent<Text>().text = "Not enough money";
+                warningPanel.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = "Not enough money";
+                Instantiate(warningPanel);
             }
             ShopManager.instance.select = false;
             Destroy(gameObject);

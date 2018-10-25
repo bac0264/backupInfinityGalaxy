@@ -11,6 +11,7 @@ public class VictoryDialog : MonoBehaviour {
     public Text ScoreText;
     public Text LevelTxt;
     public List<Transform> listStar;
+    public GameObject Victory;
 	// Use this for initialization
 	IEnumerator Start () {
         LevelTxt.text ="Level "+(LevelManager.levelSelected+1).ToString();
@@ -28,12 +29,22 @@ public class VictoryDialog : MonoBehaviour {
     public void playAgain()
     {
         LevelManager.levelSelected--;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("MainGame");
+        }
+        Victory.SetActive(false);
+       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void continueBtn()
     {
         LevelManager.levelSelected++;
         PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (Fade.instance != null)
+        {
+            Fade.instance.FadeInfc("MainGame");
+        }
+        Victory.SetActive(false);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

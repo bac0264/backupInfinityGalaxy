@@ -9,7 +9,35 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 public class SelectLevelManager : MonoBehaviour
 {
+    [Serializable]
+    public class Position
+    {
+        public float pos;
+        public int index;
 
+        public Position(float pos, int index)
+        {
+            this.pos = pos;
+            this.index = index;
+        }
+        public Position()
+        {
+        }
+    }
+    [Serializable]
+    public class SavePosition
+    {
+        private List<Position> posList;
+
+        public void setPos(List<Position> _posList)
+        {
+            posList = _posList;
+        }
+        public List<Position> getPos()
+        {
+            return posList;
+        }
+    }
     public GameObject ItemPrefab;
     public Sprite lockImage;
     public Sprite[] unlockImage;
@@ -19,13 +47,131 @@ public class SelectLevelManager : MonoBehaviour
     public int IsWinning = 15;
     public Transform[] listContainer;
     GameObject map;
+    public Transform listCloud;
     public GameObject loading;
+    public List<Position> posCopy;
     const float temp = 7.7f;
     // Use this for initializationS
+    public void _saving()
+    {
+        try
+        {
+            SavePosition saveData = new SavePosition();
+            // do something  
+            saveData.getPos().Clear();
+            saveData.setPos(posCopy);
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream fs = new FileStream(Application.persistentDataPath + "/Position.txt", FileMode.OpenOrCreate);
+            bf.Serialize(fs, saveData);
+            fs.Close();
+        }
+        catch (Exception e)
+        {
+            print(e);
+        }
+        print("saved data to " + Application.persistentDataPath + "/Position.txt");
+    }
+    public void _Loading()
+    {
+        Debug.Log("Loading:"+ File.Exists(Application.persistentDataPath + "/Position.txt"));
+        if (File.Exists(Application.persistentDataPath + "/Position.txt"))
+        {
+            try
+            {
+                SavePosition saveData = new SavePosition();
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream fs = new FileStream(Application.persistentDataPath + "/Position.txt", FileMode.Open);
+                saveData = (SavePosition)bf.Deserialize(fs);
+                fs.Close();
+                posCopy = saveData.getPos();
+                Debug.Log("count:"+ posCopy.Count);
+                // do somthing
+            }
+            catch (Exception e)
+            {
+                print(e);
+            }
+        }
+    }
+    public void findPos()
+    {
+
+        bool check = false;
+        for (int i = 0; i < posCopy.Count; i++) {
+            if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying")) {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 
+                    posCopy[i].pos + temp, Camera.main.transform.position.z);
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            Debug.Log("Dont find");
+            Debug.Log("IsPlaying: " + PlayerPrefs.GetInt("IsPlaying"));
+        }
+    }
+    public void OpenCloud()
+    {
+        StartCoroutine(cloudAni());
+    }
+    IEnumerator cloudAni()
+    {
+        int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
+        int div = (playerLevel % IsWinning) / 2;
+        int div_2 = playerLevel % IsWinning;
+        int temp = 3;
+        int temp_2 = 6;
+        GameObject listCloud = GameObject.FindGameObjectWithTag("cloud");
+        if ( PlayerPrefs.GetInt("PlayingPlanet") == PlayerPrefs.GetInt("CompleteLastPlanet") ) {
+            int cloudOpened = PlayerPrefs.GetInt("CloudOpened");
+            if (cloudOpened != 0)
+            {
+                for (int i = 0; i < cloudOpened; i++)
+                {
+                    // if (playerLevel % IsWinning != 0)
+                    //{
+                    listCloud.transform.GetChild(i).gameObject.SetActive(false);
+                    //}
+                }
+            }
+            if (div_2 < temp_2)
+            {
+                for (int i = 0; i < temp; i++)
+                {
+                   // if (playerLevel % IsWinning != 0)
+                   //{
+                        listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
+                        Debug.Log("run");
+                        yield return new WaitForSeconds(0.5f);
+                   // }
+                }
+                PlayerPrefs.SetInt("CloudOpened", temp);
+            }
+            else
+            {
+                for (int i = temp; i < IsWinning / 2; i++)
+                {
+                    // if (playerLevel % IsWinning != 0)
+                    //{
+                    listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
+                    Debug.Log("run");
+                    yield return new WaitForSeconds(0.5f);
+                    // }
+                }
+                PlayerPrefs.SetInt("CloudOpened", IsWinning / 2);
+            }
+        }
+        else if(PlayerPrefs.GetInt("PlayingPlanet") < PlayerPrefs.GetInt("CompleteLastPlanet"))
+        {
+            for (int i = 0; i < listCloud.transform.childCount; i++) {
+                listCloud.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            yield return null;
+        }
+    }
     private void Awake()
     {
-        float position = PlayerPrefs.GetFloat("Position");
-        Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, position + temp, Camera.main.transform.position.z);
+        OpenCloud();
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
@@ -68,6 +214,7 @@ public class SelectLevelManager : MonoBehaviour
         {
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
+            posCopy.Add(new Position(item.transform.position.y , i));
             item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading,item, lv); });
             if (i > playerLevel)
             {
@@ -81,6 +228,8 @@ public class SelectLevelManager : MonoBehaviour
                 item.transform.GetChild(0).GetComponent<Button>().enabled = true;
             }
         }
+        _Loading();
+        findPos();
     }
     void LevelClick(GameObject _loading, GameObject _item, int lv)
     {
@@ -94,7 +243,6 @@ public class SelectLevelManager : MonoBehaviour
                 ps.SetActive(false);
             }
         }
-        PlayerPrefs.SetFloat("Position", _item.transform.position.y);
     }
     public static void setPlanetID(int x)
     {
