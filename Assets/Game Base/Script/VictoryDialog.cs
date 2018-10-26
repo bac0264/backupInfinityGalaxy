@@ -28,23 +28,23 @@ public class VictoryDialog : MonoBehaviour {
 	}
     public void playAgain()
     {
+        Victory.SetActive(false);
         LevelManager.levelSelected--;
         if (Fade.instance != null)
         {
             Fade.instance.FadeInfc("MainGame");
         }
-        Victory.SetActive(false);
        // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void continueBtn()
     {
+        Victory.SetActive(false);
         LevelManager.levelSelected++;
         PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
         if (Fade.instance != null)
         {
             Fade.instance.FadeInfc("MainGame");
         }
-        Victory.SetActive(false);
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -24,6 +24,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
     float saveTime;
     // Use this for initialization
     void Start () {
+        saveTime = 0;
         Application.targetFrameRate = 60;
         Line = GetComponentInChildren<LineRenderer>();
         //Camera.main.orthographicSize = ((6 + 1) * 1.0f / Screen.width * Screen.height) / 2;
@@ -111,17 +112,28 @@ public class PlanetGenerator : SerializedMonoBehaviour
         {
             touching = true;
             touchBegin(Input.mousePosition);
+            saveTime = 0;
         }
         if (touching)
         {
+            saveTime = 0;
             touchMove(Input.mousePosition);
         }
         if (Input.GetMouseButtonUp(0))
         {
+            saveTime = 0;
             touching = false;
             touchEnd(Input.mousePosition);
         }
-      
+        if (saveTime < 4 && saveTime + Time.fixedDeltaTime > 4)
+        {
+            Debug.Log("Gợi ý");
+            GameObject obj = canConnect();
+            obj.GetComponent<Animator>().SetTrigger("Touched");
+            saveTime = 0;
+        }
+        saveTime += Time.fixedDeltaTime;
+        
     }
     private void Update()
     {
@@ -215,27 +227,31 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 saveLoopPos = new Vector3(-1, -1, -1);
             }
         }
-        //DrawLine
-        Line.positionCount = planetConnected.Count + 1;
-        for (int i = 0; i < planetConnected.Count; i++)
+        if (!isFalling)
         {
-            Vector3 tempPos = planetConnected[i].transform.localPosition;
-            tempPos.z = -0.01f;
-            Line.SetPosition(i, tempPos);
-        }
+            //DrawLine
+            Line.positionCount = planetConnected.Count + 1;
+            for (int i = 0; i < planetConnected.Count; i++)
+            {
+                Vector3 tempPos = planetConnected[i].transform.localPosition;
+                tempPos.z = -0.01f;
+                Line.SetPosition(i, tempPos);
+            }
 
-        Vector3 tempPos2;
-        if (saveLoopPos == new Vector3(-1, -1, -1))
-        {
-            tempPos2 = Camera.main.ScreenToWorldPoint(mousePosition);
+            Vector3 tempPos2;
+            if (saveLoopPos == new Vector3(-1, -1, -1))
+            {
+                tempPos2 = Camera.main.ScreenToWorldPoint(mousePosition);
+            }
+            else
+            {
+                //isLoop
+                tempPos2 = saveLoopPos;
+            }
+            tempPos2.z = -0.01f;
+            Line.SetPosition(Line.positionCount - 1, tempPos2);
         }
-        else
-        {
-            //isLoop
-            tempPos2 = saveLoopPos;
-        }
-        tempPos2.z = -0.01f;
-        Line.SetPosition(Line.positionCount - 1, tempPos2);
+       
     }
     private void touchEnd(Vector3 mousePosition)
     {
@@ -261,8 +277,6 @@ public class PlanetGenerator : SerializedMonoBehaviour
         if (planetConnected.Count >= 2)
         {
             //AnDiem
-            saveTime = Time.timeSinceLevelLoad;
-           
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
@@ -297,7 +311,6 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 }
             }
             StartCoroutine(Explosion());
-            StartCoroutine(affterGetScore());
             GetComponent<GamePlayManager>().Moved();
         }
         else if(planetConnected.Count==1)
@@ -327,7 +340,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
         }
         if (planetConnected.Count >= 5)
         {
+            Debug.Log(planetConnected[0].transform.position);
             GameObject.FindGameObjectWithTag("PopupContainer").GetComponent<PopupManager>().showPopup("Great");
+
         }
         for (int i=0;i<planetConnected.Count;i++)
         {
@@ -335,7 +350,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             if(planetConnected.Count-i<=6)
                 yield return new WaitForSeconds(0.08f);
             GetComponent<GamePlayManager>().addScore(10);
-            if (targetFly != null)
+            if (targetFly != null && i<planetConnected.Count)
             {
                 GameObject particle = Instantiate(flyPaticle, new Vector3(planetConnected[i].transform.position.x, planetConnected[i].transform.position.y,-1f), Quaternion.identity);
                 float timeFly = 1.5f;
@@ -351,15 +366,15 @@ public class PlanetGenerator : SerializedMonoBehaviour
     {
         isFalling = true;
         yield return new WaitForSeconds(time);
-        if(target.Count< target.NumOfTarget)
+        if(target.Count<target.NumOfTarget)
         {
             target.Count++;
-            if (target.Count == target.NumOfTarget)
+            /*if (target.Count == target.NumOfTarget)
             {
-                target.ItemTarget.GetComponentInChildren<Text>().text = "✔";
-                target.ItemTarget.GetComponentInChildren<Text>().color = Color.green;
+                
             }
-            else target.ItemTarget.GetComponentInChildren<Text>().text = (target.NumOfTarget - target.Count).ToString();
+            else*/
+            target.ItemTarget.GetComponentInChildren<Text>().text = target.Count.ToString()+"/"+target.NumOfTarget.ToString();
             DOTween.Kill("scoreAdd");
             target.ItemTarget.transform.DOScale(1.3f, 0.05f).SetId("scoreAdd");
             target.ItemTarget.transform.DOScale(1f, 0.2f).SetId("scoreAdd").SetDelay(0.05f);
@@ -398,8 +413,10 @@ public class PlanetGenerator : SerializedMonoBehaviour
             transform.DOMoveY(transform.position.y + 0.15f, 0.05f).SetEase(Ease.OutSine);
             transform.DOMoveY(transform.position.y, 0.05f).SetDelay(0.05f).SetEase(Ease.InSine);
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         isFalling = false;
+        StartCoroutine(affterGetScore());
+
     }
     IEnumerator affterGetScore()
     {
@@ -407,11 +424,9 @@ public class PlanetGenerator : SerializedMonoBehaviour
         {
             yield return new WaitForEndOfFrame();
         } while (isFalling);
-
-      
         GetComponent<GamePlayManager>().checkGame();
         bool swapped = false;
-        while (!canConnect())
+        while (canConnect()==null)
         {
             swapped = true;
             SwapPlanet();
@@ -427,11 +442,12 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 {
                     if (matrix[i, j] != null)
                     {
+                        yield return new WaitForSeconds(0.002f);
                         matrix[i, j].transform.DOMove(new Vector3(i, j, 0), 0.5f).SetEase(Ease.InOutQuad);
                     }
                 }
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1f);
             isFalling = false;
         }
     }
@@ -465,7 +481,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
             }
         }*/
     }
-    bool canConnect()
+    GameObject canConnect()
     {
         for (int i = 0; i < 6; i++)
         {
@@ -475,19 +491,19 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 {
                     if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i, j + 1).GetComponent<SpriteRenderer>().sprite&& getObj(i, j).GetComponent<CircleCollider2D>().enabled == true)
                     {
-                        return true;
+                        return getObj(i, j);
                     }
                 }
                 if (getObj(i + 1, j) != null && getObj(i, j) != null)
                 {
                     if (getObj(i, j).GetComponent<SpriteRenderer>().sprite == getObj(i + 1, j).GetComponent<SpriteRenderer>().sprite&& getObj(i, j).GetComponent<CircleCollider2D>().enabled == true)
                     {
-                        return true;
+                        return getObj(i, j);
                     }
                 }
             }
         }
-        return false;
+        return null;
     }
     GameObject getObj(int x, int y)
     {

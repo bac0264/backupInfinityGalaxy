@@ -45,7 +45,7 @@ public class GamePlayManager : SerializedMonoBehaviour
         foreach (var obj in targetPlanet)
         {
             itemTargetPrefab.GetComponent<Image>().sprite = obj.Planet.GetComponent<SpriteRenderer>().sprite;
-            itemTargetPrefab.GetComponentInChildren<Text>().text = obj.NumOfTarget.ToString();
+            itemTargetPrefab.GetComponentInChildren<Text>().text = "0/"+obj.NumOfTarget.ToString();
             obj.ItemTarget=Instantiate(itemTargetPrefab, containerTarget.transform);
         }
         ScoreBar.GetComponent<Image>().fillAmount = 0;
@@ -76,14 +76,6 @@ public class GamePlayManager : SerializedMonoBehaviour
     public void addScore(int num)
     {
         score += num;
-        //checkQuaman
-        /*bool check = true;
-        for (int i = 0; i < targetPlanet.Count; i++)
-        {
-            if(a)
-        }
-        if(check)//qua man*/
-        //ScoreBar.GetComponent<Image>().fillAmount = score * 1f / threeStar;
     }
     IEnumerator TimeCountDown()
     {
