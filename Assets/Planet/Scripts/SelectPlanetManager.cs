@@ -29,7 +29,7 @@ public class SelectPlanetManager : MonoBehaviour
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);
         PlayerPrefs.SetString("LastScene", getName.name);
-        if(LoadingScene.instance != null)
+        if (LoadingScene.instance != null)
         {
             LoadingScene.instance.FadeOut = true;
         }
@@ -40,28 +40,36 @@ public class SelectPlanetManager : MonoBehaviour
             i++;
         }
         PlayerPrefs.SetInt("LastPlanetID", i);
+        if (PlayerPrefs.GetInt("AutoFlying") == 1 && PlayerPrefs.GetInt("PlayingPlanet") != -1)
+        {
+            StartCoroutine(ChangeToScene(PlayerPrefs.GetInt("CompleteLastPlanet")));
+            PlayerPrefs.SetInt("AutoFlying", 0);
+        }
         _IsGameStartedForTheFirstTime();
         _setOpenPlanet();
         _setSpaceshipPosition();
-      // PlayerPrefs.SetInt("IsGameStartedForTheFirstTime");
+        // PlayerPrefs.SetInt("IsGameStartedForTheFirstTime");
     }
     private void Start()
     {
-        if (Fade.instance != null) {
+        if (Fade.instance != null)
+        {
             Fade.instance.FadeOutfc();
         }
     }
     void _IsGameStartedForTheFirstTime()
     {
 
-       if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
+        if (!PlayerPrefs.HasKey("IsGameStartedForTheFirstTime"))
         {
+            PlayerPrefs.SetInt("AutoFlying", 1);
             PlayerPrefs.SetInt("PlayingPlanet", -1);
             PlayerPrefs.SetInt("CompleteLastPlanet", 0);
             PlayerPrefs.SetInt("IsGameStartedForTheFirstTime", 0);
-            PlayerPrefs.SetInt("PlayerLevel", 0);
-            PlayerPrefs.SetInt("Spaceship",1);
+            PlayerPrefs.SetInt("PlayerLevel", 13);
+            PlayerPrefs.SetInt("Spaceship", 1);
             PlayerPrefs.SetInt("IsPlaying", 0);
+            PlayerPrefs.SetInt("ContinueGame", 0);
         }
 
     }
@@ -117,7 +125,7 @@ public class SelectPlanetManager : MonoBehaviour
             {
                 selectPlanet.GetComponent<_Planet>().Select();
                 sceneChanging = true;
-                StartCoroutine(ChangeToScene(selectPlanet.GetComponent<_Planet>().id, selectPlanet));
+                StartCoroutine(ChangeToScene(selectPlanet.GetComponent<_Planet>().id));
             }
         }
         else
@@ -125,7 +133,7 @@ public class SelectPlanetManager : MonoBehaviour
 
         }
     }
-    IEnumerator ChangeToScene(int id, GameObject selectPlanet)
+    IEnumerator ChangeToScene(int id)
     {
         //Khacs manf ddang chon
         yield return new WaitForSeconds(0.2f);
@@ -147,9 +155,18 @@ public class SelectPlanetManager : MonoBehaviour
                                                                          PlanetContainer.GetChild(PlayerPrefs.GetInt("PlayingPlanet")).position.y,
                                                                          -10f), 1.5f).SetEase(Ease.InOutExpo);
                 yield return resetCamera.WaitForCompletion();
-                Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, PlanetContainer.GetChild(id).position - SpaceShip.position)), 0.6f);
-                SpaceShip.DOLocalMove(new Vector3(0, 2f, 0), 0.6f);
-                yield return prepare.WaitForCompletion();
+                if (SpaceShip.GetChild(0).GetComponent<Spaceship>()._type.ToString() == "SpaceCarft")
+                {
+                    Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, PlanetContainer.GetChild(id).position - SpaceShip.position)), 0.6f);
+                    SpaceShip.DOLocalMove(new Vector3(0, 2f, 0), 0.6f);
+                    yield return prepare.WaitForCompletion();
+                }
+                else
+                {
+                    Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, Vector3.zero)), 0.6f);
+                    SpaceShip.DOLocalMove(new Vector3(0, 2f, 0), 0.6f);
+                    yield return prepare.WaitForCompletion();
+                }
             }
             SpaceShip.SetParent(null);
             SpaceShip.GetComponentInChildren<Animator>().SetBool("Flying", true);
@@ -190,9 +207,38 @@ public class SelectPlanetManager : MonoBehaviour
         //    _setSpaceshipPosition();
         //    sceneChanging = false;
         //}
-        LoadAsync.instance._nextScene(id, complete,ref sceneChanging);
+        LoadAsync.instance._nextScene(id, complete, ref sceneChanging);
     }
-
+    IEnumerator Fly(int id)
+    {
+        Tween resetCamera = Camera.main.transform.DOMove(new Vector3(PlanetContainer.GetChild(PlayerPrefs.GetInt("PlayingPlanet")).position.x,
+                                                         PlanetContainer.GetChild(PlayerPrefs.GetInt("PlayingPlanet")).position.y,
+                                                         -10f), 1.5f).SetEase(Ease.InOutExpo);
+        yield return resetCamera.WaitForCompletion();
+        if (SpaceShip.GetChild(0).GetComponent<Spaceship>()._type.ToString() == "SpaceCarft")
+        {
+            Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, PlanetContainer.GetChild(id).position - SpaceShip.position)), 0.6f);
+            SpaceShip.DOLocalMove(new Vector3(0, 2f, 0), 0.6f);
+            yield return prepare.WaitForCompletion();
+        }
+        else
+        {
+            Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, Vector3.zero)), 0.6f);
+            SpaceShip.DOLocalMove(new Vector3(0, 2f, 0), 0.6f);
+            yield return prepare.WaitForCompletion();
+        }
+        SpaceShip.SetParent(null);
+        SpaceShip.GetComponentInChildren<Animator>().SetBool("Flying", true);
+        Tween moveCamera = Camera.main.transform.DOMove(new Vector3(PlanetContainer.GetChild(id).position.x,
+                                                                     PlanetContainer.GetChild(id).position.y,
+                                                                     -10f), 1.8f).SetEase(Ease.InOutBack);
+        SpaceShip.DOMove(new Vector3(PlanetContainer.GetChild(id).position.x,
+                                     PlanetContainer.GetChild(id).position.y,
+                                     0), 1.5f).SetEase(Ease.InOutCubic);
+        yield return new WaitForSeconds(1.7f);
+        SpaceShip.GetComponentInChildren<Animator>().SetBool("Flying", false);
+        yield return moveCamera.WaitForCompletion();
+    }
     GameObject ObjectClicked(Vector2 screenPosition)
     {
         //Converting Mouse Pos to 2D (vector2) World Pos

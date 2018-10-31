@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 4224312849542140}
   - component: {fileID: 212283689903365218}
   - component: {fileID: 95748679125783104}
+  - component: {fileID: 114534306642997688}
   m_Layer: 0
   m_Name: spaceship_1 (1) 7
   m_TagString: Untagged
@@ -89,6 +90,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114534306642997688
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698132460893788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ba05fcfa3014947974d2fc37c33e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 1
 --- !u!212 &212283689903365218
 SpriteRenderer:
   m_ObjectHideFlags: 1

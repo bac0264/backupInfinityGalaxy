@@ -12,10 +12,10 @@ public class SelectLevelManager : MonoBehaviour
     [Serializable]
     public class Position
     {
-        public float pos;
+        public Vector3 pos;
         public int index;
 
-        public Position(float pos, int index)
+        public Position(Vector3 pos, int index)
         {
             this.pos = pos;
             this.index = index;
@@ -52,6 +52,25 @@ public class SelectLevelManager : MonoBehaviour
     public List<Position> posCopy;
     const float temp = 7.7f;
     // Use this for initializationS
+    private void Awake()
+    {
+        OpenCloud();
+        Scene getName = SceneManager.GetActiveScene();
+        PlayerPrefs.SetString("Scene", getName.name);
+        PlayerPrefs.SetString("LastScene", getName.name);
+        map = GameObject.FindGameObjectWithTag("Map");
+        if (map.GetComponent<Map>().back)
+        {
+            Camera.main.transform.position = map.GetComponent<Map>().pos;
+            map.GetComponent<Map>().back = false;
+        }
+        map.GetComponent<Map>()._changeMap(PlayerPrefs.GetInt("PlayingPlanet"));
+        string listidstr = PlayerPrefs.GetString("ListMapId");
+        int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
+
+        listMapId.AddRange(listidstr.Split('|'));
+        _SelectLvCase(PlanetID, playerLevel);
+    }
     public void _saving()
     {
         try
@@ -100,12 +119,38 @@ public class SelectLevelManager : MonoBehaviour
         for (int i = 0; i < posCopy.Count; i++) {
             if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying")) {
                 Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 
-                    posCopy[i].pos + temp, Camera.main.transform.position.z);
+                    posCopy[i].pos.y + temp, Camera.main.transform.position.z);
                 check = true;
                 break;
             }
         }
         if (!check) {
+            Debug.Log("Dont find");
+            Debug.Log("IsPlaying: " + PlayerPrefs.GetInt("IsPlaying"));
+        }
+    }
+    public void _findPos()
+    {
+
+        bool check = false;
+        for (int i = 0; i < posCopy.Count; i++)
+        {
+            if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying") && i != 0)
+            {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
+                    posCopy[i - 1].pos.y + temp, Camera.main.transform.position.z);
+                Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.6f);
+                check = true;
+                break;
+            }
+            else if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying") && i == 0)
+            {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
+                    posCopy[i].pos.y + temp, Camera.main.transform.position.z);
+            }
+        }
+        if (!check)
+        {
             Debug.Log("Dont find");
             Debug.Log("IsPlaying: " + PlayerPrefs.GetInt("IsPlaying"));
         }
@@ -149,7 +194,7 @@ public class SelectLevelManager : MonoBehaviour
             }
             else
             {
-                for (int i = temp; i < IsWinning / 2; i++)
+                for (int i = 0; i < IsWinning / 2; i++)
                 {
                     // if (playerLevel % IsWinning != 0)
                     //{
@@ -168,25 +213,6 @@ public class SelectLevelManager : MonoBehaviour
             }
             yield return null;
         }
-    }
-    private void Awake()
-    {
-        OpenCloud();
-        Scene getName = SceneManager.GetActiveScene();
-        PlayerPrefs.SetString("Scene", getName.name);
-        PlayerPrefs.SetString("LastScene", getName.name);
-        map = GameObject.FindGameObjectWithTag("Map");
-        if (map.GetComponent<Map>().back)
-        {
-            Camera.main.transform.position = map.GetComponent<Map>().pos;
-            map.GetComponent<Map>().back = false;
-        }
-        map.GetComponent<Map>()._changeMap(PlayerPrefs.GetInt("PlayingPlanet"));
-        string listidstr = PlayerPrefs.GetString("ListMapId");
-        int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
-
-        listMapId.AddRange(listidstr.Split('|'));
-        _SelectLvCase(PlanetID, playerLevel);
     }
     public void _SelectLvCase(int mapID, int playerLevel)
     {
@@ -214,7 +240,7 @@ public class SelectLevelManager : MonoBehaviour
         {
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
-            posCopy.Add(new Position(item.transform.position.y , i));
+            posCopy.Add(new Position(item.transform.position , i));
             item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading,item, lv); });
             if (i > playerLevel)
             {
@@ -228,8 +254,18 @@ public class SelectLevelManager : MonoBehaviour
                 item.transform.GetChild(0).GetComponent<Button>().enabled = true;
             }
         }
-        _Loading();
-        findPos();
+        if (PlayerPrefs.GetInt("ContinueGame") == 0)
+        {
+          //  _Loading();
+            findPos();
+            Debug.Log("continue = 0");
+        }
+        else
+        {
+            _findPos();
+            PlayerPrefs.SetInt("ContinueGame", 0);
+            Debug.Log("continue = 1");
+        }
     }
     void LevelClick(GameObject _loading, GameObject _item, int lv)
     {

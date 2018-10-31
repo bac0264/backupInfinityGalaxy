@@ -39,11 +39,29 @@ public class VictoryDialog : MonoBehaviour {
     public void continueBtn()
     {
         Victory.SetActive(false);
-        LevelManager.levelSelected++;
-        PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
-        if (Fade.instance != null)
+        if (LevelManager.levelSelected == (PlayerPrefs.GetInt("PlayerLevel") + 1))
         {
-            Fade.instance.FadeInfc("MainGame");
+            LevelManager.levelSelected++;
+            PlayerPrefs.SetInt("PlayerLevel", LevelManager.levelSelected);
+            if (Fade.instance != null)
+            {
+                int isWinning = 15;
+                if (PlayerPrefs.GetInt("PlayerLevel") % isWinning == 0)
+                {
+                    PlayerPrefs.SetInt("AutoFlying", 1);
+                    Fade.instance.FadeInfc("SelectPlanet");
+                    PlayerPrefs.SetInt("ContinueGame", 0);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("ContinueGame", 1);
+                    Fade.instance.FadeInfc("SelectLevel");
+                }
+            }
+        }
+        else
+        {
+            PlayerPrefs.GetInt("IsPlaying");
         }
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

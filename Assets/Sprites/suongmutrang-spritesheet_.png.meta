@@ -1,11 +1,7 @@
 fileFormatVersion: 2
-guid: 2a91d99396981dd42ae5a055dc9dfb93
+guid: 1c7a6155c5346a945860aa23e4ad638f
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Map15__0
-    21300002: Map15__1
-    21300004: Map15__2
-    21300006: Map15__3
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -97,91 +93,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Map15__0
-      rect:
-        serializedVersion: 2
-        x: 223
-        y: 97
-        width: 1088
-        height: 3847
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e5e86e4ab26fe3448afc187996a9f59b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Map15__1
-      rect:
-        serializedVersion: 2
-        x: 1539
-        y: 95
-        width: 1088
-        height: 3847
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c6358db2d8ed614e9f5eeb52a0c5551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Map15__2
-      rect:
-        serializedVersion: 2
-        x: 2831
-        y: 95
-        width: 1088
-        height: 3847
-      alignment: 9
-      pivot: {x: 0.5, y: -0.000097266355}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3b5ddab70aeda9488ebca5c9799b22b
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Map15__3
-      rect:
-        serializedVersion: 2
-        x: 4116
-        y: 96
-        width: 1088
-        height: 3847
-      alignment: 9
-      pivot: {x: 0.5, y: -0.000097266355}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4626e2da56d318a4f86a59abb23fa7d4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0d05979f6da4ce648a206660021bc780
+    spriteID: 1e2b9c5811b51784380b4a3ebabf920a
     vertices: []
     indices: 
     edges: []
