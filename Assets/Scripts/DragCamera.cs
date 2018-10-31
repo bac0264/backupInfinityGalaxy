@@ -9,7 +9,7 @@ public class DragCamera : MonoBehaviour
     public float speed = 100f;
     public float limitDown = 0;
     [SerializeField]
-    private float limitUp;
+    public float limitUp;
     Vector3 MouseStart;
     Vector3 ScrollVelocity;
     private bool touching;

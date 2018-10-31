@@ -92,7 +92,7 @@ public class SelectLevelManager : MonoBehaviour
     }
     public void _Loading()
     {
-        Debug.Log("Loading:"+ File.Exists(Application.persistentDataPath + "/Position.txt"));
+        Debug.Log("Loading:" + File.Exists(Application.persistentDataPath + "/Position.txt"));
         if (File.Exists(Application.persistentDataPath + "/Position.txt"))
         {
             try
@@ -103,7 +103,7 @@ public class SelectLevelManager : MonoBehaviour
                 saveData = (SavePosition)bf.Deserialize(fs);
                 fs.Close();
                 posCopy = saveData.getPos();
-                Debug.Log("count:"+ posCopy.Count);
+                Debug.Log("count:" + posCopy.Count);
                 // do somthing
             }
             catch (Exception e)
@@ -116,15 +116,18 @@ public class SelectLevelManager : MonoBehaviour
     {
 
         bool check = false;
-        for (int i = 0; i < posCopy.Count; i++) {
-            if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying")) {
-                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, 
+        for (int i = 0; i < posCopy.Count; i++)
+        {
+            if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying"))
+            {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
                     posCopy[i].pos.y + temp, Camera.main.transform.position.z);
                 check = true;
                 break;
             }
         }
-        if (!check) {
+        if (!check)
+        {
             Debug.Log("Dont find");
             Debug.Log("IsPlaying: " + PlayerPrefs.GetInt("IsPlaying"));
         }
@@ -137,9 +140,17 @@ public class SelectLevelManager : MonoBehaviour
         {
             if (posCopy[i].index == PlayerPrefs.GetInt("IsPlaying") && i != 0)
             {
-                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
-                    posCopy[i - 1].pos.y + temp, Camera.main.transform.position.z);
-                Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.6f);
+                if (posCopy[i].pos.y + temp >= DragCamera.instance.limitUp)
+                {
+                    Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
+                     posCopy[i].pos.y + temp, Camera.main.transform.position.z);
+                }
+                else
+                {
+                    Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
+    posCopy[i - 1].pos.y + temp, Camera.main.transform.position.z);
+                    Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.6f);
+                }
                 check = true;
                 break;
             }
@@ -167,7 +178,8 @@ public class SelectLevelManager : MonoBehaviour
         int temp = 3;
         int temp_2 = 6;
         GameObject listCloud = GameObject.FindGameObjectWithTag("cloud");
-        if ( PlayerPrefs.GetInt("PlayingPlanet") == PlayerPrefs.GetInt("CompleteLastPlanet") ) {
+        if (PlayerPrefs.GetInt("PlayingPlanet") == PlayerPrefs.GetInt("CompleteLastPlanet"))
+        {
             int cloudOpened = PlayerPrefs.GetInt("CloudOpened");
             if (cloudOpened != 0)
             {
@@ -183,12 +195,12 @@ public class SelectLevelManager : MonoBehaviour
             {
                 for (int i = 0; i < temp; i++)
                 {
-                   // if (playerLevel % IsWinning != 0)
-                   //{
-                        listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
-                        Debug.Log("run");
-                        yield return new WaitForSeconds(0.5f);
-                   // }
+                    // if (playerLevel % IsWinning != 0)
+                    //{
+                    listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
+                    Debug.Log("run");
+                    yield return new WaitForSeconds(0.5f);
+                    // }
                 }
                 PlayerPrefs.SetInt("CloudOpened", temp);
             }
@@ -206,9 +218,10 @@ public class SelectLevelManager : MonoBehaviour
                 PlayerPrefs.SetInt("CloudOpened", IsWinning / 2);
             }
         }
-        else if(PlayerPrefs.GetInt("PlayingPlanet") < PlayerPrefs.GetInt("CompleteLastPlanet"))
+        else if (PlayerPrefs.GetInt("PlayingPlanet") < PlayerPrefs.GetInt("CompleteLastPlanet"))
         {
-            for (int i = 0; i < listCloud.transform.childCount; i++) {
+            for (int i = 0; i < listCloud.transform.childCount; i++)
+            {
                 listCloud.transform.GetChild(i).gameObject.SetActive(false);
             }
             yield return null;
@@ -240,8 +253,8 @@ public class SelectLevelManager : MonoBehaviour
         {
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
-            posCopy.Add(new Position(item.transform.position , i));
-            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading,item, lv); });
+            posCopy.Add(new Position(item.transform.position, i));
+            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading, item, lv); });
             if (i > playerLevel)
             {
                 item.transform.GetChild(0).GetComponent<Image>().sprite = lockImage;
@@ -256,7 +269,7 @@ public class SelectLevelManager : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("ContinueGame") == 0)
         {
-          //  _Loading();
+            //  _Loading();
             findPos();
             Debug.Log("continue = 0");
         }
@@ -273,8 +286,9 @@ public class SelectLevelManager : MonoBehaviour
         _loading.GetComponent<LoadAsync>().LoadingMainGame();
         PlayerPrefs.SetInt("IsPlaying", lv);
         GameObject[] ParentSetting = GameObject.FindGameObjectsWithTag("ParentSetting");
-        if (ParentSetting != null) {
-            foreach(GameObject ps in ParentSetting)
+        if (ParentSetting != null)
+        {
+            foreach (GameObject ps in ParentSetting)
             {
                 ps.SetActive(false);
             }
@@ -284,10 +298,12 @@ public class SelectLevelManager : MonoBehaviour
     {
         PlanetID = x;
     }
-    void _enableButton(bool check) {
+    void _enableButton(bool check)
+    {
         if (check == true)
         {
-            for (int i = 0; i < listContainer.Length; i++) {
+            for (int i = 0; i < listContainer.Length; i++)
+            {
                 if (listContainer[i].childCount > 0)
                 {
                     if (listContainer[i].GetChild(0).GetChild(0).GetComponent<Image>().sprite != lockImage)
@@ -297,7 +313,8 @@ public class SelectLevelManager : MonoBehaviour
                 }
             }
         }
-        else {
+        else
+        {
             for (int i = 0; i < listContainer.Length; i++)
             {
                 if (listContainer[i].childCount > 0)
