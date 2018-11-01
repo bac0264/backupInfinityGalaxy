@@ -38,15 +38,18 @@ public class SelectLevelManager : MonoBehaviour
             return posList;
         }
     }
+    public GameObject MissionPopup;
     public GameObject ItemPrefab;
     public Sprite lockImage;
     public Sprite[] unlockImage;
     public static int PlanetID;
     public List<string> listMapId = new List<string>();
+    public List<GameObject> itemList = new List<GameObject>();
     private const int MAX = 60;
     public int IsWinning = 15;
     public Transform[] listContainer;
     GameObject map;
+    public GameObject Glow;
     public Transform listCloud;
     public GameObject loading;
     public List<Position> posCopy;
@@ -122,6 +125,8 @@ public class SelectLevelManager : MonoBehaviour
             {
                 Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
                     posCopy[i].pos.y + temp, Camera.main.transform.position.z);
+                Glow.transform.SetParent(itemList[i].transform);
+               // Glow.transform.position = Vector3.zero;
                 check = true;
                 break;
             }
@@ -144,12 +149,14 @@ public class SelectLevelManager : MonoBehaviour
                 {
                     Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
                      posCopy[i].pos.y + temp, Camera.main.transform.position.z);
+                   // Glow.transform.SetParent(itemList[i].transform);
                 }
                 else
                 {
                     Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
     posCopy[i - 1].pos.y + temp, Camera.main.transform.position.z);
-                    Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.6f);
+                    Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.8f);
+                   // Glow.transform.SetParent(itemList[i].transform);
                 }
                 check = true;
                 break;
@@ -177,7 +184,7 @@ public class SelectLevelManager : MonoBehaviour
         int div_2 = playerLevel % IsWinning;
         int temp = 3;
         int temp_2 = 6;
-        GameObject listCloud = GameObject.FindGameObjectWithTag("cloud");
+        GameObject _listCloud = GameObject.FindGameObjectWithTag("cloud");
         if (PlayerPrefs.GetInt("PlayingPlanet") == PlayerPrefs.GetInt("CompleteLastPlanet"))
         {
             int cloudOpened = PlayerPrefs.GetInt("CloudOpened");
@@ -187,7 +194,7 @@ public class SelectLevelManager : MonoBehaviour
                 {
                     // if (playerLevel % IsWinning != 0)
                     //{
-                    listCloud.transform.GetChild(i).gameObject.SetActive(false);
+                    _listCloud.transform.GetChild(i).gameObject.SetActive(false);
                     //}
                 }
             }
@@ -197,7 +204,7 @@ public class SelectLevelManager : MonoBehaviour
                 {
                     // if (playerLevel % IsWinning != 0)
                     //{
-                    listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
+                    _listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
                     Debug.Log("run");
                     yield return new WaitForSeconds(0.5f);
                     // }
@@ -210,7 +217,7 @@ public class SelectLevelManager : MonoBehaviour
                 {
                     // if (playerLevel % IsWinning != 0)
                     //{
-                    listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
+                    _listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
                     Debug.Log("run");
                     yield return new WaitForSeconds(0.5f);
                     // }
@@ -220,9 +227,9 @@ public class SelectLevelManager : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("PlayingPlanet") < PlayerPrefs.GetInt("CompleteLastPlanet"))
         {
-            for (int i = 0; i < listCloud.transform.childCount; i++)
+            for (int i = 0; i < _listCloud.transform.childCount; i++)
             {
-                listCloud.transform.GetChild(i).gameObject.SetActive(false);
+                _listCloud.transform.GetChild(i).gameObject.SetActive(false);
             }
             yield return null;
         }
@@ -254,7 +261,8 @@ public class SelectLevelManager : MonoBehaviour
             GameObject item = Instantiate(ItemPrefab, listContainer[i % length]);
             int lv = i;
             posCopy.Add(new Position(item.transform.position, i));
-            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(loading, item, lv); });
+            itemList.Add(item);
+            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick( item, lv); });
             if (i > playerLevel)
             {
                 item.transform.GetChild(0).GetComponent<Image>().sprite = lockImage;
@@ -280,10 +288,10 @@ public class SelectLevelManager : MonoBehaviour
             Debug.Log("continue = 1");
         }
     }
-    void LevelClick(GameObject _loading, GameObject _item, int lv)
+    void LevelClick(GameObject _item, int lv)
     {
         Debug.Log(_item.transform.position);
-        _loading.GetComponent<LoadAsync>().LoadingMainGame();
+        Instantiate(MissionPopup);
         PlayerPrefs.SetInt("IsPlaying", lv);
         GameObject[] ParentSetting = GameObject.FindGameObjectsWithTag("ParentSetting");
         if (ParentSetting != null)
@@ -294,6 +302,7 @@ public class SelectLevelManager : MonoBehaviour
             }
         }
     }
+
     public static void setPlanetID(int x)
     {
         PlanetID = x;
