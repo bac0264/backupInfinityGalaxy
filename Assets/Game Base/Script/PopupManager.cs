@@ -14,8 +14,11 @@ public class PopupManager: MonoBehaviour
     }
     public void showDialog(string name)
     {
-        GameObject popup = transform.Find(name).gameObject;
-        popup.SetActive(true);
+        if (!transform.Find("Victory").gameObject.active)
+        {
+            GameObject popup = transform.Find(name).gameObject;
+            popup.SetActive(true);
+        }
     }
     IEnumerator showPopupAndDestroy(string name)
     {

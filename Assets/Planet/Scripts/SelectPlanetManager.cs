@@ -66,7 +66,7 @@ public class SelectPlanetManager : MonoBehaviour
             PlayerPrefs.SetInt("PlayingPlanet", -1);
             PlayerPrefs.SetInt("CompleteLastPlanet", 0);
             PlayerPrefs.SetInt("IsGameStartedForTheFirstTime", 0);
-            PlayerPrefs.SetInt("PlayerLevel", 13);
+            PlayerPrefs.SetInt("PlayerLevel", 0);
             PlayerPrefs.SetInt("Spaceship", 1);
             PlayerPrefs.SetInt("IsPlaying", 0);
             PlayerPrefs.SetInt("ContinueGame", 0);

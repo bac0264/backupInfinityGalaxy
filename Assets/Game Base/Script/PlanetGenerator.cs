@@ -19,7 +19,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
     GameObject[,] matrix = new GameObject[6, 7];
     List<GameObject> planetConnected=new List<GameObject>();
     Vector3 saveLoopPos=new Vector3(-1,-1,-1);
-    public bool isFalling = false;
+    public bool isFalling = false,victory=false;
     bool touching = false;
     float saveTime;
     // Use this for initialization
@@ -160,7 +160,7 @@ public class PlanetGenerator : SerializedMonoBehaviour
     private void touchMove(Vector3 mousePosition)
     {
         GameObject curObj = ObjectClicked(mousePosition);
-        if (curObj != null && !isFalling && GetComponent<GamePlayManager>().ValueLimit>0)
+        if (curObj != null && !isFalling && GetComponent<GamePlayManager>().ValueLimit>0&&!victory)
         {
             if (planetConnected.Count == 0)
             {
@@ -335,7 +335,24 @@ public class PlanetGenerator : SerializedMonoBehaviour
                 Color c = planetConnected[0].GetComponent<PlanetElement>().GetPlanetColor();
                 grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(c, 0.3f), new GradientColorKey(c, 1.0f) }, new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(1.0f, 0.4f), new GradientAlphaKey(0.0f, 1.0f) });
                 col.color = grad;
+                if (item.Count + planetConnected.Count >= item.NumOfTarget)
+                {
+                    bool check = true;
+                    foreach (var item2 in GetComponent<GamePlayManager>().targetPlanet)
+                    {
+                        if (item2 != item && item2.Count != item2.NumOfTarget)
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    if (check)
+                    {
+                        victory = true;
+                    }
+                }
                 break;
+                
             }
         }
         if (planetConnected.Count >= 5)
