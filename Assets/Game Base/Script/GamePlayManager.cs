@@ -31,6 +31,7 @@ public class GamePlayManager : SerializedMonoBehaviour
         {
             Fade.instance.FadeOutfc();
         }
+
         if (gameLimit==GameLimit.Time)
         {
             txtGameLimit.GetComponentsInChildren<Text>()[0].text = "Time";
@@ -61,21 +62,25 @@ public class GamePlayManager : SerializedMonoBehaviour
         {
             Debug.Log("1 sao");
             Destroy(Instantiate(StarExplo,new Vector3(OneStarPos.transform.position.x, OneStarPos.transform.position.y+1f,0f) ,Quaternion.identity),1.5f);
+            GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<starSlider>().tangsao();
         }
         if (twoStar * 1f / threeStar < ScoreBar.GetComponent<Image>().fillAmount && twoStar * 1f / threeStar > before)
         {
             Debug.Log("2 sao");
             Destroy(Instantiate(StarExplo, new Vector3(TwoStarPos.transform.position.x, OneStarPos.transform.position.y + 1f, 0f), Quaternion.identity), 1.5f);
+            GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<starSlider>().tangsao();
         }
         if(before<1&& ScoreBar.GetComponent<Image>().fillAmount == 1)
         {
             Debug.Log("3 sao");
             Destroy(Instantiate(StarExplo, new Vector3(ThreeStarPos.transform.position.x, OneStarPos.transform.position.y + 1f, 0f), Quaternion.identity), 1.5f);
+            GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<starSlider>().tangsao();
         }
     }
     public void addScore(int num)
     {
         score += num;
+       // GameObject.FindGameObjectWithTag("UI").transform.Find("txtScore").GetComponent<Text>().text=score.ToString();
     }
     IEnumerator TimeCountDown()
     {

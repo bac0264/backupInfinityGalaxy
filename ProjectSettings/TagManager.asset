@@ -21,9 +21,9 @@ TagManager:
   - PopupContainer
   - levelManager
   - completed
-  - cool
   - ParentSetting
   - cloud
+  - UI
   layers:
   - Default
   - TransparentFX

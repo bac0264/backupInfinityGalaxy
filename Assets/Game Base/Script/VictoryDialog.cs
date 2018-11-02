@@ -50,7 +50,7 @@ public class VictoryDialog : MonoBehaviour
                 int isWinning = 15;
                 if (PlayerPrefs.GetInt("PlayerLevel") % isWinning == 0)
                 {
-                    PlayerPrefs.SetInt("AutoFlying", 1);
+                    PlayerPrefs.SetInt("AutoFlying", 1);    
                     Fade.instance.FadeInfc("SelectPlanet");
                     PlayerPrefs.SetInt("ContinueGame", 0);
                 }
