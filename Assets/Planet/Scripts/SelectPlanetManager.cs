@@ -25,7 +25,6 @@ public class SelectPlanetManager : MonoBehaviour
     //Vector2 temp = new Vector2();
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
         if (instance == null) instance = this;
         Scene getName = SceneManager.GetActiveScene();
         PlayerPrefs.SetString("Scene", getName.name);

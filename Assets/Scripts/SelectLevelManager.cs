@@ -67,7 +67,8 @@ public class SelectLevelManager : MonoBehaviour
             Camera.main.transform.position = map.GetComponent<Map>().pos;
             map.GetComponent<Map>().back = false;
         }
-        map.GetComponent<Map>()._changeMap(PlayerPrefs.GetInt("PlayingPlanet"));
+        if (map != null)
+            map.GetComponent<Map>()._changeMap(PlayerPrefs.GetInt("PlayingPlanet"));
         string listidstr = PlayerPrefs.GetString("ListMapId");
         int playerLevel = PlayerPrefs.GetInt("PlayerLevel");
 
@@ -115,6 +116,7 @@ public class SelectLevelManager : MonoBehaviour
             }
         }
     }
+    // tìm vị trí đang chơi khi từ selectplanet vào
     public void findPos()
     {
 
@@ -126,7 +128,7 @@ public class SelectLevelManager : MonoBehaviour
                 Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
                     posCopy[i].pos.y + temp, Camera.main.transform.position.z);
                 Glow.transform.SetParent(itemList[i].transform);
-               // Glow.transform.position = Vector3.zero;
+                // Glow.transform.position = Vector3.zero;
                 check = true;
                 break;
             }
@@ -137,9 +139,13 @@ public class SelectLevelManager : MonoBehaviour
             Debug.Log("IsPlaying: " + PlayerPrefs.GetInt("IsPlaying"));
         }
     }
+    // Tìm vị trí khi continue game
     public void _findPos()
     {
-
+        StartCoroutine(timetoFindPos());
+    }
+    IEnumerator timetoFindPos()
+    {
         bool check = false;
         for (int i = 0; i < posCopy.Count; i++)
         {
@@ -148,15 +154,21 @@ public class SelectLevelManager : MonoBehaviour
                 if (posCopy[i].pos.y + temp >= DragCamera.instance.limitUp)
                 {
                     Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
-                     posCopy[i].pos.y + temp, Camera.main.transform.position.z);
-                   // Glow.transform.SetParent(itemList[i].transform);
+                    posCopy[i].pos.y + temp, Camera.main.transform.position.z);
+                    yield return new WaitForSeconds(0.8f);
+                    Instantiate(MissionPopup);
+                    // Glow.transform.SetParent(itemList[i].transform);
                 }
                 else
                 {
                     Camera.main.transform.position = new Vector3(Camera.main.transform.position.x,
     posCopy[i - 1].pos.y + temp, Camera.main.transform.position.z);
-                    Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.8f);
-                   // Glow.transform.SetParent(itemList[i].transform);
+                    Tween move = Camera.main.transform.DOMoveY(posCopy[i].pos.y + temp, 0.8f);
+                    yield return move.WaitForCompletion();
+                    Instantiate(MissionPopup);
+                    // PlayerPrefs.SetInt("IsPlaying", PlayerPrefs.GetInt("IsPlaying") + 1);
+
+                    // Glow.transform.SetParent(itemList[i].transform);
                 }
                 check = true;
                 break;
@@ -262,7 +274,7 @@ public class SelectLevelManager : MonoBehaviour
             int lv = i;
             posCopy.Add(new Position(item.transform.position, i));
             itemList.Add(item);
-            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick( item, lv); });
+            item.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { LevelClick(item, lv); });
             if (i > playerLevel)
             {
                 item.transform.GetChild(0).GetComponent<Image>().sprite = lockImage;

@@ -42,11 +42,14 @@ public class VictoryDialog : MonoBehaviour
     {
         Victory.SetActive(false);
         LevelManager.levelSelected++;
+        PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
+        Debug.Log("IsPlaying" + LevelManager.levelSelected);
         if (LevelManager.levelSelected > PlayerPrefs.GetInt("PlayerLevel"))
         {
             PlayerPrefs.SetInt("PlayerLevel", LevelManager.levelSelected);
             if (Fade.instance != null)
             {
+                Debug.Log("LevelPlayer" + LevelManager.levelSelected);
                 int isWinning = 15;
                 if (PlayerPrefs.GetInt("PlayerLevel") % isWinning == 0)
                 {
@@ -63,7 +66,6 @@ public class VictoryDialog : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else {
-            PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
             if (Fade.instance != null)
             {
                 int isWinning = 15;
