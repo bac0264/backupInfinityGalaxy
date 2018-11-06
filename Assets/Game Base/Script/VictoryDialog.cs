@@ -31,11 +31,15 @@ public class VictoryDialog : MonoBehaviour
     public void playAgain()
     {
         Victory.SetActive(false);
+        PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
         LevelManager.levelSelected--;
         if (Fade.instance != null)
         {
-            Fade.instance.FadeInfc("MainGame");
+            PlayerPrefs.SetInt("ContinueGame", 1);
+            Fade.instance.FadeInfc("SelectLevel");
+
         }
+
         // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void continueBtn()
@@ -53,7 +57,7 @@ public class VictoryDialog : MonoBehaviour
                 int isWinning = 15;
                 if (PlayerPrefs.GetInt("PlayerLevel") % isWinning == 0)
                 {
-                    PlayerPrefs.SetInt("AutoFlying", 1);    
+                    PlayerPrefs.SetInt("AutoFlying", 1);
                     Fade.instance.FadeInfc("SelectPlanet");
                     PlayerPrefs.SetInt("ContinueGame", 0);
                 }
@@ -65,7 +69,8 @@ public class VictoryDialog : MonoBehaviour
             }
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        else {
+        else
+        {
             if (Fade.instance != null)
             {
                 int isWinning = 15;
