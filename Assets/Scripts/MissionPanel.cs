@@ -5,8 +5,11 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class MissionPanel : MonoBehaviour
 {
+    public static MissionPanel instance;
     public GameObject loading;
     public GameObject panel;
+    public Text text;
+
     public void isExit()
     {
         StartCoroutine(_loadAnimation());
@@ -19,6 +22,8 @@ public class MissionPanel : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (instance == null) instance = this;
+        text.text = (PlayerPrefs.GetInt("IsPlaying")+1).ToString();
         //gameObject.GetComponent<Animator>().SetBool("In", false);
         //if (panel != null)
         //{

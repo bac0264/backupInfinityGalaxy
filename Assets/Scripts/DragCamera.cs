@@ -13,6 +13,7 @@ public class DragCamera : MonoBehaviour
     Vector3 MouseStart;
     Vector3 ScrollVelocity;
     private bool touching;
+    GameObject missionpanel;
     private void Awake()
     {
         if (instance == null)
@@ -26,6 +27,7 @@ public class DragCamera : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 pos = Camera.main.transform.position;
+        missionpanel = GameObject.FindGameObjectWithTag("MissionPanel");
         if (Input.GetKey("w"))
         {
             if (pos.y <= limitUp)
@@ -52,6 +54,7 @@ public class DragCamera : MonoBehaviour
             touching = false;
             _TouchEnd(Input.mousePosition);
         }
+
         if (Input.touchCount > 0)
         {
             if (Input.GetTouch(0).phase == TouchPhase.Began)
@@ -67,6 +70,7 @@ public class DragCamera : MonoBehaviour
                 _TouchEnd(Input.GetTouch(0).position);
             }
         }
+
         DOTween.Kill("MoveY");
         if (Camera.main.transform.position.y - ScrollVelocity.y >= limitDown && Camera.main.transform.position.y - ScrollVelocity.y <= limitUp)
         {
@@ -78,7 +82,8 @@ public class DragCamera : MonoBehaviour
         {
             Camera.main.transform.DOMoveY(limitDown, 0.1f);
         }
-        else {
+        else
+        {
             Camera.main.transform.DOMoveY(limitUp, 0.1f);
         }
     }
@@ -89,8 +94,15 @@ public class DragCamera : MonoBehaviour
     }
     public void _TouchHold(Vector3 position)
     {
-        ScrollVelocity = Camera.main.ScreenToWorldPoint(position);
-        ScrollVelocity = ScrollVelocity - MouseStart;
+        if (missionpanel != null)
+        {
+            Debug.Log("missionpanel");
+        }
+        else
+        {
+            ScrollVelocity = Camera.main.ScreenToWorldPoint(position);
+            ScrollVelocity = ScrollVelocity - MouseStart;
+        }
         //Vector3 MouseMove = click(position);
         //Vector3 temp = Camera.main.transform.position;
         //if (MouseStart.y - MouseMove.y < 0)

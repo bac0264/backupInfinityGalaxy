@@ -24,6 +24,7 @@ TagManager:
   - ParentSetting
   - cloud
   - UI
+  - MissionPanel
   layers:
   - Default
   - TransparentFX
