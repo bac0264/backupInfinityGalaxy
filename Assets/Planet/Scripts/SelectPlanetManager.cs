@@ -155,6 +155,7 @@ public class SelectPlanetManager : MonoBehaviour
                                                                          PlanetContainer.GetChild(PlayerPrefs.GetInt("PlayingPlanet")).position.y,
                                                                          -10f), 1.5f).SetEase(Ease.InOutExpo);
                 yield return resetCamera.WaitForCompletion();
+                // chuan bi cat canh
                 if (SpaceShip.GetChild(0).GetComponent<Spaceship>()._type.ToString() == "SpaceCarft")
                 {
                     Tween prepare = SpaceShip.DORotate(new Vector3(0, 0, Vector2.SignedAngle(Vector2.up, PlanetContainer.GetChild(id).position - SpaceShip.position)), 0.6f);
@@ -168,15 +169,39 @@ public class SelectPlanetManager : MonoBehaviour
                     yield return prepare.WaitForCompletion();
                 }
             }
+            // Bay den hanh tinh da chon
             SpaceShip.SetParent(null);
+            Debug.Log("distance: " + (Camera.main.transform.position - new Vector3(PlanetContainer.GetChild(id).position.x,
+                                                                         PlanetContainer.GetChild(id).position.y,
+                                                                         -10f)).magnitude);
+            Vector3 newPos = new Vector3(PlanetContainer.GetChild(id).position.x,
+                                                                         PlanetContainer.GetChild(id).position.y,
+                                                                         -10f);
+            float distance = (Camera.main.transform.position - new Vector3(PlanetContainer.GetChild(id).position.x,
+                                                                         PlanetContainer.GetChild(id).position.y,
+                                                                         -10f)).magnitude;
+            float duration = 0.5f;
+            if (distance <= 11)
+            {
+                duration = 1.5f;
+            }
+            else if ( 11 < distance && distance <= 18)
+            {
+                duration = 2.2f;
+            }
+            else
+            {
+                duration = 3f;
+            }
             SpaceShip.GetComponentInChildren<Animator>().SetBool("Flying", true);
             Tween moveCamera = Camera.main.transform.DOMove(new Vector3(PlanetContainer.GetChild(id).position.x,
                                                                          PlanetContainer.GetChild(id).position.y,
-                                                                         -10f), 1.8f).SetEase(Ease.InOutBack);
+                                                                         -10f), duration + 0.1f).SetEase(Ease.InOutBack);
             SpaceShip.DOMove(new Vector3(PlanetContainer.GetChild(id).position.x,
                                          PlanetContainer.GetChild(id).position.y,
-                                         0), 1.5f).SetEase(Ease.InOutCubic);
-            yield return new WaitForSeconds(1.7f);
+                                         0), duration).SetEase(Ease.InOutCubic);
+            yield return new WaitForSeconds(duration + 0.1f);
+            // dung lai
             SpaceShip.GetComponentInChildren<Animator>().SetBool("Flying", false);
             yield return moveCamera.WaitForCompletion();
         }
@@ -184,7 +209,7 @@ public class SelectPlanetManager : MonoBehaviour
         {
             Tween resetCamera = Camera.main.transform.DOMove(new Vector3(PlanetContainer.GetChild(id).position.x,
                                                                         PlanetContainer.GetChild(id).position.y,
-                                                                        -10f), 2f).SetEase(Ease.InOutExpo);
+                                                                        -10f), 0.5f).SetEase(Ease.InOutExpo);
             yield return resetCamera.WaitForCompletion();
         }
         PlayerPrefs.SetInt("PlayingPlanet", id);

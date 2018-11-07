@@ -10,6 +10,7 @@ public class Fade : MonoBehaviour {
     public bool FadeOut;
     public bool check;
     public Image im;
+    public Image im_2;
     public string sceneName;
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class Fade : MonoBehaviour {
             Destroy(gameObject);
         }
         im = gameObject.transform.GetChild(0).GetComponent<Image>();
+        im_2 = gameObject.transform.GetChild(1).GetComponent<Image>();
     }
     private void Update()
     {
@@ -29,14 +31,12 @@ public class Fade : MonoBehaviour {
         {
             if (FadeIn == true)
             {
-                transform.GetChild(0).gameObject.SetActive(true);
                 StartCoroutine(_FadeIn());
             }
             if (FadeOut == true)
             {
                 if (im != null)
                 {
-                    im.DOColor(new Color(0f, 0f, 0f, 1f), 0.1f);
                     StartCoroutine(_FadeOut());
                 }
             }
@@ -45,16 +45,23 @@ public class Fade : MonoBehaviour {
     IEnumerator _FadeOut()
     {
         FadeOut = false;
-        im.DOColor(new Color(0f, 0f, 0f, 1f), 0f);
-        Tween fadeOut = im.DOColor(new Color(0f, 0f, 0f, 0f), 0.8f);
+        im.DOColor(new Color(0f, 0f, 0f, 1f), 0.5f);
+        Tween fadeIn = im_2.DOColor(new Color(0, 0, 0, 1), 0.7f);
+        yield return fadeIn.WaitForCompletion();
+        transform.GetChild(1).gameObject.SetActive(false);
+        Tween fadeOut = im.DOColor(new Color(0f, 0f, 0f, 0f), 0.7f);
         yield return fadeOut.WaitForCompletion();
         transform.GetChild(0).gameObject.SetActive(false);
     }
     IEnumerator _FadeIn()
     {
+        transform.GetChild(0).gameObject.SetActive(true);
         FadeIn = false;
-        Tween fadeIn = im.DOColor(new Color(1f, 1f, 1f, 1f), 0.5f);
+        Tween fadeIn = im.DOColor(new Color(0f, 0f, 0f, 1f), 0.7f);
         yield return fadeIn.WaitForCompletion();
+        transform.GetChild(1).gameObject.SetActive(true);
+        Tween fadeOut = im_2.DOColor(new Color(1f, 1f, 1f, 1f), 0.7f);
+        yield return fadeOut.WaitForCompletion();
         SceneManager.LoadScene(sceneName.ToString());
     }
     public void FadeInfc(string _sceneName)

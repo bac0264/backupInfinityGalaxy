@@ -12,12 +12,12 @@ public class MissionPanel : MonoBehaviour
 
     public void isExit()
     {
-        StartCoroutine(_loadAnimation());
+        StartCoroutine(loadAnimationBtnExit());
     }
     
     public void Play()
     {
-        StartCoroutine(loadAnimation());
+        StartCoroutine(loadAnimationBtnPlay());
     }
     // Use this for initialization
     void Start()
@@ -42,7 +42,7 @@ public class MissionPanel : MonoBehaviour
             panel.GetComponent<Image>().DOColor(new Color(0, 0, 0, 225f / 255), 0.8f);
         }
     }
-    IEnumerator loadAnimation()
+    IEnumerator loadAnimationBtnPlay()
     {
         // gameObject.transform.GetChild(1).GetChild(1).GetComponent<Animator>().Play("ScaleButton");
         if (panel != null)
@@ -55,9 +55,10 @@ public class MissionPanel : MonoBehaviour
         yield return new WaitForSeconds(0.7f);
         loading.GetComponent<LoadAsync>().LoadingMainGame();
     }
-    IEnumerator _loadAnimation()
+    IEnumerator loadAnimationBtnExit()
     {
         // gameObject.transform.GetChild(1).GetChild(1).GetComponent<Animator>().Play("ScaleButton");
+        GameObject map = GameObject.FindGameObjectWithTag("Map");
         if (panel != null)
         {
             panel.GetComponent<Image>().DOColor(new Color(0, 0, 0, 0), 0.5f);
@@ -65,7 +66,13 @@ public class MissionPanel : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         Animator ani = gameObject.GetComponent<Animator>();
         ani.Play("out");
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.6f);
+        if (map != null)
+        {
+            map.transform.GetChild(0).gameObject.SetActive(true);
+            map.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
 }

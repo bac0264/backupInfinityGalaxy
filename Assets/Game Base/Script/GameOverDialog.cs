@@ -5,21 +5,34 @@ using UnityEngine.SceneManagement;
 
 public class GameOverDialog : MonoBehaviour {
 
-    
-	// Use this for initialization
-	void Start () {
+    public GameObject gameOver;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
     public void PlayAgain()
     {
         // mấy cái loadscene này chỉnh thêm cái loading nhé
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameOver.SetActive(false);
+        PlayerPrefs.SetInt("IsPlaying", LevelManager.levelSelected);
+        LevelManager.levelSelected--;
+        if (Fade.instance != null)
+        {
+            PlayerPrefs.SetInt("ContinueGame", 1);
+            Fade.instance.FadeInfc("SelectLevel");
+
+        }
     }
     public void exitclick()
     {
         //load scene cũ
-        SceneManager.LoadScene("SelectLevel");
-        
+        gameOver.SetActive(false);
+        if (Fade.instance != null)
+        {
+            PlayerPrefs.SetInt("ContinueGame", 1);
+            Fade.instance.FadeInfc("SelectLevel");
+
+        }
     }
 }

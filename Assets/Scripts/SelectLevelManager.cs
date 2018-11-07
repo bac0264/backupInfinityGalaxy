@@ -96,7 +96,6 @@ public class SelectLevelManager : MonoBehaviour
     }
     public void _Loading()
     {
-        Debug.Log("Loading:" + File.Exists(Application.persistentDataPath + "/Position.txt"));
         if (File.Exists(Application.persistentDataPath + "/Position.txt"))
         {
             try
@@ -107,7 +106,6 @@ public class SelectLevelManager : MonoBehaviour
                 saveData = (SavePosition)bf.Deserialize(fs);
                 fs.Close();
                 posCopy = saveData.getPos();
-                Debug.Log("count:" + posCopy.Count);
                 // do somthing
             }
             catch (Exception e)
@@ -217,7 +215,6 @@ public class SelectLevelManager : MonoBehaviour
                     // if (playerLevel % IsWinning != 0)
                     //{
                     _listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
-                    Debug.Log("run");
                     yield return new WaitForSeconds(0.5f);
                     // }
                 }
@@ -230,7 +227,6 @@ public class SelectLevelManager : MonoBehaviour
                     // if (playerLevel % IsWinning != 0)
                     //{
                     _listCloud.transform.GetChild(i).GetComponent<Animator>().Play("out");
-                    Debug.Log("run");
                     yield return new WaitForSeconds(0.5f);
                     // }
                 }
@@ -302,7 +298,6 @@ public class SelectLevelManager : MonoBehaviour
     }
     void LevelClick(GameObject _item, int lv)
     {
-        Debug.Log(_item.transform.position);
         Instantiate(MissionPopup);
         PlayerPrefs.SetInt("IsPlaying", lv);
         GameObject[] ParentSetting = GameObject.FindGameObjectsWithTag("ParentSetting");
