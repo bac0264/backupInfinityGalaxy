@@ -352,7 +352,6 @@ public class PlanetGenerator : SerializedMonoBehaviour
                     }
                 }
                 break;
-                
             }
         }
         if (planetConnected.Count >= 5)
@@ -386,11 +385,12 @@ public class PlanetGenerator : SerializedMonoBehaviour
         if(target.Count<target.NumOfTarget)
         {
             target.Count++;
-            /*if (target.Count == target.NumOfTarget)
+            if (target.Count == target.NumOfTarget)
             {
-                
+                target.ItemTarget.transform.GetChild(0).gameObject.SetActive(false);
+                target.ItemTarget.transform.GetChild(1).gameObject.SetActive(true);
             }
-            else*/
+            else
             target.ItemTarget.GetComponentInChildren<Text>().text = target.Count.ToString()+"/"+target.NumOfTarget.ToString();
             DOTween.Kill("scoreAdd");
             target.ItemTarget.transform.DOScale(1.3f, 0.05f).SetId("scoreAdd");

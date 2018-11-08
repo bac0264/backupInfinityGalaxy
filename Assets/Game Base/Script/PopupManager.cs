@@ -2,19 +2,19 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class PopupManager: MonoBehaviour
+public class PopupManager : MonoBehaviour
 {
     public void showPopup(string name)
     {
         StartCoroutine(showPopupAndDestroy(name));
     }
-    public void showPopupAtPos(string name,Vector3 pos)
+    public void showPopupAtPos(string name, Vector3 pos)
     {
         showPopupAtPosAndDestroy(name, pos);
     }
     public void showDialog(string name)
     {
-        if (!transform.Find("Victory").gameObject.active)
+        if ((!transform.Find("Victory").gameObject.active && name == "GameOver")|| (!transform.Find("GameOver").gameObject.active && name == "Victory"))
         {
             GameObject popup = transform.Find(name).gameObject;
             popup.SetActive(true);
